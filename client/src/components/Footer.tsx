@@ -1,4 +1,5 @@
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { Link } from "wouter";
+import { Facebook, Instagram, Youtube } from "lucide-react";
 
 export function Footer() {
   return (
@@ -11,13 +12,13 @@ export function Footer() {
               Capturing love stories with timeless elegance and modern style. Available for weddings worldwide.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" aria-label="Instagram">
                 <Instagram size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" aria-label="Facebook">
                 <Facebook size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors" aria-label="YouTube">
                 <Youtube size={18} />
               </a>
             </div>
@@ -26,21 +27,21 @@ export function Footer() {
           <div>
             <h4 className="font-bold uppercase tracking-widest text-sm mb-6 text-primary">Services</h4>
             <ul className="space-y-3 text-sm text-neutral-400">
-              <li><a href="#" className="hover:text-white transition-colors">Photography</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Videography</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Engagement Sessions</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Destination Weddings</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Photo Booths</a></li>
+              <li><Link href="/portfolio" className="hover:text-white transition-colors">Photography</Link></li>
+              <li><Link href="/portfolio" className="hover:text-white transition-colors">Videography</Link></li>
+              <li><Link href="/portfolio" className="hover:text-white transition-colors">Engagement Sessions</Link></li>
+              <li><Link href="/portfolio" className="hover:text-white transition-colors">Destination Weddings</Link></li>
+              <li><Link href="/pricing" className="hover:text-white transition-colors">Photo Booths</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-bold uppercase tracking-widest text-sm mb-6 text-primary">Company</h4>
             <ul className="space-y-3 text-sm text-neutral-400">
-              <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Our Team</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
+              <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
+              <li><Link href="/how-it-works" className="hover:text-white transition-colors">How It Works</Link></li>
+              <li><Link href="/reviews" className="hover:text-white transition-colors">Reviews</Link></li>
+              <li><Link href="/pricing" className="hover:text-white transition-colors">Contact</Link></li>
               <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
             </ul>
           </div>
