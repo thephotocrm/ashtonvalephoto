@@ -1,5 +1,5 @@
 import { sql } from "drizzle-orm";
-import { pgTable, text, varchar } from "drizzle-orm/pg-core";
+import { pgTable, text, varchar, serial, timestamp, integer, boolean } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -16,3 +16,84 @@ export const insertUserSchema = createInsertSchema(users).pick({
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
+
+export const inquiries = pgTable("inquiries", {
+  id: serial("id").primaryKey(),
+  firstName: text("first_name").notNull(),
+  lastName: text("last_name").notNull(),
+  email: text("email").notNull(),
+  phone: text("phone"),
+  weddingDate: text("wedding_date").notNull(),
+  weddingLocation: text("wedding_location").notNull(),
+  ceremonyVenue: text("ceremony_venue"),
+  receptionVenue: text("reception_venue"),
+  serviceType: text("service_type").notNull(),
+  hearAboutUs: text("hear_about_us"),
+  message: text("message"),
+  status: text("status").notNull().default("pending"),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
+export const insertInquirySchema = createInsertSchema(inquiries).omit({
+  id: true,
+  createdAt: true,
+  status: true,
+});
+
+export type InsertInquiry = z.infer<typeof insertInquirySchema>;
+export type Inquiry = typeof inquiries.$inferSelect;
+
+export const photographers = pgTable("photographers", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  location: text("location").notNull(),
+  imageUrl: text("image_url").notNull(),
+  specialty: text("specialty").notNull(),
+  bio: text("bio"),
+  yearsExperience: integer("years_experience"),
+  isAvailable: boolean("is_available").notNull().default(true),
+  isFeatured: boolean("is_featured").notNull().default(false),
+});
+
+export const insertPhotographerSchema = createInsertSchema(photographers).omit({
+  id: true,
+});
+
+export type InsertPhotographer = z.infer<typeof insertPhotographerSchema>;
+export type Photographer = typeof photographers.$inferSelect;
+
+export const portfolioItems = pgTable("portfolio_items", {
+  id: serial("id").primaryKey(),
+  category: text("category").notNull(),
+  imageUrl: text("image_url").notNull(),
+  title: text("title"),
+  description: text("description"),
+  photographerId: integer("photographer_id"),
+  isFeatured: boolean("is_featured").notNull().default(false),
+});
+
+export const insertPortfolioItemSchema = createInsertSchema(portfolioItems).omit({
+  id: true,
+});
+
+export type InsertPortfolioItem = z.infer<typeof insertPortfolioItemSchema>;
+export type PortfolioItem = typeof portfolioItems.$inferSelect;
+
+export const reviews = pgTable("reviews", {
+  id: serial("id").primaryKey(),
+  coupleNames: text("couple_names").notNull(),
+  location: text("location"),
+  quote: text("quote").notNull(),
+  awardBadge: text("award_badge"),
+  rating: integer("rating").notNull().default(5),
+  isFeatured: boolean("is_featured").notNull().default(false),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
+export const insertReviewSchema = createInsertSchema(reviews).omit({
+  id: true,
+  createdAt: true,
+});
+
+export type InsertReview = z.infer<typeof insertReviewSchema>;
+export type Review = typeof reviews.$inferSelect;
