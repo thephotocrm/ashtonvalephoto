@@ -7,7 +7,7 @@ export function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-1">
-            <h3 className="font-serif text-2xl font-bold mb-6">George Street</h3>
+            <h3 className="font-serif text-2xl font-bold mb-6">Ashton Vale</h3>
             <p className="text-neutral-400 mb-6 text-sm leading-relaxed">
               Capturing love stories with timeless elegance and modern style. Available for weddings worldwide.
             </p>
@@ -52,13 +52,13 @@ export function Footer() {
               <p>123 Wedding Avenue</p>
               <p>New York, NY 10001</p>
               <p className="mt-4"><a href="tel:+18005551234" className="hover:text-white">+1 (800) 555-1234</a></p>
-              <p><a href="mailto:hello@georgestreet.com" className="hover:text-white">hello@georgestreet.com</a></p>
+              <p><a href="mailto:hello@ashtonvale.com" className="hover:text-white">hello@ashtonvale.com</a></p>
             </address>
           </div>
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-500 uppercase tracking-wider">
-          <p>&copy; {new Date().getFullYear()} George Street Photo & Video. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Ashton Vale Photo & Video. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-white">Terms</a>
             <a href="#" className="hover:text-white">Privacy</a>

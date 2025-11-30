@@ -41,7 +41,7 @@ const whyUs = [
   {
     icon: Shield,
     title: "Rigorous Standards",
-    description: "As the shining stars of George Street, our photographers have met our rigorous standards and extensive vetting process."
+    description: "As the shining stars of Ashton Vale, our photographers have met our rigorous standards and extensive vetting process."
   }
 ];
 
@@ -85,7 +85,7 @@ export default function HowItWorks() {
         {/* Featured Photographers */}
         <FeaturedPhotographers />
 
-        {/* Why George Street */}
+        {/* Why Ashton Vale */}
         <section className="py-20 bg-muted/30">
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -97,10 +97,10 @@ export default function HowItWorks() {
                 />
               </div>
               <div>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">Why George Street</h2>
+                <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">Why Ashton Vale</h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed mb-8">
                   <p>
-                    For over 20 years, George Street Photo & Video has perfected making the process of 
+                    For over 20 years, Ashton Vale Photo & Video has perfected making the process of 
                     booking wedding day photography easy!
                   </p>
                   <p>
@@ -108,7 +108,7 @@ export default function HowItWorks() {
                     promising beautiful, quality images for years of reminiscing.
                   </p>
                   <p>
-                    We know wedding planning can feel overwhelming, but with George Street, we will hold 
+                    We know wedding planning can feel overwhelming, but with Ashton Vale, we will hold 
                     your hand every step of the way to make booking a photographer a breeze.
                   </p>
                 </div>

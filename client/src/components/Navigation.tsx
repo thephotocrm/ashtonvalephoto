@@ -54,7 +54,7 @@ export function Navigation() {
             showTransparent ? "text-white" : "text-foreground"
           )}
         >
-          George Street
+          Ashton Vale
         </Link>
 
         {/* Desktop Menu */}

@@ -21,8 +21,8 @@ export default function About() {
           </div>
           <div className="relative h-full container mx-auto px-6 flex items-center justify-center text-center text-white">
             <div>
-              <h1 className="font-serif text-4xl md:text-6xl font-bold mb-4">About George Street</h1>
-              <p className="text-xl text-white/80">The George Street Motto: Love What You Do</p>
+              <h1 className="font-serif text-4xl md:text-6xl font-bold mb-4">About Ashton Vale</h1>
+              <p className="text-xl text-white/80">The Ashton Vale Motto: Love What You Do</p>
             </div>
           </div>
         </section>
@@ -35,7 +35,7 @@ export default function About() {
                 <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">Our Network of Talent</h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    For 20 years, George Street Photo & Video has been dedicated to capturing life's most 
+                    For 20 years, Ashton Vale Photo & Video has been dedicated to capturing life's most 
                     important moments. As an award-winning photo and video company, we take immense pride 
                     in our products and services.
                   </p>
@@ -98,7 +98,7 @@ export default function About() {
                 <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">Award-Winning Wedding Photo & Video</h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    At George Street Photo & Video, we are celebrating 20 years of expertise and joy in 
+                    At Ashton Vale Photo & Video, we are celebrating 20 years of expertise and joy in 
                     capturing the moments that matter most to our couples.
                   </p>
                   <p>
@@ -126,7 +126,7 @@ export default function About() {
                 </h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    George Street has been specializing in candid, photojournalistic photography for 20 years. 
+                    Ashton Vale has been specializing in candid, photojournalistic photography for 20 years. 
                     With the passion of our team as our backbone, we are dedicated to providing beautiful 
                     photos and videos at prices that suit any budget.
                   </p>

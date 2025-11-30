@@ -10,7 +10,7 @@ const reviews = [
   {
     couple: "Tysheena & Isaac",
     award: "The Knot Best of Weddings 2025",
-    quote: "Choosing a wedding photographer is no small feat. George Street helped us choose from a great list of photographers. From the first click of the camera to the final delivery of the gallery, our experience was nothing short of extraordinary."
+    quote: "Choosing a wedding photographer is no small feat. Ashton Vale helped us choose from a great list of photographers. From the first click of the camera to the final delivery of the gallery, our experience was nothing short of extraordinary."
   },
   {
     couple: "Lydia & Reid",
@@ -20,17 +20,17 @@ const reviews = [
   {
     couple: "Jonah & Catherine",
     award: "Couples' Choice Award 2025",
-    quote: "When it comes to your wedding day, finding the right photographer can make all the difference in capturing those once-in-a-lifetime moments. After careful research, my partner and I chose George Street, and we couldn't be more thrilled with the results."
+    quote: "When it comes to your wedding day, finding the right photographer can make all the difference in capturing those once-in-a-lifetime moments. After careful research, my partner and I chose Ashton Vale, and we couldn't be more thrilled with the results."
   },
   {
     couple: "Francesca & Paxton",
     award: "The Knot Hall of Fame",
-    quote: "Choosing George Street was one of the best decisions I made for my wedding. Not only was the customer service best of the best, it all felt personalized. Everything truly felt like it was about what we wanted for our plan and budget."
+    quote: "Choosing Ashton Vale was one of the best decisions I made for my wedding. Not only was the customer service best of the best, it all felt personalized. Everything truly felt like it was about what we wanted for our plan and budget."
   },
   {
     couple: "Maricris & Dylan",
     award: "Best of Zola 2025",
-    quote: "George Street Photo & Video were a dream to work with. They were so fast to answer all of my emails and calls which really put me at ease during the planning process. The quality of their work was professional, and they had such great energy on the day of the wedding."
+    quote: "Ashton Vale Photo & Video were a dream to work with. They were so fast to answer all of my emails and calls which really put me at ease during the planning process. The quality of their work was professional, and they had such great energy on the day of the wedding."
   },
   {
     couple: "Janine & Trace",
@@ -40,7 +40,7 @@ const reviews = [
   {
     couple: "Jacqueline & Luca",
     award: "Couples' Choice Award 2025",
-    quote: "George Street was a pleasure to work with. Our photographers were very professional, and had a wonderful eye for the details that make photos great. They were also very willing to adjust to our schedule and to take photos that we specially requested."
+    quote: "Ashton Vale was a pleasure to work with. Our photographers were very professional, and had a wonderful eye for the details that make photos great. They were also very willing to adjust to our schedule and to take photos that we specially requested."
   },
   {
     couple: "Corrina & Matthew",
@@ -50,12 +50,12 @@ const reviews = [
   {
     couple: "Sese & George",
     award: "The Knot Hall of Fame",
-    quote: "We had an amazing experience with George Street. Everything was great from the quality, affordability, and communication. There was a variety of options for packages, and they checked in very often. Our wedding day was perfect."
+    quote: "We had an amazing experience with Ashton Vale. Everything was great from the quality, affordability, and communication. There was a variety of options for packages, and they checked in very often. Our wedding day was perfect."
   },
   {
     couple: "Holly & Robert",
     award: "Couples' Choice Award 2025",
-    quote: "We selected George Street because we were able to choose which photographer we felt would capture our special day in the way we wanted! They offered a variety of photographers who were all super qualified."
+    quote: "We selected Ashton Vale because we were able to choose which photographer we felt would capture our special day in the way we wanted! They offered a variety of photographers who were all super qualified."
   },
   {
     couple: "Danielle & Tyler",
@@ -131,7 +131,7 @@ export default function Reviews() {
                   Choose award-winning wedding photographers to capture your day
                 </h2>
                 <p className="text-muted-foreground mb-6">
-                  Join thousands of happy couples who trusted George Street with their special day. 
+                  Join thousands of happy couples who trusted Ashton Vale with their special day. 
                   We're proud to be the most reviewed photo and video company on WeddingWire.
                 </p>
                 <div className="flex gap-8 mb-8">

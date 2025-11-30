@@ -29,7 +29,7 @@ const packages = [
     description: "Our most comprehensive package includes everything you need to capture every moment of your special day with both photo and video coverage.",
     features: [
       { title: "Lead Photographer", hours: "8 Hours" },
-      { items: ["One George Street Certified Lead Photographer", "Choose Your Photographer", "8 Hours of Coverage", "Unlimited Locations"] },
+      { items: ["One Ashton Vale Certified Lead Photographer", "Choose Your Photographer", "8 Hours of Coverage", "Unlimited Locations"] },
       { title: "Associate Photographer", hours: "8 Hours" },
       { items: ["Hand Color Corrected Images", "Non-Watermarked, High-Resolution Images"] },
       { title: "Lead Videographer", hours: "8 Hours" },
@@ -66,7 +66,7 @@ const packages = [
     description: "With Photo & Video Suite you get comprehensive coverage of your wedding day with both photography and videography services.",
     features: [
       { title: "Lead Photographer", hours: "8 Hours" },
-      { items: ["One George Street Certified Lead Photographer", "Choose Your Photographer", "8 Hours of Coverage", "Unlimited Locations"] },
+      { items: ["One Ashton Vale Certified Lead Photographer", "Choose Your Photographer", "8 Hours of Coverage", "Unlimited Locations"] },
       { title: "Associate Photographer", hours: "6 Hours" },
       { items: ["Hand Color Corrected Images", "Non-Watermarked, High-Resolution Images"] },
       { title: "Lead Videographer", hours: "8 Hours" },
@@ -100,7 +100,7 @@ const packages = [
     description: "With Photo Premier you choose your lead photographer, receive 8 hours of coverage and a second shooter with unlimited locations.",
     features: [
       { title: "Lead Photographer", hours: "8 Hours" },
-      { items: ["One George Street Certified Lead Photographer", "Choose Your Photographer", "8 Hours of Coverage", "Unlimited Locations"] },
+      { items: ["One Ashton Vale Certified Lead Photographer", "Choose Your Photographer", "8 Hours of Coverage", "Unlimited Locations"] },
       { title: "Associate Photographer", hours: "6 Hours" },
       { items: ["Hand Color Corrected Images", "Non-Watermarked, High-Resolution Images"] }
     ],
@@ -130,7 +130,7 @@ const packages = [
     description: "Photo Select gives you a professional lead photographer for 8 hours to capture all the important moments of your wedding day.",
     features: [
       { title: "Lead Photographer", hours: "8 Hours" },
-      { items: ["One George Street Certified Lead Photographer", "Choose Your Photographer", "8 Hours of Coverage", "Unlimited Locations"] }
+      { items: ["One Ashton Vale Certified Lead Photographer", "Choose Your Photographer", "8 Hours of Coverage", "Unlimited Locations"] }
     ],
     extras: [
       "Downloadable Digital Images",

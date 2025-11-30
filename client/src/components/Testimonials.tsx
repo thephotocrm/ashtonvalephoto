@@ -5,7 +5,7 @@ const testimonials = [
   {
     name: "Sarah & James",
     location: "New York, NY",
-    quote: "The team at George Street was incredible. They made us feel so comfortable and the photos turned out absolutely stunning. We couldn't be happier!",
+    quote: "The team at Ashton Vale was incredible. They made us feel so comfortable and the photos turned out absolutely stunning. We couldn't be happier!",
     rating: 5
   },
   {

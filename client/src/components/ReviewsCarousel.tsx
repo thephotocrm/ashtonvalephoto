@@ -23,12 +23,12 @@ const reviews = [
   {
     couple: "Kelli & William",
     award: "The Knot Best of Weddings 2024",
-    quote: "Our wedding was amazing and we owe so much of that to George Street. They were super helpful from the start & made sure our photos were captured how we wanted."
+    quote: "Our wedding was amazing and we owe so much of that to Ashton Vale. They were super helpful from the start & made sure our photos were captured how we wanted."
   },
   {
     couple: "Tysheena & Isaac",
     award: "The Knot Best of Weddings 2025",
-    quote: "Choosing a wedding photographer is no small feat. George Street helped us choose from a great list of photographers. From the first click of the camera to the final delivery of the gallery, our experience was nothing short of extraordinary."
+    quote: "Choosing a wedding photographer is no small feat. Ashton Vale helped us choose from a great list of photographers. From the first click of the camera to the final delivery of the gallery, our experience was nothing short of extraordinary."
   },
 ];
 

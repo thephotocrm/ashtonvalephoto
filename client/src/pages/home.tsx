@@ -4,7 +4,7 @@ import { PromoBanner } from "@/components/PromoBanner";
 import { QuickLinks } from "@/components/QuickLinks";
 import { AwardsBanner } from "@/components/AwardsBanner";
 import { FeaturedPhotographers } from "@/components/FeaturedPhotographers";
-import { WhyGeorgeStreet } from "@/components/WhyGeorgeStreet";
+import { WhyAshtonVale } from "@/components/WhyAshtonVale";
 import { StyleTestCTA } from "@/components/StyleTestCTA";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
 import { StorySection } from "@/components/StorySection";
@@ -21,7 +21,7 @@ export default function Home() {
         <QuickLinks />
         <AwardsBanner />
         <FeaturedPhotographers />
-        <WhyGeorgeStreet />
+        <WhyAshtonVale />
         <StyleTestCTA />
         <ReviewsCarousel />
         <StorySection />
