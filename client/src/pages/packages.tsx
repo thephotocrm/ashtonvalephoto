@@ -4,7 +4,7 @@ import { Footer } from "@/components/Footer";
 import { AwardsBanner } from "@/components/AwardsBanner";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Sparkles, ArrowRight, X } from "lucide-react";
+import { Sparkles, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import heroImg from "@assets/generated_images/romantic_wedding_couple_under_veil.png";
@@ -17,14 +17,30 @@ import engagementImg from "@assets/generated_images/engagement_couple_laughing.p
 
 const tabs = ["All", "Photo", "Video", "Photo & Video"];
 
-const packages = [
+interface Package {
+  name: string;
+  category: string;
+  listPrice?: string;
+  salePrice: string;
+  savings?: string;
+  image: string;
+  featured: boolean;
+  description: string;
+  subtitle?: string;
+  features: Array<{ title?: string; hours?: string; items?: string[] }>;
+  extras: string[];
+  cardFeatures: Array<{ label?: string; value?: string; bullet?: string }>;
+  bonus?: string;
+}
+
+const packages: Package[] = [
   {
     name: "Love Captured Package",
     category: "Photo & Video",
     listPrice: "$6,420",
     salePrice: "$4,895",
-    savings: "Save $600",
-    image: heroImg,
+    savings: "$600",
+    image: brideImg,
     featured: true,
     description: "Our most comprehensive package includes everything you need to capture every moment of your special day with both photo and video coverage.",
     features: [
@@ -51,8 +67,13 @@ const packages = [
       { bullet: "Choose Your Lead Photographer" },
       { label: "Associate Photographer", value: "8 Hours" },
       { label: "Lead Videographer", value: "8 Hours" },
+      { bullet: "60-Minute Photo Session" },
       { bullet: "Downloadable Digital Images" },
-      { bullet: "Fine Art Album (12x12)" }
+      { bullet: "Fully Edited Digital Copy of Video" },
+      { bullet: "Fine Art Album (12x12)" },
+      { bullet: "Replica Albums (6x6)" },
+      { bullet: "Free Canvas Print" },
+      { bullet: "$100 Print Credit" }
     ]
   },
   {
@@ -60,9 +81,9 @@ const packages = [
     category: "Photo & Video",
     listPrice: "$4,850",
     salePrice: "$3,495",
-    savings: "Save $300",
-    image: danceImg,
-    featured: false,
+    savings: "$300",
+    image: engagementImg,
+    featured: true,
     description: "With Photo & Video Suite you get comprehensive coverage of your wedding day with both photography and videography services.",
     features: [
       { title: "Lead Photographer", hours: "8 Hours" },
@@ -85,7 +106,9 @@ const packages = [
       { bullet: "Choose Your Lead Photographer" },
       { label: "Associate Photographer", value: "6 Hours" },
       { label: "Lead Videographer", value: "8 Hours" },
+      { bullet: "Team of Wedding Coordinators" },
       { bullet: "Downloadable Digital Images" },
+      { bullet: "Fully Edited Digital Copy of Video" },
       { bullet: "Signature Album (10x10)" }
     ],
     bonus: "+ Add Second Videographer: November Only: Just $600!"
@@ -94,8 +117,8 @@ const packages = [
     name: "Photo Premier",
     category: "Photo",
     salePrice: "$2,695",
-    savings: "Save $100",
-    image: brideImg,
+    savings: "$100",
+    image: heroImg,
     featured: false,
     description: "With Photo Premier you choose your lead photographer, receive 8 hours of coverage and a second shooter with unlimited locations.",
     features: [
@@ -149,7 +172,7 @@ const packages = [
     category: "Video",
     salePrice: "$2,795",
     subtitle: "($2,995 Without Photo Package)",
-    savings: "Save $100",
+    savings: "$100",
     image: ceremonyImg,
     featured: false,
     description: "Video Premier includes a lead videographer and associate for comprehensive coverage of your ceremony and reception.",
@@ -175,7 +198,7 @@ const packages = [
     category: "Video",
     salePrice: "$2,195",
     subtitle: "($2,395 Without Photo Package)",
-    image: engagementImg,
+    image: danceImg,
     featured: false,
     description: "Video Select provides professional videography coverage with a lead videographer for your entire wedding day.",
     features: [
@@ -215,22 +238,6 @@ const packages = [
   }
 ];
 
-interface Package {
-  name: string;
-  category: string;
-  listPrice?: string;
-  salePrice: string;
-  savings?: string;
-  image: string;
-  featured: boolean;
-  description: string;
-  subtitle?: string;
-  features: Array<{ title?: string; hours?: string; items?: string[] }>;
-  extras: string[];
-  cardFeatures: Array<{ label?: string; value?: string; bullet?: string }>;
-  bonus?: string;
-}
-
 export default function Packages() {
   const [activeTab, setActiveTab] = useState("All");
   const [selectedPackage, setSelectedPackage] = useState<Package | null>(null);
@@ -239,55 +246,39 @@ export default function Packages() {
     ? packages 
     : packages.filter(pkg => pkg.category === activeTab);
 
+  const featuredPackages = filteredPackages.filter(pkg => pkg.featured);
+  const regularPackages = filteredPackages.filter(pkg => !pkg.featured);
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navigation />
       <main className="flex-grow pt-24">
-        {/* Success Banner */}
-        <section className="py-16 bg-gradient-to-b from-green-50 to-white border-b border-green-100">
-          <div className="container mx-auto px-6 text-center">
-            <div className="inline-flex items-center gap-2 bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <Sparkles size={16} />
-              Great News!
-            </div>
-            <h1 className="font-serif text-4xl md:text-5xl font-bold mb-4">
-              We're Available on Your Wedding Day!
+        {/* Header */}
+        <section className="py-12 bg-white text-center">
+          <div className="container mx-auto px-6">
+            <h1 className="font-serif text-3xl md:text-4xl font-bold mb-3">
+              Featured Photography & Video Packages
             </h1>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Check out our featured packages below. A wedding consultant will reach out within 24 hours to discuss the perfect package for your special day.
+            <p className="text-muted-foreground text-sm max-w-xl mx-auto">
+              We offer a variety of packages to suit your wedding needs.<br />
+              We're Available on Your Wedding Day!
             </p>
           </div>
         </section>
 
-        {/* Sale Banner */}
-        <section className="py-8 bg-primary text-white">
-          <div className="container mx-auto px-6">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-              <div>
-                <p className="text-sm uppercase tracking-widest opacity-80 mb-1">Black Friday Sale! November Only!</p>
-                <p className="text-2xl font-bold">$600 Off the Love Captured Package</p>
-              </div>
-              <div className="text-center md:text-right">
-                <p className="text-4xl font-bold">$4,295</p>
-                <p className="text-sm opacity-80">Black Friday Sale until 11/30</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Tabs */}
-        <section className="py-6 bg-muted/30 sticky top-16 z-40">
+        <section className="py-4 bg-white border-b">
           <div className="container mx-auto px-6">
-            <div className="flex justify-center gap-2 flex-wrap">
+            <div className="flex justify-center gap-6">
               {tabs.map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
                   className={cn(
-                    "px-6 py-2 text-sm font-bold uppercase tracking-widest transition-colors rounded-none",
+                    "text-sm font-medium transition-colors pb-2 border-b-2",
                     activeTab === tab 
-                      ? "bg-primary text-white" 
-                      : "bg-white text-foreground hover:bg-muted"
+                      ? "text-primary border-primary" 
+                      : "text-muted-foreground border-transparent hover:text-foreground"
                   )}
                 >
                   {tab}
@@ -297,104 +288,165 @@ export default function Packages() {
           </div>
         </section>
 
-        {/* Packages Grid - 2 columns on desktop */}
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-6 max-w-5xl">
-            <div className="grid md:grid-cols-2 gap-8">
-              {filteredPackages.map((pkg, index) => (
-                <div 
-                  key={index} 
-                  className="bg-rose-50/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
-                >
-                  {/* Image with savings badge */}
-                  <div className="relative">
-                    <img 
-                      src={pkg.image} 
-                      alt={pkg.name}
-                      className="w-full h-64 object-cover"
-                    />
-                    {pkg.savings && (
-                      <div className="absolute top-4 right-4 bg-white rounded-full w-20 h-20 flex flex-col items-center justify-center shadow-lg">
-                        <span className="text-xs text-primary font-medium">Save</span>
-                        <span className="text-primary font-bold text-lg">${pkg.savings.replace('Save $', '')}</span>
+        {/* Sale Banner */}
+        <section className="py-4 bg-rose-50 border-b">
+          <div className="container mx-auto px-6">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                  <Sparkles size={18} className="text-white" />
+                </div>
+                <p className="text-primary font-bold">Black Friday Sale! November Only!</p>
+              </div>
+              <p className="text-lg">
+                We're Available on Your <span className="text-primary font-semibold">Wedding Day!</span>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Featured Packages - Full Width Rows */}
+        <section className="py-8 bg-white">
+          <div className="container mx-auto px-6">
+            {featuredPackages.map((pkg, index) => (
+              <div 
+                key={index} 
+                className={cn(
+                  "grid md:grid-cols-2 gap-0 mb-8 bg-rose-50/50 rounded-lg overflow-hidden",
+                  index % 2 === 0 ? "" : "md:direction-rtl"
+                )}
+              >
+                {/* Content Side */}
+                <div className={cn("p-8 md:p-10", index % 2 === 1 && "md:order-2")}>
+                  {pkg.savings && index === 0 && (
+                    <p className="text-primary text-sm font-medium mb-2">
+                      $4,295 <span className="text-muted-foreground">Black Friday Sale until 11/30</span>
+                    </p>
+                  )}
+                  <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">{pkg.name}</h2>
+                  <p className="text-muted-foreground mb-1">
+                    {pkg.listPrice && <span className="line-through mr-2">List Price {pkg.listPrice}</span>}
+                    <span className="text-primary text-2xl font-bold">{pkg.salePrice}</span>
+                  </p>
+
+                  <div className="mt-6 space-y-3">
+                    {pkg.cardFeatures.map((feature, i) => (
+                      <div key={i}>
+                        {feature.label ? (
+                          <p className="text-primary font-semibold">
+                            {feature.label} - <span className="font-normal">{feature.value}</span>
+                          </p>
+                        ) : (
+                          <p className="flex items-center gap-2 text-sm text-foreground/80">
+                            <span className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></span>
+                            {feature.bullet}
+                          </p>
+                        )}
                       </div>
-                    )}
+                    ))}
                   </div>
 
-                  {/* Content */}
-                  <div className="p-8">
-                    <h3 className="font-serif text-2xl font-bold mb-2">{pkg.name}</h3>
-                    <p className="text-primary text-2xl font-semibold mb-6">{pkg.salePrice}</p>
-                    {pkg.subtitle && (
-                      <p className="text-xs text-muted-foreground -mt-4 mb-6">{pkg.subtitle}</p>
-                    )}
+                  {pkg.bonus && (
+                    <p className="text-xs text-primary mt-4">
+                      {pkg.bonus}
+                    </p>
+                  )}
 
-                    {/* Card Features */}
-                    <div className="space-y-3 mb-6">
-                      {pkg.cardFeatures.map((feature, i) => (
-                        <div key={i}>
-                          {feature.label ? (
-                            <p className="text-primary font-semibold">
-                              {feature.label} - <span className="font-normal">{feature.value}</span>
-                            </p>
-                          ) : (
-                            <p className="flex items-center gap-2 text-sm text-foreground/80">
-                              <span className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></span>
-                              {feature.bullet}
-                            </p>
-                          )}
+                  <Button 
+                    onClick={() => setSelectedPackage(pkg)}
+                    className="mt-6 bg-primary hover:bg-primary/90 text-white rounded-full px-6"
+                  >
+                    View More Details <ArrowRight size={16} className="ml-2" />
+                  </Button>
+                </div>
+
+                {/* Image Side */}
+                <div className={cn("relative min-h-[350px] md:min-h-[450px]", index % 2 === 1 && "md:order-1")}>
+                  <img 
+                    src={pkg.image} 
+                    alt={pkg.name}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  {pkg.savings && (
+                    <div className="absolute top-6 right-6 bg-white rounded-full w-24 h-24 flex flex-col items-center justify-center shadow-lg text-center p-2">
+                      <span className="text-primary font-bold text-xl">${pkg.savings}</span>
+                      <span className="text-primary text-xs font-medium">off</span>
+                      <span className="text-muted-foreground text-[10px]">November only</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Regular Packages - 2 Column Grid */}
+        {regularPackages.length > 0 && (
+          <section className="py-8 bg-white">
+            <div className="container mx-auto px-6 max-w-5xl">
+              <div className="grid md:grid-cols-2 gap-8">
+                {regularPackages.map((pkg, index) => (
+                  <div 
+                    key={index} 
+                    className="bg-rose-50/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+                  >
+                    {/* Image with savings badge */}
+                    <div className="relative">
+                      <img 
+                        src={pkg.image} 
+                        alt={pkg.name}
+                        className="w-full h-56 object-cover"
+                      />
+                      {pkg.savings && (
+                        <div className="absolute top-4 left-4 bg-primary text-white rounded-full w-16 h-16 flex flex-col items-center justify-center shadow-lg">
+                          <span className="text-[10px]">Save</span>
+                          <span className="font-bold text-sm">${pkg.savings}</span>
                         </div>
-                      ))}
+                      )}
                     </div>
 
-                    {pkg.bonus && (
-                      <p className="text-xs bg-amber-100 text-amber-800 p-3 rounded-lg mb-6">
-                        {pkg.bonus}
+                    {/* Content */}
+                    <div className="p-6">
+                      <h3 className="font-serif text-xl font-bold mb-1">{pkg.name}</h3>
+                      {pkg.subtitle && (
+                        <p className="text-xs text-muted-foreground mb-2">{pkg.subtitle}</p>
+                      )}
+                      <p className="mb-4">
+                        {pkg.listPrice && <span className="text-muted-foreground line-through text-sm mr-2">List Price {pkg.listPrice}</span>}
+                        <span className="text-primary text-xl font-bold">{pkg.salePrice}</span>
                       </p>
-                    )}
 
-                    <Button 
-                      onClick={() => setSelectedPackage(pkg)}
-                      className="bg-primary hover:bg-primary/90 text-white rounded-full px-6"
-                    >
-                      View Details <ArrowRight size={16} className="ml-2" />
-                    </Button>
+                      {/* Card Features */}
+                      <div className="space-y-2 mb-6">
+                        {pkg.cardFeatures.map((feature, i) => (
+                          <div key={i}>
+                            {feature.label ? (
+                              <p className="text-primary font-semibold text-sm">
+                                {feature.label} - <span className="font-normal">{feature.value}</span>
+                              </p>
+                            ) : (
+                              <p className="flex items-center gap-2 text-xs text-foreground/80">
+                                <span className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>
+                                {feature.bullet}
+                              </p>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+
+                      <Button 
+                        onClick={() => setSelectedPackage(pkg)}
+                        className="bg-primary hover:bg-primary/90 text-white rounded-full px-6 text-sm"
+                      >
+                        View Details <ArrowRight size={14} className="ml-2" />
+                      </Button>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Coupon Section */}
-        <section className="py-16 bg-gradient-to-r from-primary/10 to-amber-100/50">
-          <div className="container mx-auto px-6">
-            <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
-              <div className="text-center md:text-left">
-                <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">
-                  Don't Miss Your $600 Coupon!
-                </h2>
-                <p className="text-lg text-muted-foreground mb-6">
-                  Ends November 30th, 2025
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  Hurry, our biggest sale of the year ends November 30th!
-                </p>
-                <div className="mt-8 inline-block bg-white shadow-xl p-6 rounded-sm">
-                  <p className="text-5xl font-bold text-primary">$600</p>
-                  <p className="text-sm uppercase tracking-widest text-muted-foreground">off</p>
-                </div>
-              </div>
-              <div className="relative hidden md:block">
-                <img 
-                  src={danceImg} 
-                  alt="Wedding couple" 
-                  className="rounded-lg shadow-2xl w-full"
-                />
+                ))}
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         <AwardsBanner />
       </main>
