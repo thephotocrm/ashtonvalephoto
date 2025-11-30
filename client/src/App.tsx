@@ -8,6 +8,7 @@ import Home from "@/pages/home";
 import About from "@/pages/about";
 import HowItWorks from "@/pages/how-it-works";
 import Pricing from "@/pages/pricing";
+import Packages from "@/pages/packages";
 import Portfolio from "@/pages/portfolio";
 import Reviews from "@/pages/reviews";
 
@@ -18,6 +19,7 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/how-it-works" component={HowItWorks} />
       <Route path="/pricing" component={Pricing} />
+      <Route path="/packages" component={Packages} />
       <Route path="/portfolio" component={Portfolio} />
       <Route path="/reviews" component={Reviews} />
       <Route component={NotFound} />

@@ -9,11 +9,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
+import { useLocation } from "wouter";
 import { Loader2, Check } from "lucide-react";
 import saleImg from "@assets/generated_images/couple_dancing_reception.png";
 
 export default function Pricing() {
   const { toast } = useToast();
+  const [, navigate] = useLocation();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -44,23 +46,7 @@ export default function Pricing() {
       return response.json();
     },
     onSuccess: () => {
-      toast({
-        title: "Inquiry Submitted!",
-        description: "Thank you for your interest. A wedding consultant will reach out within 24 hours.",
-      });
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        weddingDate: "",
-        weddingLocation: "",
-        ceremonyVenue: "",
-        receptionVenue: "",
-        serviceType: "both",
-        hearAboutUs: "",
-        message: "",
-      });
+      navigate("/packages");
     },
     onError: (error: Error) => {
       toast({
