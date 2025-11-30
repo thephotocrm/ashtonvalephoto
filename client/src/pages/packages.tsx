@@ -3,12 +3,17 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { AwardsBanner } from "@/components/AwardsBanner";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Check, Sparkles } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Sparkles, ArrowRight, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import heroImg from "@assets/generated_images/couple_dancing_reception.png";
+
+import heroImg from "@assets/generated_images/romantic_wedding_couple_under_veil.png";
 import brideImg from "@assets/generated_images/bride_holding_bouquet.png";
+import groomImg from "@assets/generated_images/groom_adjusting_cufflinks.png";
+import danceImg from "@assets/generated_images/couple_dancing_reception.png";
+import firstLookImg from "@assets/generated_images/first_look_moment.png";
+import ceremonyImg from "@assets/generated_images/bride_walking_aisle_ceremony.png";
+import engagementImg from "@assets/generated_images/engagement_couple_laughing.png";
 
 const tabs = ["All", "Photo", "Video", "Photo & Video"];
 
@@ -18,20 +23,36 @@ const packages = [
     category: "Photo & Video",
     listPrice: "$6,420",
     salePrice: "$4,895",
-    savings: "$600 off",
+    savings: "Save $600",
+    image: heroImg,
     featured: true,
+    description: "Our most comprehensive package includes everything you need to capture every moment of your special day with both photo and video coverage.",
     features: [
-      "Lead Photographer - 8 Hours",
-      "Choose Your Lead Photographer",
-      "Associate Photographer - 8 Hours",
-      "Lead Videographer - 8 Hours",
-      "90-Minute Photo Session",
+      { title: "Lead Photographer", hours: "8 Hours" },
+      { items: ["One George Street Certified Lead Photographer", "Choose Your Photographer", "8 Hours of Coverage", "Unlimited Locations"] },
+      { title: "Associate Photographer", hours: "8 Hours" },
+      { items: ["Hand Color Corrected Images", "Non-Watermarked, High-Resolution Images"] },
+      { title: "Lead Videographer", hours: "8 Hours" },
+      { items: ["Cinematic Digital Highlight Reel", "Fully Edited Digital Copy of Video"] }
+    ],
+    extras: [
       "Downloadable Digital Images",
-      "Fully Edited Digital Copy of Video",
+      "Online Proofing & Ordering",
+      "Personal Online Planning Portal",
+      "Team of Wedding Coordinators",
+      "Custom Online Album Design",
       "Fine Art Album (12x12)",
       "Replica Albums (6x6)",
       "Free Canvas Print",
       "$100 Print Credit"
+    ],
+    cardFeatures: [
+      { label: "Lead Photographer", value: "8 Hours" },
+      { bullet: "Choose Your Lead Photographer" },
+      { label: "Associate Photographer", value: "8 Hours" },
+      { label: "Lead Videographer", value: "8 Hours" },
+      { bullet: "Downloadable Digital Images" },
+      { bullet: "Fine Art Album (12x12)" }
     ]
   },
   {
@@ -40,16 +61,32 @@ const packages = [
     listPrice: "$4,850",
     salePrice: "$3,495",
     savings: "Save $300",
+    image: danceImg,
     featured: false,
+    description: "With Photo & Video Suite you get comprehensive coverage of your wedding day with both photography and videography services.",
     features: [
-      "Lead Photographer - 8 Hours",
-      "Choose Your Lead Photographer",
-      "Associate Photographer - 6 Hours",
-      "Lead Videographer - 8 Hours",
-      "Team of Wedding Coordinators",
+      { title: "Lead Photographer", hours: "8 Hours" },
+      { items: ["One George Street Certified Lead Photographer", "Choose Your Photographer", "8 Hours of Coverage", "Unlimited Locations"] },
+      { title: "Associate Photographer", hours: "6 Hours" },
+      { items: ["Hand Color Corrected Images", "Non-Watermarked, High-Resolution Images"] },
+      { title: "Lead Videographer", hours: "8 Hours" },
+      { items: ["Fully Edited Digital Copy of Video"] }
+    ],
+    extras: [
       "Downloadable Digital Images",
-      "Fully Edited Digital Copy of Video",
+      "Online Proofing & Ordering",
+      "Personal Online Planning Portal",
+      "Team of Wedding Coordinators",
+      "Custom Online Album Design",
       "Signature Album (10x10)"
+    ],
+    cardFeatures: [
+      { label: "Lead Photographer", value: "8 Hours" },
+      { bullet: "Choose Your Lead Photographer" },
+      { label: "Associate Photographer", value: "6 Hours" },
+      { label: "Lead Videographer", value: "8 Hours" },
+      { bullet: "Downloadable Digital Images" },
+      { bullet: "Signature Album (10x10)" }
     ],
     bonus: "+ Add Second Videographer: November Only: Just $600!"
   },
@@ -58,24 +95,53 @@ const packages = [
     category: "Photo",
     salePrice: "$2,695",
     savings: "Save $100",
+    image: brideImg,
     featured: false,
+    description: "With Photo Premier you choose your lead photographer, receive 8 hours of coverage and a second shooter with unlimited locations.",
     features: [
-      "Lead Photographer - 8 Hours",
-      "Choose Lead Photographer",
-      "Associate Photographer - 6 Hours",
+      { title: "Lead Photographer", hours: "8 Hours" },
+      { items: ["One George Street Certified Lead Photographer", "Choose Your Photographer", "8 Hours of Coverage", "Unlimited Locations"] },
+      { title: "Associate Photographer", hours: "6 Hours" },
+      { items: ["Hand Color Corrected Images", "Non-Watermarked, High-Resolution Images"] }
+    ],
+    extras: [
       "Downloadable Digital Images",
-      "Signature Album (10x10)"
+      "Online Proofing & Ordering",
+      "Personal Online Planning Portal",
+      "Team of Wedding Coordinators",
+      "Custom Online Album Design",
+      "Signature Album (10x10)",
+      "Add Replica Albums (6x6) for $350"
+    ],
+    cardFeatures: [
+      { label: "Lead Photographer", value: "8 Hours" },
+      { bullet: "Choose Lead Photographer" },
+      { label: "Associate Photographer", value: "6 Hours" },
+      { bullet: "Downloadable Digital Images" },
+      { bullet: "Signature Album (10x10)" }
     ]
   },
   {
     name: "Photo Select",
     category: "Photo",
     salePrice: "$1,895",
+    image: firstLookImg,
     featured: false,
+    description: "Photo Select gives you a professional lead photographer for 8 hours to capture all the important moments of your wedding day.",
     features: [
-      "Lead Photographer - 8 Hours",
-      "Choose Lead Photographer",
-      "Downloadable Digital Images"
+      { title: "Lead Photographer", hours: "8 Hours" },
+      { items: ["One George Street Certified Lead Photographer", "Choose Your Photographer", "8 Hours of Coverage", "Unlimited Locations"] }
+    ],
+    extras: [
+      "Downloadable Digital Images",
+      "Online Proofing & Ordering",
+      "Personal Online Planning Portal",
+      "Team of Wedding Coordinators"
+    ],
+    cardFeatures: [
+      { label: "Lead Photographer", value: "8 Hours" },
+      { bullet: "Choose Lead Photographer" },
+      { bullet: "Downloadable Digital Images" }
     ]
   },
   {
@@ -84,13 +150,24 @@ const packages = [
     salePrice: "$2,795",
     subtitle: "($2,995 Without Photo Package)",
     savings: "Save $100",
+    image: ceremonyImg,
     featured: false,
+    description: "Video Premier includes a lead videographer and associate for comprehensive coverage of your ceremony and reception.",
     features: [
-      "Lead Videographer - 8 Hours",
-      "Associate Videographer - 6 Hours",
-      "Cinematic Digital Highlight Reel",
-      "Fully Edited Digital Copy of Video",
-      "Cinematic Video (1-minute, perfect for social sharing)"
+      { title: "Lead Videographer", hours: "8 Hours" },
+      { items: ["Cinematic Digital Highlight Reel", "Fully Edited Digital Copy of Video", "Cinematic Video (1-minute, perfect for social sharing)"] },
+      { title: "Associate Videographer", hours: "6 Hours" },
+      { items: ["Additional coverage angles", "Ceremony and reception coverage"] }
+    ],
+    extras: [
+      "Personal Online Planning Portal",
+      "Team of Wedding Coordinators"
+    ],
+    cardFeatures: [
+      { label: "Lead Videographer", value: "8 Hours" },
+      { label: "Associate Videographer", value: "6 Hours" },
+      { bullet: "Cinematic Digital Highlight Reel" },
+      { bullet: "Fully Edited Digital Copy of Video" }
     ]
   },
   {
@@ -98,30 +175,65 @@ const packages = [
     category: "Video",
     salePrice: "$2,195",
     subtitle: "($2,395 Without Photo Package)",
+    image: engagementImg,
     featured: false,
+    description: "Video Select provides professional videography coverage with a lead videographer for your entire wedding day.",
     features: [
-      "Lead Videographer - 8 Hours",
-      "Fully Edited Digital Copy of Video",
-      "Unlimited Locations"
+      { title: "Lead Videographer", hours: "8 Hours" },
+      { items: ["Fully Edited Digital Copy of Video", "Unlimited Locations"] }
+    ],
+    extras: [
+      "Personal Online Planning Portal",
+      "Team of Wedding Coordinators"
+    ],
+    cardFeatures: [
+      { label: "Lead Videographer", value: "8 Hours" },
+      { bullet: "Fully Edited Digital Copy of Video" },
+      { bullet: "Unlimited Locations" }
     ]
   },
   {
     name: "Photo Session",
     category: "Photo",
     salePrice: "$600",
+    image: groomImg,
     featured: false,
+    description: "Perfect for engagement photos or bridal portraits, our photo session gives you 90 minutes with a professional photographer.",
     features: [
-      "Lead Photographer - 1.5 Hours",
-      "90 Minutes with Photographer",
-      "Unlimited Locations",
-      "Downloadable Digital Images",
-      "Hand Color Corrected Images"
+      { title: "Lead Photographer", hours: "1.5 Hours" },
+      { items: ["90 Minutes with Photographer", "Unlimited Locations", "Hand Color Corrected Images"] }
+    ],
+    extras: [
+      "Downloadable Digital Images"
+    ],
+    cardFeatures: [
+      { label: "Lead Photographer", value: "1.5 Hours" },
+      { bullet: "90 Minutes with Photographer" },
+      { bullet: "Unlimited Locations" },
+      { bullet: "Downloadable Digital Images" }
     ]
   }
 ];
 
+interface Package {
+  name: string;
+  category: string;
+  listPrice?: string;
+  salePrice: string;
+  savings?: string;
+  image: string;
+  featured: boolean;
+  description: string;
+  subtitle?: string;
+  features: Array<{ title?: string; hours?: string; items?: string[] }>;
+  extras: string[];
+  cardFeatures: Array<{ label?: string; value?: string; bullet?: string }>;
+  bonus?: string;
+}
+
 export default function Packages() {
   const [activeTab, setActiveTab] = useState("All");
+  const [selectedPackage, setSelectedPackage] = useState<Package | null>(null);
 
   const filteredPackages = activeTab === "All" 
     ? packages 
@@ -185,62 +297,70 @@ export default function Packages() {
           </div>
         </section>
 
-        {/* Packages Grid */}
+        {/* Packages Grid - 2 columns on desktop */}
         <section className="py-16 bg-white">
-          <div className="container mx-auto px-6">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="container mx-auto px-6 max-w-5xl">
+            <div className="grid md:grid-cols-2 gap-8">
               {filteredPackages.map((pkg, index) => (
-                <Card 
+                <div 
                   key={index} 
-                  className={cn(
-                    "relative overflow-hidden transition-shadow hover:shadow-xl",
-                    pkg.featured && "border-primary border-2 shadow-lg"
-                  )}
+                  className="bg-rose-50/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
                 >
-                  {pkg.featured && (
-                    <div className="absolute top-0 left-0 right-0 bg-primary text-white text-center py-2 text-xs font-bold uppercase tracking-widest">
-                      Most Popular
-                    </div>
-                  )}
-                  {pkg.savings && (
-                    <Badge className="absolute top-4 right-4 bg-green-600 hover:bg-green-700">
-                      {pkg.savings}
-                    </Badge>
-                  )}
-                  <CardHeader className={cn("pb-4", pkg.featured && "pt-12")}>
-                    <h3 className="font-serif text-xl font-bold">{pkg.name}</h3>
-                    {pkg.subtitle && (
-                      <p className="text-xs text-muted-foreground">{pkg.subtitle}</p>
+                  {/* Image with savings badge */}
+                  <div className="relative">
+                    <img 
+                      src={pkg.image} 
+                      alt={pkg.name}
+                      className="w-full h-64 object-cover"
+                    />
+                    {pkg.savings && (
+                      <div className="absolute top-4 right-4 bg-white rounded-full w-20 h-20 flex flex-col items-center justify-center shadow-lg">
+                        <span className="text-xs text-primary font-medium">Save</span>
+                        <span className="text-primary font-bold text-lg">${pkg.savings.replace('Save $', '')}</span>
+                      </div>
                     )}
-                    <div className="mt-4">
-                      {pkg.listPrice && (
-                        <p className="text-sm text-muted-foreground line-through">List Price {pkg.listPrice}</p>
-                      )}
-                      <p className="text-3xl font-bold text-primary">{pkg.salePrice}</p>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2 mb-6">
-                      {pkg.features.map((feature, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm">
-                          <Check size={16} className="text-primary mt-0.5 flex-shrink-0" />
-                          <span>{feature}</span>
-                        </li>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-8">
+                    <h3 className="font-serif text-2xl font-bold mb-2">{pkg.name}</h3>
+                    <p className="text-primary text-2xl font-semibold mb-6">{pkg.salePrice}</p>
+                    {pkg.subtitle && (
+                      <p className="text-xs text-muted-foreground -mt-4 mb-6">{pkg.subtitle}</p>
+                    )}
+
+                    {/* Card Features */}
+                    <div className="space-y-3 mb-6">
+                      {pkg.cardFeatures.map((feature, i) => (
+                        <div key={i}>
+                          {feature.label ? (
+                            <p className="text-primary font-semibold">
+                              {feature.label} - <span className="font-normal">{feature.value}</span>
+                            </p>
+                          ) : (
+                            <p className="flex items-center gap-2 text-sm text-foreground/80">
+                              <span className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></span>
+                              {feature.bullet}
+                            </p>
+                          )}
+                        </div>
                       ))}
-                    </ul>
+                    </div>
+
                     {pkg.bonus && (
-                      <p className="text-xs bg-amber-50 text-amber-800 p-3 rounded mb-4">
+                      <p className="text-xs bg-amber-100 text-amber-800 p-3 rounded-lg mb-6">
                         {pkg.bonus}
                       </p>
                     )}
+
                     <Button 
-                      className="w-full rounded-none uppercase tracking-widest text-xs"
-                      variant={pkg.featured ? "default" : "outline"}
+                      onClick={() => setSelectedPackage(pkg)}
+                      className="bg-primary hover:bg-primary/90 text-white rounded-full px-6"
                     >
-                      View More Details
+                      View Details <ArrowRight size={16} className="ml-2" />
                     </Button>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
@@ -249,7 +369,7 @@ export default function Packages() {
         {/* Coupon Section */}
         <section className="py-16 bg-gradient-to-r from-primary/10 to-amber-100/50">
           <div className="container mx-auto px-6">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto">
               <div className="text-center md:text-left">
                 <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4">
                   Don't Miss Your $600 Coupon!
@@ -267,7 +387,7 @@ export default function Packages() {
               </div>
               <div className="relative hidden md:block">
                 <img 
-                  src={heroImg} 
+                  src={danceImg} 
                   alt="Wedding couple" 
                   className="rounded-lg shadow-2xl w-full"
                 />
@@ -279,6 +399,75 @@ export default function Packages() {
         <AwardsBanner />
       </main>
       <Footer />
+
+      {/* Package Details Modal */}
+      <Dialog open={!!selectedPackage} onOpenChange={() => setSelectedPackage(null)}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0">
+          {selectedPackage && (
+            <div className="grid md:grid-cols-2">
+              {/* Left side - Image */}
+              <div className="relative">
+                <img 
+                  src={selectedPackage.image} 
+                  alt={selectedPackage.name}
+                  className="w-full h-full object-cover min-h-[300px]"
+                />
+              </div>
+
+              {/* Right side - Details */}
+              <div className="p-8">
+                <DialogHeader className="mb-4">
+                  <DialogTitle className="font-serif text-2xl font-bold">{selectedPackage.name}</DialogTitle>
+                  <p className="text-primary text-2xl font-semibold">{selectedPackage.salePrice}</p>
+                </DialogHeader>
+
+                <p className="text-muted-foreground text-sm mb-6">{selectedPackage.description}</p>
+
+                <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-full mb-6">
+                  Schedule Appointment <ArrowRight size={16} className="ml-2" />
+                </Button>
+
+                <h4 className="font-bold text-lg mb-4 border-b pb-2">Photo Details</h4>
+
+                <div className="grid grid-cols-2 gap-x-8 gap-y-2">
+                  {/* Left column - main features */}
+                  <div className="space-y-4">
+                    {selectedPackage.features.map((feature, i) => (
+                      <div key={i}>
+                        {feature.title && (
+                          <p className="text-primary font-semibold mb-2">
+                            {feature.title} - <span className="font-normal">{feature.hours}</span>
+                          </p>
+                        )}
+                        {feature.items && (
+                          <ul className="space-y-1">
+                            {feature.items.map((item, j) => (
+                              <li key={j} className="flex items-start gap-2 text-sm">
+                                <span className="w-2 h-2 bg-primary rounded-full flex-shrink-0 mt-1.5"></span>
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Right column - extras */}
+                  <div className="space-y-1">
+                    {selectedPackage.extras.map((extra, i) => (
+                      <p key={i} className="flex items-start gap-2 text-sm">
+                        <span className="w-2 h-2 bg-primary rounded-full flex-shrink-0 mt-1.5"></span>
+                        {extra}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
