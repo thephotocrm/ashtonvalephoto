@@ -7,7 +7,7 @@ export function Footer() {
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="md:col-span-1">
-            <h3 className="font-serif text-2xl font-bold mb-6">Ashton Vale</h3>
+            <h3 className="font-serif text-2xl font-bold mb-6 text-white">Ashton Vale</h3>
             <p className="text-neutral-400 mb-6 text-sm leading-relaxed">
               Capturing love stories with timeless elegance and modern style. Available for weddings worldwide.
             </p>
