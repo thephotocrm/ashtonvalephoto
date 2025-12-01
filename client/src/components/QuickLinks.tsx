@@ -39,7 +39,7 @@ export function QuickLinks() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h3 className="font-serif text-xl font-bold mb-1">{link.title}</h3>
+                  <h3 className="font-serif text-xl font-bold mb-1 text-white">{link.title}</h3>
                   <p className="text-sm text-white/80">{link.description}</p>
                 </div>
               </div>
