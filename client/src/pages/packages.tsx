@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { AwardsBanner } from "@/components/AwardsBanner";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Sparkles, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Link } from "wouter";
 
 import heroImg from "@assets/generated_images/romantic_wedding_couple_under_veil.png";
 import brideImg from "@assets/generated_images/bride_holding_bouquet.png";
@@ -15,236 +15,183 @@ import firstLookImg from "@assets/generated_images/first_look_moment.png";
 import ceremonyImg from "@assets/generated_images/bride_walking_aisle_ceremony.png";
 import engagementImg from "@assets/generated_images/engagement_couple_laughing.png";
 
-const tabs = ["All", "Photo", "Video", "Photo & Video"];
+const tabs = ["All Collections", "Photography", "Cinematography", "Complete Experience"];
 
 interface Package {
   name: string;
   category: string;
-  listPrice?: string;
-  salePrice: string;
-  savings?: string;
+  price: string;
+  startingAt?: boolean;
   image: string;
   featured: boolean;
+  tagline: string;
   description: string;
-  subtitle?: string;
-  features: Array<{ title?: string; hours?: string; items?: string[] }>;
-  extras: string[];
-  cardFeatures: Array<{ label?: string; value?: string; bullet?: string }>;
-  bonus?: string;
+  features: string[];
+  includes: string[];
 }
 
 const packages: Package[] = [
   {
-    name: "Love Captured Package",
-    category: "Photo & Video",
-    listPrice: "$6,420",
-    salePrice: "$4,895",
-    savings: "$600",
+    name: "The Signature Collection",
+    category: "Complete Experience",
+    price: "$4,895",
+    startingAt: true,
     image: brideImg,
     featured: true,
-    description: "Our most comprehensive package includes everything you need to capture every moment of your special day with both photo and video coverage.",
+    tagline: "Our most comprehensive experience",
+    description: "The ultimate celebration documentation featuring our lead photographer, associate, and lead cinematographer working in harmony to capture every precious moment.",
     features: [
-      { title: "Lead Photographer", hours: "8 Hours" },
-      { items: ["One Ashton Vale Certified Lead Photographer", "Choose Your Photographer", "8 Hours of Coverage", "Unlimited Locations"] },
-      { title: "Associate Photographer", hours: "8 Hours" },
-      { items: ["Hand Color Corrected Images", "Non-Watermarked, High-Resolution Images"] },
-      { title: "Lead Videographer", hours: "8 Hours" },
-      { items: ["Cinematic Digital Highlight Reel", "Fully Edited Digital Copy of Video"] }
+      "Lead Photographer • 8 Hours",
+      "Associate Photographer • 8 Hours",
+      "Lead Cinematographer • 8 Hours",
+      "Choose Your Lead Artist",
+      "Unlimited Locations"
     ],
-    extras: [
-      "Downloadable Digital Images",
-      "Online Proofing & Ordering",
-      "Personal Online Planning Portal",
-      "Team of Wedding Coordinators",
-      "Custom Online Album Design",
-      "Fine Art Album (12x12)",
-      "Replica Albums (6x6)",
-      "Free Canvas Print",
-      "$100 Print Credit"
-    ],
-    cardFeatures: [
-      { label: "Lead Photographer", value: "8 Hours" },
-      { bullet: "Choose Your Lead Photographer" },
-      { label: "Associate Photographer", value: "8 Hours" },
-      { label: "Lead Videographer", value: "8 Hours" },
-      { bullet: "60-Minute Photo Session" },
-      { bullet: "Downloadable Digital Images" },
-      { bullet: "Fully Edited Digital Copy of Video" },
-      { bullet: "Fine Art Album (12x12)" },
-      { bullet: "Replica Albums (6x6)" },
-      { bullet: "Free Canvas Print" },
-      { bullet: "$100 Print Credit" }
+    includes: [
+      "Curated Digital Gallery",
+      "Cinematic Highlight Film",
+      "Full Ceremony & Reception Film",
+      "Fine Art Album (12×12)",
+      "Replica Albums for Parents",
+      "Complimentary Canvas Print",
+      "Private Online Planning Portal",
+      "Dedicated Concierge Team"
     ]
   },
   {
-    name: "Photo & Video Suite",
-    category: "Photo & Video",
-    listPrice: "$4,850",
-    salePrice: "$3,495",
-    savings: "$300",
+    name: "The Editorial Suite",
+    category: "Complete Experience",
+    price: "$3,495",
+    startingAt: true,
     image: engagementImg,
     featured: true,
-    description: "With Photo & Video Suite you get comprehensive coverage of your wedding day with both photography and videography services.",
+    tagline: "Photography & cinematography, beautifully balanced",
+    description: "Comprehensive coverage of your celebration with our signature photography and cinematic storytelling, perfect for couples who desire both mediums.",
     features: [
-      { title: "Lead Photographer", hours: "8 Hours" },
-      { items: ["One Ashton Vale Certified Lead Photographer", "Choose Your Photographer", "8 Hours of Coverage", "Unlimited Locations"] },
-      { title: "Associate Photographer", hours: "6 Hours" },
-      { items: ["Hand Color Corrected Images", "Non-Watermarked, High-Resolution Images"] },
-      { title: "Lead Videographer", hours: "8 Hours" },
-      { items: ["Fully Edited Digital Copy of Video"] }
+      "Lead Photographer • 8 Hours",
+      "Associate Photographer • 6 Hours",
+      "Lead Cinematographer • 8 Hours",
+      "Choose Your Lead Artist"
     ],
-    extras: [
-      "Downloadable Digital Images",
-      "Online Proofing & Ordering",
-      "Personal Online Planning Portal",
-      "Team of Wedding Coordinators",
-      "Custom Online Album Design",
-      "Signature Album (10x10)"
-    ],
-    cardFeatures: [
-      { label: "Lead Photographer", value: "8 Hours" },
-      { bullet: "Choose Your Lead Photographer" },
-      { label: "Associate Photographer", value: "6 Hours" },
-      { label: "Lead Videographer", value: "8 Hours" },
-      { bullet: "Team of Wedding Coordinators" },
-      { bullet: "Downloadable Digital Images" },
-      { bullet: "Fully Edited Digital Copy of Video" },
-      { bullet: "Signature Album (10x10)" }
-    ],
-    bonus: "+ Add Second Videographer: November Only: Just $600!"
+    includes: [
+      "Curated Digital Gallery",
+      "Full Ceremony & Reception Film",
+      "Signature Album (10×10)",
+      "Private Online Planning Portal",
+      "Dedicated Concierge Team"
+    ]
   },
   {
-    name: "Photo Premier",
-    category: "Photo",
-    salePrice: "$2,695",
-    savings: "$100",
+    name: "Photography Premier",
+    category: "Photography",
+    price: "$2,695",
     image: heroImg,
     featured: false,
-    description: "With Photo Premier you choose your lead photographer, receive 8 hours of coverage and a second shooter with unlimited locations.",
+    tagline: "Comprehensive photography coverage",
+    description: "Select your lead photographer and enjoy comprehensive coverage with a second artist to capture every angle of your celebration.",
     features: [
-      { title: "Lead Photographer", hours: "8 Hours" },
-      { items: ["One Ashton Vale Certified Lead Photographer", "Choose Your Photographer", "8 Hours of Coverage", "Unlimited Locations"] },
-      { title: "Associate Photographer", hours: "6 Hours" },
-      { items: ["Hand Color Corrected Images", "Non-Watermarked, High-Resolution Images"] }
+      "Lead Photographer • 8 Hours",
+      "Associate Photographer • 6 Hours",
+      "Choose Your Lead Artist",
+      "Unlimited Locations"
     ],
-    extras: [
-      "Downloadable Digital Images",
-      "Online Proofing & Ordering",
-      "Personal Online Planning Portal",
-      "Team of Wedding Coordinators",
-      "Custom Online Album Design",
-      "Signature Album (10x10)",
-      "Add Replica Albums (6x6) for $350"
-    ],
-    cardFeatures: [
-      { label: "Lead Photographer", value: "8 Hours" },
-      { bullet: "Choose Lead Photographer" },
-      { label: "Associate Photographer", value: "6 Hours" },
-      { bullet: "Downloadable Digital Images" },
-      { bullet: "Signature Album (10x10)" }
+    includes: [
+      "Curated Digital Gallery",
+      "Signature Album (10×10)",
+      "Private Online Planning Portal",
+      "Dedicated Concierge Team"
     ]
   },
   {
-    name: "Photo Select",
-    category: "Photo",
-    salePrice: "$1,895",
+    name: "Photography Essentials",
+    category: "Photography",
+    price: "$1,895",
     image: firstLookImg,
     featured: false,
-    description: "Photo Select gives you a professional lead photographer for 8 hours to capture all the important moments of your wedding day.",
+    tagline: "Timeless imagery, beautifully captured",
+    description: "Perfect for intimate celebrations, our lead photographer will artfully document your day with refined elegance.",
     features: [
-      { title: "Lead Photographer", hours: "8 Hours" },
-      { items: ["One Ashton Vale Certified Lead Photographer", "Choose Your Photographer", "8 Hours of Coverage", "Unlimited Locations"] }
+      "Lead Photographer • 8 Hours",
+      "Choose Your Lead Artist",
+      "Unlimited Locations"
     ],
-    extras: [
-      "Downloadable Digital Images",
-      "Online Proofing & Ordering",
-      "Personal Online Planning Portal",
-      "Team of Wedding Coordinators"
-    ],
-    cardFeatures: [
-      { label: "Lead Photographer", value: "8 Hours" },
-      { bullet: "Choose Lead Photographer" },
-      { bullet: "Downloadable Digital Images" }
+    includes: [
+      "Curated Digital Gallery",
+      "Private Online Planning Portal",
+      "Dedicated Concierge Team"
     ]
   },
   {
-    name: "Video Premier",
-    category: "Video",
-    salePrice: "$2,795",
-    subtitle: "($2,995 Without Photo Package)",
-    savings: "$100",
+    name: "Cinematic Premier",
+    category: "Cinematography",
+    price: "$2,795",
     image: ceremonyImg,
     featured: false,
-    description: "Video Premier includes a lead videographer and associate for comprehensive coverage of your ceremony and reception.",
+    tagline: "Editorial filmmaking at its finest",
+    description: "Comprehensive cinematic coverage with both lead and associate cinematographers for a truly immersive wedding film.",
     features: [
-      { title: "Lead Videographer", hours: "8 Hours" },
-      { items: ["Cinematic Digital Highlight Reel", "Fully Edited Digital Copy of Video", "Cinematic Video (1-minute, perfect for social sharing)"] },
-      { title: "Associate Videographer", hours: "6 Hours" },
-      { items: ["Additional coverage angles", "Ceremony and reception coverage"] }
+      "Lead Cinematographer • 8 Hours",
+      "Associate Cinematographer • 6 Hours",
+      "Cinematic Highlight Reel",
+      "Full Ceremony & Reception Film"
     ],
-    extras: [
-      "Personal Online Planning Portal",
-      "Team of Wedding Coordinators"
-    ],
-    cardFeatures: [
-      { label: "Lead Videographer", value: "8 Hours" },
-      { label: "Associate Videographer", value: "6 Hours" },
-      { bullet: "Cinematic Digital Highlight Reel" },
-      { bullet: "Fully Edited Digital Copy of Video" }
+    includes: [
+      "Social Media Teaser",
+      "Private Online Planning Portal",
+      "Dedicated Concierge Team"
     ]
   },
   {
-    name: "Video Select",
-    category: "Video",
-    salePrice: "$2,195",
-    subtitle: "($2,395 Without Photo Package)",
+    name: "Cinematic Essentials",
+    category: "Cinematography",
+    price: "$2,195",
     image: danceImg,
     featured: false,
-    description: "Video Select provides professional videography coverage with a lead videographer for your entire wedding day.",
+    tagline: "Your story, cinematically told",
+    description: "Professional cinematic documentation with our lead cinematographer capturing your celebration from beginning to end.",
     features: [
-      { title: "Lead Videographer", hours: "8 Hours" },
-      { items: ["Fully Edited Digital Copy of Video", "Unlimited Locations"] }
+      "Lead Cinematographer • 8 Hours",
+      "Unlimited Locations"
     ],
-    extras: [
-      "Personal Online Planning Portal",
-      "Team of Wedding Coordinators"
-    ],
-    cardFeatures: [
-      { label: "Lead Videographer", value: "8 Hours" },
-      { bullet: "Fully Edited Digital Copy of Video" },
-      { bullet: "Unlimited Locations" }
+    includes: [
+      "Full Ceremony & Reception Film",
+      "Private Online Planning Portal",
+      "Dedicated Concierge Team"
     ]
   },
   {
-    name: "Photo Session",
-    category: "Photo",
-    salePrice: "$600",
+    name: "Engagement Session",
+    category: "Photography",
+    price: "$600",
     image: groomImg,
     featured: false,
-    description: "Perfect for engagement photos or bridal portraits, our photo session gives you 90 minutes with a professional photographer.",
+    tagline: "Celebrate your love story",
+    description: "An intimate portrait session to capture the joy and anticipation of your upcoming celebration.",
     features: [
-      { title: "Lead Photographer", hours: "1.5 Hours" },
-      { items: ["90 Minutes with Photographer", "Unlimited Locations", "Hand Color Corrected Images"] }
+      "Lead Photographer • 90 Minutes",
+      "Location of Your Choice"
     ],
-    extras: [
-      "Downloadable Digital Images"
-    ],
-    cardFeatures: [
-      { label: "Lead Photographer", value: "1.5 Hours" },
-      { bullet: "90 Minutes with Photographer" },
-      { bullet: "Unlimited Locations" },
-      { bullet: "Downloadable Digital Images" }
+    includes: [
+      "Curated Digital Gallery",
+      "Styling Consultation"
     ]
   }
 ];
 
 export default function Packages() {
-  const [activeTab, setActiveTab] = useState("All");
+  const [activeTab, setActiveTab] = useState("All Collections");
   const [selectedPackage, setSelectedPackage] = useState<Package | null>(null);
 
-  const filteredPackages = activeTab === "All" 
+  const categoryMap: Record<string, string> = {
+    "All Collections": "All",
+    "Photography": "Photography",
+    "Cinematography": "Cinematography",
+    "Complete Experience": "Complete Experience"
+  };
+
+  const filteredPackages = activeTab === "All Collections" 
     ? packages 
-    : packages.filter(pkg => pkg.category === activeTab);
+    : packages.filter(pkg => pkg.category === categoryMap[activeTab]);
 
   const featuredPackages = filteredPackages.filter(pkg => pkg.featured);
   const regularPackages = filteredPackages.filter(pkg => !pkg.featured);
@@ -252,32 +199,34 @@ export default function Packages() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navigation />
-      <main className="flex-grow pt-24">
+      <main className="flex-grow">
         {/* Header */}
-        <section className="py-12 bg-white text-center">
-          <div className="container mx-auto px-6">
-            <h1 className="font-serif text-3xl md:text-4xl font-bold mb-3">
-              Featured Photography & Video Packages
+        <section className="pt-32 pb-16 bg-white text-center">
+          <div className="container mx-auto px-8">
+            <p className="text-[10px] uppercase tracking-[0.4em] text-primary mb-4">Our Collections</p>
+            <h1 className="font-serif text-4xl md:text-5xl font-light mb-6">
+              Signature Collections
             </h1>
-            <p className="text-muted-foreground text-sm max-w-xl mx-auto">
-              We offer a variety of packages to suit your wedding needs.<br />
-              We're Available on Your Wedding Day!
+            <div className="w-16 h-px bg-primary/40 mx-auto mb-6"></div>
+            <p className="text-muted-foreground max-w-xl mx-auto">
+              Each collection is thoughtfully curated to provide an exceptional experience. 
+              All packages may be customized to suit your unique celebration.
             </p>
           </div>
         </section>
 
         {/* Tabs */}
-        <section className="py-4 bg-white border-b">
-          <div className="container mx-auto px-6">
-            <div className="flex justify-center gap-6">
+        <section className="py-6 bg-white border-b border-border/50">
+          <div className="container mx-auto px-8">
+            <div className="flex justify-center gap-10">
               {tabs.map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
                   className={cn(
-                    "text-sm font-medium transition-colors pb-2 border-b-2",
+                    "text-[11px] uppercase tracking-[0.2em] font-medium transition-all pb-2 border-b-2",
                     activeTab === tab 
-                      ? "text-primary border-primary" 
+                      ? "text-foreground border-primary" 
                       : "text-muted-foreground border-transparent hover:text-foreground"
                   )}
                 >
@@ -288,157 +237,104 @@ export default function Packages() {
           </div>
         </section>
 
-        {/* Sale Banner */}
-        <section className="py-4 bg-rose-50 border-b">
-          <div className="container mx-auto px-6">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                  <Sparkles size={18} className="text-white" />
-                </div>
-                <p className="text-primary font-bold">Black Friday Sale! November Only!</p>
-              </div>
-              <p className="text-lg">
-                We're Available on Your <span className="text-primary font-semibold">Wedding Day!</span>
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* Featured Packages - Full Width Rows */}
-        <section className="py-8 bg-white">
-          <div className="container mx-auto px-6">
-            {featuredPackages.map((pkg, index) => (
-              <div 
-                key={index} 
-                className={cn(
-                  "grid md:grid-cols-2 gap-0 mb-8 bg-rose-50/50 rounded-lg overflow-hidden",
-                  index % 2 === 0 ? "" : "md:direction-rtl"
-                )}
-              >
-                {/* Content Side */}
-                <div className={cn("p-8 md:p-10", index % 2 === 1 && "md:order-2")}>
-                  {pkg.savings && index === 0 && (
-                    <p className="text-primary text-sm font-medium mb-2">
-                      $4,295 <span className="text-muted-foreground">Black Friday Sale until 11/30</span>
-                    </p>
-                  )}
-                  <h2 className="font-serif text-2xl md:text-3xl font-bold mb-2">{pkg.name}</h2>
-                  <p className="text-muted-foreground mb-1">
-                    {pkg.listPrice && <span className="line-through mr-2">List Price {pkg.listPrice}</span>}
-                    <span className="text-primary text-2xl font-bold">{pkg.salePrice}</span>
-                  </p>
-
-                  <div className="mt-6 space-y-3">
-                    {pkg.cardFeatures.map((feature, i) => (
-                      <div key={i}>
-                        {feature.label ? (
-                          <p className="text-primary font-semibold">
-                            {feature.label} - <span className="font-normal">{feature.value}</span>
-                          </p>
-                        ) : (
-                          <p className="flex items-center gap-2 text-sm text-foreground/80">
-                            <span className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></span>
-                            {feature.bullet}
-                          </p>
-                        )}
-                      </div>
-                    ))}
+        {featuredPackages.length > 0 && (
+          <section className="py-16 bg-white">
+            <div className="container mx-auto px-8">
+              {featuredPackages.map((pkg, index) => (
+                <div 
+                  key={index} 
+                  className="grid md:grid-cols-2 gap-0 mb-12 overflow-hidden border border-border/30"
+                >
+                  {/* Image Side */}
+                  <div className={cn("relative min-h-[450px] md:min-h-[550px]", index % 2 === 1 && "md:order-2")}>
+                    <img 
+                      src={pkg.image} 
+                      alt={pkg.name}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
                   </div>
 
-                  {pkg.bonus && (
-                    <p className="text-xs text-primary mt-4">
-                      {pkg.bonus}
+                  {/* Content Side */}
+                  <div className={cn("p-10 md:p-14 flex flex-col justify-center bg-ivory", index % 2 === 1 && "md:order-1")}>
+                    <p className="text-[10px] uppercase tracking-[0.4em] text-primary mb-4">{pkg.category}</p>
+                    <h2 className="font-serif text-3xl md:text-4xl font-light mb-3">{pkg.name}</h2>
+                    <p className="text-muted-foreground text-sm italic mb-6">{pkg.tagline}</p>
+                    
+                    <p className="mb-8">
+                      {pkg.startingAt && <span className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground mr-2">Starting at</span>}
+                      <span className="font-serif text-3xl text-primary">{pkg.price}</span>
                     </p>
-                  )}
 
-                  <Button 
-                    onClick={() => setSelectedPackage(pkg)}
-                    className="mt-6 bg-primary hover:bg-primary/90 text-white rounded-full px-6"
-                  >
-                    View More Details <ArrowRight size={16} className="ml-2" />
-                  </Button>
-                </div>
-
-                {/* Image Side */}
-                <div className={cn("relative min-h-[350px] md:min-h-[450px]", index % 2 === 1 && "md:order-1")}>
-                  <img 
-                    src={pkg.image} 
-                    alt={pkg.name}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                  {pkg.savings && (
-                    <div className="absolute top-6 right-6 bg-white rounded-full w-24 h-24 flex flex-col items-center justify-center shadow-lg text-center p-2">
-                      <span className="text-primary font-bold text-xl">${pkg.savings}</span>
-                      <span className="text-primary text-xs font-medium">off</span>
-                      <span className="text-muted-foreground text-[10px]">November only</span>
+                    <div className="space-y-3 mb-8">
+                      {pkg.features.map((feature, i) => (
+                        <p key={i} className="flex items-center gap-3 text-sm text-foreground/80">
+                          <span className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>
+                          {feature}
+                        </p>
+                      ))}
                     </div>
-                  )}
+
+                    <Button 
+                      onClick={() => setSelectedPackage(pkg)}
+                      variant="outline"
+                      className="self-start rounded-none border-foreground/30 text-foreground hover:bg-foreground hover:text-white px-8 py-6 text-[11px] uppercase tracking-[0.2em] font-medium"
+                    >
+                      View Full Details <ArrowRight size={14} className="ml-2" />
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Regular Packages - 2 Column Grid */}
         {regularPackages.length > 0 && (
-          <section className="py-8 bg-white">
-            <div className="container mx-auto px-6 max-w-5xl">
-              <div className="grid md:grid-cols-2 gap-8">
+          <section className="py-16 bg-background">
+            <div className="container mx-auto px-8">
+              <div className="text-center mb-12">
+                <h2 className="font-serif text-2xl font-light">Additional Collections</h2>
+              </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 {regularPackages.map((pkg, index) => (
                   <div 
                     key={index} 
-                    className="bg-rose-50/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+                    className="bg-white overflow-hidden border border-border/30 hover-lift group"
                   >
-                    {/* Image with savings badge */}
-                    <div className="relative">
+                    {/* Image */}
+                    <div className="relative overflow-hidden">
                       <img 
                         src={pkg.image} 
                         alt={pkg.name}
-                        className="w-full h-56 object-cover"
+                        className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-105"
                       />
-                      {pkg.savings && (
-                        <div className="absolute top-4 left-4 bg-primary text-white rounded-full w-16 h-16 flex flex-col items-center justify-center shadow-lg">
-                          <span className="text-[10px]">Save</span>
-                          <span className="font-bold text-sm">${pkg.savings}</span>
-                        </div>
-                      )}
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
                     </div>
 
                     {/* Content */}
-                    <div className="p-6">
-                      <h3 className="font-serif text-xl font-bold mb-1">{pkg.name}</h3>
-                      {pkg.subtitle && (
-                        <p className="text-xs text-muted-foreground mb-2">{pkg.subtitle}</p>
-                      )}
-                      <p className="mb-4">
-                        {pkg.listPrice && <span className="text-muted-foreground line-through text-sm mr-2">List Price {pkg.listPrice}</span>}
-                        <span className="text-primary text-xl font-bold">{pkg.salePrice}</span>
-                      </p>
+                    <div className="p-8">
+                      <p className="text-[9px] uppercase tracking-[0.3em] text-primary mb-3">{pkg.category}</p>
+                      <h3 className="font-serif text-xl mb-2">{pkg.name}</h3>
+                      <p className="text-sm text-muted-foreground italic mb-4">{pkg.tagline}</p>
+                      <p className="font-serif text-2xl text-primary mb-6">{pkg.price}</p>
 
-                      {/* Card Features */}
+                      {/* Key Features */}
                       <div className="space-y-2 mb-6">
-                        {pkg.cardFeatures.map((feature, i) => (
-                          <div key={i}>
-                            {feature.label ? (
-                              <p className="text-primary font-semibold text-sm">
-                                {feature.label} - <span className="font-normal">{feature.value}</span>
-                              </p>
-                            ) : (
-                              <p className="flex items-center gap-2 text-xs text-foreground/80">
-                                <span className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>
-                                {feature.bullet}
-                              </p>
-                            )}
-                          </div>
+                        {pkg.features.slice(0, 3).map((feature, i) => (
+                          <p key={i} className="flex items-center gap-2 text-xs text-foreground/70">
+                            <span className="w-1 h-1 bg-primary rounded-full flex-shrink-0"></span>
+                            {feature}
+                          </p>
                         ))}
                       </div>
 
                       <Button 
                         onClick={() => setSelectedPackage(pkg)}
-                        className="bg-primary hover:bg-primary/90 text-white rounded-full px-6 text-sm"
+                        variant="outline"
+                        className="w-full rounded-none border-border/50 text-foreground hover:bg-primary hover:text-white hover:border-primary text-[10px] uppercase tracking-[0.2em] font-medium py-5"
                       >
-                        View Details <ArrowRight size={14} className="ml-2" />
+                        View Details
                       </Button>
                     </div>
                   </div>
@@ -448,13 +344,33 @@ export default function Packages() {
           </section>
         )}
 
-        <AwardsBanner />
+        {/* CTA Section */}
+        <section className="py-20 bg-neutral-900 text-white text-center">
+          <div className="container mx-auto px-8">
+            <p className="text-[10px] uppercase tracking-[0.4em] text-white/50 mb-4">Ready to Begin?</p>
+            <h2 className="font-serif text-3xl md:text-4xl font-light mb-6 text-white">
+              Let's Discuss Your Vision
+            </h2>
+            <p className="text-white/60 max-w-lg mx-auto mb-10">
+              Each celebration is unique. Contact us to discuss how we can tailor 
+              a collection specifically for your day.
+            </p>
+            <Link href="/pricing">
+              <Button 
+                size="lg"
+                className="rounded-none bg-white text-black hover:bg-white/90 px-12 py-7 text-[11px] uppercase tracking-[0.2em] font-medium"
+              >
+                Request a Consultation
+              </Button>
+            </Link>
+          </div>
+        </section>
       </main>
       <Footer />
 
       {/* Package Details Modal */}
       <Dialog open={!!selectedPackage} onOpenChange={() => setSelectedPackage(null)}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0">
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0 rounded-none">
           {selectedPackage && (
             <div className="grid md:grid-cols-2">
               {/* Left side - Image */}
@@ -462,59 +378,49 @@ export default function Packages() {
                 <img 
                   src={selectedPackage.image} 
                   alt={selectedPackage.name}
-                  className="w-full h-full object-cover min-h-[300px]"
+                  className="w-full h-full object-cover min-h-[400px]"
                 />
               </div>
 
               {/* Right side - Details */}
-              <div className="p-8">
-                <DialogHeader className="mb-4">
-                  <DialogTitle className="font-serif text-2xl font-bold">{selectedPackage.name}</DialogTitle>
-                  <p className="text-primary text-2xl font-semibold">{selectedPackage.salePrice}</p>
+              <div className="p-10">
+                <DialogHeader className="mb-6 text-left">
+                  <p className="text-[10px] uppercase tracking-[0.3em] text-primary mb-2">{selectedPackage.category}</p>
+                  <DialogTitle className="font-serif text-2xl font-light">{selectedPackage.name}</DialogTitle>
+                  <p className="font-serif text-2xl text-primary mt-2">{selectedPackage.price}</p>
                 </DialogHeader>
 
-                <p className="text-muted-foreground text-sm mb-6">{selectedPackage.description}</p>
+                <p className="text-muted-foreground text-sm mb-8">{selectedPackage.description}</p>
 
-                <Button className="w-full bg-primary hover:bg-primary/90 text-white rounded-full mb-6">
-                  Schedule Appointment <ArrowRight size={16} className="ml-2" />
-                </Button>
-
-                <h4 className="font-bold text-lg mb-4 border-b pb-2">Photo Details</h4>
-
-                <div className="grid grid-cols-2 gap-x-8 gap-y-2">
-                  {/* Left column - main features */}
-                  <div className="space-y-4">
+                <div className="mb-8">
+                  <h4 className="text-[10px] uppercase tracking-[0.2em] text-foreground mb-4">Coverage Includes</h4>
+                  <div className="space-y-2">
                     {selectedPackage.features.map((feature, i) => (
-                      <div key={i}>
-                        {feature.title && (
-                          <p className="text-primary font-semibold mb-2">
-                            {feature.title} - <span className="font-normal">{feature.hours}</span>
-                          </p>
-                        )}
-                        {feature.items && (
-                          <ul className="space-y-1">
-                            {feature.items.map((item, j) => (
-                              <li key={j} className="flex items-start gap-2 text-sm">
-                                <span className="w-2 h-2 bg-primary rounded-full flex-shrink-0 mt-1.5"></span>
-                                {item}
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Right column - extras */}
-                  <div className="space-y-1">
-                    {selectedPackage.extras.map((extra, i) => (
-                      <p key={i} className="flex items-start gap-2 text-sm">
-                        <span className="w-2 h-2 bg-primary rounded-full flex-shrink-0 mt-1.5"></span>
-                        {extra}
+                      <p key={i} className="flex items-center gap-3 text-sm">
+                        <span className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>
+                        {feature}
                       </p>
                     ))}
                   </div>
                 </div>
+
+                <div className="mb-8">
+                  <h4 className="text-[10px] uppercase tracking-[0.2em] text-foreground mb-4">Also Included</h4>
+                  <div className="space-y-2">
+                    {selectedPackage.includes.map((item, i) => (
+                      <p key={i} className="flex items-center gap-3 text-sm text-muted-foreground">
+                        <span className="w-1.5 h-1.5 bg-border rounded-full flex-shrink-0"></span>
+                        {item}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+
+                <Link href="/pricing">
+                  <Button className="w-full rounded-none bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-[11px] uppercase tracking-[0.2em] font-medium">
+                    Inquire About This Collection
+                  </Button>
+                </Link>
               </div>
             </div>
           )}

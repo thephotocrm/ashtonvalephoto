@@ -1,6 +1,5 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { AwardsBanner } from "@/components/AwardsBanner";
 import { FinalCTA } from "@/components/FinalCTA";
 import heroImg from "@assets/generated_images/romantic_wedding_couple_under_veil.png";
 import brideImg from "@assets/generated_images/bride_holding_bouquet.png";
@@ -10,105 +9,111 @@ export default function About() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navigation />
-      <main className="flex-grow pt-24">
+      <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
+        <section className="relative h-[60vh] min-h-[500px] overflow-hidden">
           <div 
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: `url(${heroImg})` }}
           >
-            <div className="absolute inset-0 bg-black/40"></div>
+            <div className="absolute inset-0 bg-black/50"></div>
           </div>
-          <div className="relative h-full container mx-auto px-6 flex items-center justify-center text-center text-white">
+          <div className="relative h-full container mx-auto px-8 flex items-center justify-center text-center text-white">
             <div>
-              <h1 className="font-serif text-4xl md:text-6xl font-bold mb-4">About Ashton Vale</h1>
-              <p className="text-xl text-white/80">The Ashton Vale Motto: Love What You Do</p>
+              <p className="text-[10px] uppercase tracking-[0.4em] text-white/60 mb-4">Our Story</p>
+              <h1 className="font-serif text-4xl md:text-6xl font-light mb-6 text-white">The Ashton Vale Atelier</h1>
+              <div className="w-16 h-px bg-white/40 mx-auto mb-6"></div>
+              <p className="text-lg text-white/70 max-w-xl mx-auto font-light">
+                Where passion meets artistry, and every frame tells a story.
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Our Network */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-6">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+        {/* Our Philosophy */}
+        <section className="py-28 bg-white">
+          <div className="container mx-auto px-8">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">Our Network of Talent</h2>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p className="text-[10px] uppercase tracking-[0.4em] text-primary mb-4">Our Collective</p>
+                <h2 className="text-3xl md:text-4xl font-serif font-light mb-8">A Curated Network of Visionaries</h2>
+                <div className="space-y-6 text-muted-foreground leading-relaxed">
                   <p>
-                    For 20 years, Ashton Vale Photo & Video has been dedicated to capturing life's most 
-                    important moments. As an award-winning photo and video company, we take immense pride 
-                    in our products and services.
+                    For two decades, Ashton Vale has cultivated an exclusive collective of the world's most 
+                    distinguished wedding photographers and cinematographers. Each artist is personally 
+                    selected for their exceptional eye, refined technique, and ability to capture emotion 
+                    in its purest form.
                   </p>
                   <p>
-                    What sets us apart? Our team is all in, doing what they love every day. Our network of 
-                    photographers and videographers finds joy in capturing the natural beauty of emotional moments.
+                    What distinguishes our work is an unwavering commitment to excellence. Our artists 
+                    don't simply document—they interpret, elevate, and immortalize the subtle poetry 
+                    of your celebration.
                   </p>
                   <p>
-                    Our sales team delights in helping couples find the perfect package and talent for their 
-                    special day. Our wedding coordinators are committed to going above and beyond to ensure 
-                    our couples' experience exceeds their expectations.
+                    From our dedicated concierge team to our master editors, every member of the 
+                    Ashton Vale family is devoted to crafting an experience that exceeds expectations 
+                    at every turn.
                   </p>
-                  <p>
-                    Our editors thrive on utilizing their creativity to produce high-quality images and videos 
-                    that tell the story of each wedding day. This genuine enthusiasm of our small but mighty 
-                    team makes us one of a kind.
-                  </p>
-                  <p className="font-medium text-foreground">
-                    Love is at the heart of everything we do—from the commitment to our craft, to the spark 
-                    between all of our couples. This has been the secret to our success from day one.
+                  <p className="font-serif text-foreground italic text-lg">
+                    "Love is at the heart of everything we do—from our commitment to the craft, 
+                    to the spark between every couple we serve."
                   </p>
                 </div>
               </div>
               <div className="relative">
+                <div className="absolute inset-4 border border-primary/20"></div>
                 <img 
                   src={brideImg} 
-                  alt="Bride with bouquet" 
-                  className="rounded-lg shadow-2xl w-full"
+                  alt="Elegant bride with bouquet" 
+                  className="relative w-full shadow-luxury-lg"
                 />
               </div>
             </div>
           </div>
         </section>
 
-        {/* Award Winning */}
-        <section className="py-20 bg-muted/30">
-          <div className="container mx-auto px-6">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+        {/* Accolades */}
+        <section className="py-28 bg-ivory">
+          <div className="container mx-auto px-8">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
               <div className="order-2 md:order-1">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-white p-6 rounded-sm shadow-lg text-center">
-                    <p className="text-4xl font-bold text-primary mb-2">20+</p>
-                    <p className="text-sm text-muted-foreground uppercase tracking-wider">Years of Experience</p>
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="bg-white p-8 text-center border border-border/30">
+                    <p className="text-4xl font-serif text-primary mb-2">20+</p>
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Years of Excellence</p>
                   </div>
-                  <div className="bg-white p-6 rounded-sm shadow-lg text-center">
-                    <p className="text-4xl font-bold text-primary mb-2">3,000+</p>
-                    <p className="text-sm text-muted-foreground uppercase tracking-wider">5-Star Reviews</p>
+                  <div className="bg-white p-8 text-center border border-border/30">
+                    <p className="text-4xl font-serif text-primary mb-2">3,000+</p>
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">5-Star Reviews</p>
                   </div>
-                  <div className="bg-white p-6 rounded-sm shadow-lg text-center">
-                    <p className="text-4xl font-bold text-primary mb-2">10x</p>
-                    <p className="text-sm text-muted-foreground uppercase tracking-wider">Couples' Choice Award</p>
+                  <div className="bg-white p-8 text-center border border-border/30">
+                    <p className="text-4xl font-serif text-primary mb-2">10×</p>
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Couples' Choice</p>
                   </div>
-                  <div className="bg-white p-6 rounded-sm shadow-lg text-center">
-                    <p className="text-4xl font-bold text-primary mb-2">Hall</p>
-                    <p className="text-sm text-muted-foreground uppercase tracking-wider">of Fame Member</p>
+                  <div className="bg-white p-8 text-center border border-border/30">
+                    <p className="text-3xl font-serif text-primary mb-2">Hall of Fame</p>
+                    <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Inductee</p>
                   </div>
                 </div>
               </div>
               <div className="order-1 md:order-2">
-                <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">Award-Winning Wedding Photo & Video</h2>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p className="text-[10px] uppercase tracking-[0.4em] text-primary mb-4">Recognition</p>
+                <h2 className="text-3xl md:text-4xl font-serif font-light mb-8">Celebrated Excellence</h2>
+                <div className="space-y-6 text-muted-foreground leading-relaxed">
                   <p>
-                    At Ashton Vale Photo & Video, we are celebrating 20 years of expertise and joy in 
-                    capturing the moments that matter most to our couples.
+                    At Ashton Vale, we measure success not by accolades, but by the tears of joy when 
+                    couples receive their galleries. Yet, we are deeply honored to be recognized among 
+                    the industry's most distinguished studios.
                   </p>
                   <p>
-                    We're thrilled to have been inducted into the prestigious Knot Hall of Fame, following 
-                    multiple wins of the Knot's Best of Weddings Award, and WeddingWire's Couples' Choice award.
+                    Our induction into The Knot Hall of Fame—following consecutive Best of Weddings 
+                    Awards and WeddingWire Couples' Choice recognition—reflects our team's unwavering 
+                    dedication to exceptional artistry.
                   </p>
                   <p>
-                    From sweet stolen glances to your energetic first dance, our team is committed to creating 
-                    candid and photojournalistic photos and videos that keep the memories of your day alive 
-                    for years to come.
+                    From the whispered vows to the exuberant celebration, our artists capture the 
+                    full emotional arc of your day with an editorial sensibility that transforms 
+                    moments into heirlooms.
                   </p>
                 </div>
               </div>
@@ -116,42 +121,44 @@ export default function About() {
           </div>
         </section>
 
-        {/* Budget Friendly */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-6">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+        {/* The Experience */}
+        <section className="py-28 bg-white">
+          <div className="container mx-auto px-8">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">
-                  Effortless & Budget-Friendly Wedding Planning
+                <p className="text-[10px] uppercase tracking-[0.4em] text-primary mb-4">The Experience</p>
+                <h2 className="text-3xl md:text-4xl font-serif font-light mb-8">
+                  Effortless Elegance, From Start to Finish
                 </h2>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <div className="space-y-6 text-muted-foreground leading-relaxed">
                   <p>
-                    Ashton Vale has been specializing in candid, photojournalistic photography for 20 years. 
-                    With the passion of our team as our backbone, we are dedicated to providing beautiful 
-                    photos and videos at prices that suit any budget.
+                    We believe that crafting your visual legacy should be as beautiful as the 
+                    celebration itself. From your first consultation to the delivery of your 
+                    finished collection, every interaction is designed to delight.
                   </p>
                   <p>
-                    Explore our flexible payment plans that are tailored to your individual needs.
+                    Our proprietary style consultation helps us understand your aesthetic vision, 
+                    ensuring we pair you with an artist whose work resonates with your sensibility. 
+                    Your dedicated concierge guides you through every decision with warmth and expertise.
                   </p>
                   <p>
-                    We also believe that planning your wedding should be as fun as the day itself. Our team 
-                    of wedding coordinators, intuitive Planning Portal, and easy Style Test are here to make 
-                    your experience as one-of-a-kind as your love story.
+                    The result? A seamless, white-glove experience that allows you to focus on 
+                    what matters most—celebrating your love.
                   </p>
                 </div>
               </div>
               <div className="relative">
+                <div className="absolute inset-4 border border-primary/20"></div>
                 <img 
                   src={firstLookImg} 
-                  alt="First look moment" 
-                  className="rounded-lg shadow-2xl w-full"
+                  alt="Intimate first look moment" 
+                  className="relative w-full shadow-luxury-lg"
                 />
               </div>
             </div>
           </div>
         </section>
 
-        <AwardsBanner />
         <FinalCTA />
       </main>
       <Footer />

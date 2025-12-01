@@ -1,47 +1,46 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { FeaturedPhotographers } from "@/components/FeaturedPhotographers";
-import { AwardsBanner } from "@/components/AwardsBanner";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { Search, Palette, MessageCircle, Camera, Heart, Shield } from "lucide-react";
+import { Sparkles, MessageCircle, Camera, Heart, Shield, Gem } from "lucide-react";
 import heroImg from "@assets/generated_images/first_look_moment.png";
 import photographerImg from "@assets/generated_images/female_photographer_portrait_1.png";
 
 const steps = [
   {
-    icon: Search,
-    title: "Find What Fits",
-    description: "We make choosing the right package for your budget a breeze!"
+    number: "01",
+    title: "Discover Your Style",
+    description: "Our curated style consultation reveals your aesthetic preferences, ensuring we match you with an artist whose vision aligns with yours."
   },
   {
-    icon: Palette,
-    title: "Take the Style Test",
-    description: "Discover your style with our quick & easy style test! This helps us select portfolios specifically for your unique vision."
+    number: "02",
+    title: "Private Consultation",
+    description: "Connect with your dedicated concierge to explore our signature collections and discuss how we can tailor coverage to your celebration."
   },
   {
-    icon: MessageCircle,
-    title: "Let's Chat",
-    description: "Choose a time to connect with one of our wedding consultants. They'll help you find the perfect coverage & photographer for your day."
+    number: "03",
+    title: "Meet Your Artist",
+    description: "Review hand-selected portfolios and choose the photographer or cinematographer who speaks to your heart."
   }
 ];
 
-const whyUs = [
+const differentiators = [
   {
     icon: Camera,
-    title: "Professional Quality",
-    description: "Our community of professional photographers and videographers are as talented and creative as they are passionate."
+    title: "Artistic Excellence",
+    description: "Our curated collective of artists brings editorial sensibility and refined technique to every celebration."
   },
   {
     icon: Heart,
-    title: "Personalized Matching",
-    description: "We're obsessively observant and believe that it's the combination of personal details that make your day truly yours."
+    title: "Bespoke Matching",
+    description: "We believe the right artist transforms images into art. Our matching process ensures perfect alignment."
   },
   {
     icon: Shield,
-    title: "Rigorous Standards",
-    description: "As the shining stars of Ashton Vale, our photographers have met our rigorous standards and extensive vetting process."
+    title: "Rigorous Curation",
+    description: "Every artist in our collective has met our exacting standards through a comprehensive vetting process."
   }
 ];
 
@@ -49,35 +48,48 @@ export default function HowItWorks() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navigation />
-      <main className="flex-grow pt-24">
+      <main className="flex-grow">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-b from-muted/50 to-white">
-          <div className="container mx-auto px-6 text-center">
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-4">How It Works</p>
-            <h1 className="font-serif text-4xl md:text-5xl font-bold mb-6">
-              Book your dream photographer in 3 easy steps!
+        <section className="relative pt-32 pb-24 overflow-hidden bg-neutral-900">
+          <div className="container mx-auto px-8 text-center text-white">
+            <p className="text-[10px] uppercase tracking-[0.4em] text-white/50 mb-4">The Experience</p>
+            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light mb-6 text-white">
+              Your Journey to<br />Extraordinary
             </h1>
+            <div className="w-16 h-px bg-white/30 mx-auto mb-6"></div>
+            <p className="text-lg text-white/60 max-w-xl mx-auto font-light">
+              A thoughtfully designed process that ensures every couple 
+              is paired with their ideal artist.
+            </p>
           </div>
         </section>
 
         {/* Steps */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-6">
-            <div className="grid md:grid-cols-3 gap-12">
+        <section className="py-28 bg-white">
+          <div className="container mx-auto px-8">
+            <div className="grid md:grid-cols-3 gap-16">
               {steps.map((step, index) => (
-                <div key={index} className="text-center">
-                  <div className="relative inline-block mb-6">
-                    <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
-                      <step.icon size={36} className="text-primary" />
-                    </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">
-                      {index + 1}
-                    </div>
+                <div key={index} className="text-center group">
+                  <div className="relative inline-block mb-8">
+                    <span className="font-serif text-6xl text-primary/20 group-hover:text-primary/40 transition-colors">
+                      {step.number}
+                    </span>
                   </div>
-                  <h3 className="font-serif text-2xl font-bold mb-4">{step.title}</h3>
+                  <h3 className="font-serif text-xl mb-4">{step.title}</h3>
                   <p className="text-muted-foreground leading-relaxed">{step.description}</p>
                 </div>
               ))}
+            </div>
+            
+            <div className="text-center mt-16">
+              <Link href="/pricing">
+                <Button 
+                  size="lg"
+                  className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-7 text-[11px] uppercase tracking-[0.2em] font-medium"
+                >
+                  Begin Your Journey
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
@@ -86,35 +98,43 @@ export default function HowItWorks() {
         <FeaturedPhotographers />
 
         {/* Why Ashton Vale */}
-        <section className="py-20 bg-muted/30">
-          <div className="container mx-auto px-6">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+        <section className="py-28 bg-ivory">
+          <div className="container mx-auto px-8">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
               <div className="relative">
+                <div className="absolute inset-4 border border-primary/20"></div>
                 <img 
                   src={heroImg} 
-                  alt="Wedding moment" 
-                  className="rounded-lg shadow-2xl w-full"
+                  alt="Intimate wedding moment" 
+                  className="relative w-full shadow-luxury-lg"
                 />
               </div>
               <div>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">Why Ashton Vale</h2>
-                <div className="space-y-4 text-muted-foreground leading-relaxed mb-8">
+                <p className="text-[10px] uppercase tracking-[0.4em] text-primary mb-4">Our Promise</p>
+                <h2 className="text-3xl md:text-4xl font-serif font-light mb-8">The Ashton Vale Difference</h2>
+                <div className="space-y-6 text-muted-foreground leading-relaxed mb-10">
                   <p>
-                    For over 20 years, Ashton Vale Photo & Video has perfected making the process of 
-                    booking wedding day photography easy!
+                    For over two decades, we have refined the art of pairing discerning couples with 
+                    exceptional artists. Our approach transcends traditional photography services—we 
+                    offer a curated experience designed for those who appreciate the extraordinary.
                   </p>
                   <p>
-                    We're thrilled to offer an unbeatable value for wedding photography and videography, 
-                    promising beautiful, quality images for years of reminiscing.
+                    From your initial consultation through the delivery of your finished collection, 
+                    our dedicated concierge team ensures every detail exceeds expectations. We don't 
+                    simply capture moments—we craft visual legacies.
                   </p>
                   <p>
-                    We know wedding planning can feel overwhelming, but with Ashton Vale, we will hold 
-                    your hand every step of the way to make booking a photographer a breeze.
+                    Wedding planning should be joyful, not overwhelming. With Ashton Vale, you gain 
+                    a partner who understands that trust, taste, and attention to detail matter.
                   </p>
                 </div>
                 <Link href="/pricing">
-                  <Button size="lg" className="rounded-none uppercase tracking-widest font-bold px-10">
-                    Check Pricing & Availability
+                  <Button 
+                    variant="outline"
+                    size="lg"
+                    className="rounded-none border-foreground/30 text-foreground hover:bg-foreground hover:text-white px-10 py-6 text-[11px] uppercase tracking-[0.2em] font-medium"
+                  >
+                    Request a Consultation
                   </Button>
                 </Link>
               </div>
@@ -123,37 +143,38 @@ export default function HowItWorks() {
         </section>
 
         {/* Why Our Photographers */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-6">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+        <section className="py-28 bg-white">
+          <div className="container mx-auto px-8">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">Why Our Photographers?</h2>
-                <div className="space-y-6">
-                  {whyUs.map((item, index) => (
-                    <div key={index} className="flex gap-4">
-                      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
-                        <item.icon size={24} className="text-primary" />
+                <p className="text-[10px] uppercase tracking-[0.4em] text-primary mb-4">Our Artists</p>
+                <h2 className="text-3xl md:text-4xl font-serif font-light mb-10">Why Our Collective?</h2>
+                <div className="space-y-8">
+                  {differentiators.map((item, index) => (
+                    <div key={index} className="flex gap-6">
+                      <div className="w-14 h-14 border border-primary/30 flex items-center justify-center flex-shrink-0">
+                        <item.icon size={22} className="text-primary" strokeWidth={1.5} />
                       </div>
                       <div>
-                        <h3 className="font-serif text-lg font-bold mb-1">{item.title}</h3>
-                        <p className="text-muted-foreground text-sm">{item.description}</p>
+                        <h3 className="font-serif text-lg mb-2">{item.title}</h3>
+                        <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
                       </div>
                     </div>
                   ))}
                 </div>
               </div>
               <div className="relative">
+                <div className="absolute inset-4 border border-primary/20"></div>
                 <img 
                   src={photographerImg} 
-                  alt="Our photographer" 
-                  className="rounded-lg shadow-2xl w-full max-w-md mx-auto"
+                  alt="Ashton Vale artist" 
+                  className="relative w-full max-w-md mx-auto shadow-luxury-lg"
                 />
               </div>
             </div>
           </div>
         </section>
 
-        <AwardsBanner />
         <FinalCTA />
       </main>
       <Footer />
