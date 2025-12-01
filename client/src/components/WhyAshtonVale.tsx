@@ -1,62 +1,69 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { DollarSign, Award, Sparkles, CreditCard, Trophy } from "lucide-react";
+import { Gem, Shield, Palette, Heart, Award } from "lucide-react";
 
 const benefits = [
   {
-    icon: DollarSign,
-    title: "Affordable",
-    description: "Beautiful photography and videography at budget-friendly prices."
+    icon: Gem,
+    title: "Bespoke Service",
+    description: "Every detail tailored to your unique vision and celebration."
+  },
+  {
+    icon: Shield,
+    title: "Two Decades of Mastery",
+    description: "Refined expertise in capturing authentic, emotive moments."
+  },
+  {
+    icon: Palette,
+    title: "Curated Matching",
+    description: "We pair you with the perfect artist for your aesthetic."
+  },
+  {
+    icon: Heart,
+    title: "Concierge Experience",
+    description: "White-glove service from first consultation to final delivery."
   },
   {
     icon: Award,
-    title: "Experts for 20+ Years",
-    description: "Specializing in candid photography for 20 years."
-  },
-  {
-    icon: Sparkles,
-    title: "Easy Customization",
-    description: "Let our style test help you find the perfect photographer."
-  },
-  {
-    icon: CreditCard,
-    title: "Payment Plans",
-    description: "Explore our flexible payment plans tailored to your needs."
-  },
-  {
-    icon: Trophy,
-    title: "Award Winning",
-    description: "The Knot Hall of Fame member. Multi-year winners of Best of Weddings award."
+    title: "Acclaimed Excellence",
+    description: "Recognized among the industry's most distinguished studios."
   }
 ];
 
 export function WhyAshtonVale() {
   return (
-    <section className="py-20 bg-muted/30">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">Why Ashton Vale</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Celebrating 20 Years of Capturing Life's Most Important Moments.
-          </p>
+    <section className="py-28 bg-background">
+      <div className="container mx-auto px-8">
+        {/* Header */}
+        <div className="text-center mb-20">
+          <p className="text-[10px] uppercase tracking-[0.4em] text-primary mb-4">The Ashton Vale Difference</p>
+          <h2 className="text-3xl md:text-4xl font-serif font-light mb-6">
+            Why Discerning Couples Choose Us
+          </h2>
+          <div className="divider-gold w-24 mx-auto"></div>
         </div>
 
-        <div className="grid md:grid-cols-5 gap-8 mb-12">
+        {/* Benefits Grid */}
+        <div className="grid md:grid-cols-5 gap-12 mb-16">
           {benefits.map((benefit, index) => (
             <div key={index} className="text-center group">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
-                <benefit.icon size={28} className="text-primary" />
+              <div className="w-16 h-16 border border-primary/30 flex items-center justify-center mx-auto mb-6 group-hover:border-primary/60 transition-colors">
+                <benefit.icon size={24} className="text-primary" strokeWidth={1.5} />
               </div>
-              <h3 className="font-serif text-lg font-bold mb-2">{benefit.title}</h3>
+              <h3 className="font-serif text-lg mb-3">{benefit.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{benefit.description}</p>
             </div>
           ))}
         </div>
 
+        {/* CTA */}
         <div className="text-center">
           <Link href="/pricing">
-            <Button size="lg" className="rounded-none uppercase tracking-widest font-bold px-10">
-              Check Pricing & Availability
+            <Button 
+              size="lg"
+              className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-7 text-[11px] uppercase tracking-[0.2em] font-medium"
+            >
+              Request a Consultation
             </Button>
           </Link>
         </div>

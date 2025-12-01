@@ -1,22 +1,35 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
+import heroImg from "@assets/generated_images/romantic_wedding_couple_under_veil.png";
 
 export function FinalCTA() {
   return (
-    <section className="py-20 bg-primary text-primary-foreground text-center">
-      <div className="container mx-auto px-6">
-        <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6">
-          Ready to start your journey?
+    <section className="relative py-32 overflow-hidden">
+      {/* Background */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        style={{ backgroundImage: `url(${heroImg})` }}
+      >
+        <div className="absolute inset-0 bg-black/60"></div>
+      </div>
+
+      {/* Content */}
+      <div className="relative container mx-auto px-8 text-center text-white">
+        <p className="text-[10px] uppercase tracking-[0.4em] text-white/60 mb-6">Begin Your Journey</p>
+        <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light mb-8 text-white leading-tight">
+          Your Story Deserves<br />
+          <span className="italic">Extraordinary</span>
         </h2>
-        <p className="text-xl mb-10 max-w-2xl mx-auto opacity-90">
-          Check availability for your wedding date and get a custom quote today.
+        <p className="text-lg text-white/70 max-w-xl mx-auto mb-12 font-light">
+          Let us craft a timeless collection of moments 
+          that will be treasured for generations.
         </p>
         <Link href="/pricing">
           <Button 
             size="lg"
-            className="bg-white text-black uppercase tracking-widest font-bold py-6 px-10 text-sm hover:bg-neutral-100 transition-colors shadow-xl rounded-none"
+            className="rounded-none bg-white text-black hover:bg-white/90 px-12 py-7 text-[11px] uppercase tracking-[0.2em] font-medium transition-all duration-300"
           >
-            Check Availability
+            Request a Private Consultation
           </Button>
         </Link>
       </div>

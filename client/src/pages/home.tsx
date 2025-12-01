@@ -1,6 +1,5 @@
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
-import { PromoBanner } from "@/components/PromoBanner";
 import { QuickLinks } from "@/components/QuickLinks";
 import { AwardsBanner } from "@/components/AwardsBanner";
 import { FeaturedPhotographers } from "@/components/FeaturedPhotographers";
@@ -17,14 +16,13 @@ export default function Home() {
       <Navigation />
       <main className="flex-grow">
         <Hero />
-        <PromoBanner />
         <QuickLinks />
+        <StorySection />
         <AwardsBanner />
         <FeaturedPhotographers />
         <WhyAshtonVale />
-        <StyleTestCTA />
         <ReviewsCarousel />
-        <StorySection />
+        <StyleTestCTA />
         <FinalCTA />
       </main>
       <Footer />

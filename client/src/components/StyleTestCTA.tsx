@@ -1,54 +1,59 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { CheckCircle } from "lucide-react";
 import brideImg from "@assets/generated_images/bride_holding_bouquet.png";
+
+const steps = [
+  "Share your vision and aesthetic preferences",
+  "Review curated photographer portfolios",
+  "Discover your signature style match"
+];
 
 export function StyleTestCTA() {
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+    <section className="py-28 bg-white">
+      <div className="container mx-auto px-8">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          {/* Content */}
           <div>
-            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-4">Take the test</p>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">Take the Style Test</h2>
-            <p className="text-muted-foreground mb-8 leading-relaxed">
-              Ready to spice up your photographer research? Take a quick breather and dive into our Style Test – 
-              it's like a mini adventure to help uncover your ultimate photographer match! Plus, it's so easy, 
-              you'll be done before your latte gets cold.
+            <p className="text-[10px] uppercase tracking-[0.4em] text-primary mb-4">Curated Matching</p>
+            <h2 className="text-3xl md:text-4xl font-serif font-light mb-6">
+              Find Your Signature Style
+            </h2>
+            <div className="divider-gold w-24 mb-8"></div>
+            <p className="text-muted-foreground mb-10 leading-relaxed text-lg">
+              Every couple has a unique aesthetic vision. Our thoughtfully designed style consultation 
+              helps us understand your preferences, ensuring we pair you with an artist whose work 
+              resonates with your sensibility.
             </p>
             
-            <ul className="space-y-4 mb-10">
-              <li className="flex items-start gap-3">
-                <CheckCircle size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                <span>Share a bit about your wedding vision</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                <span>Pick your favorite images</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                <span>Uncover your unique photography style</span>
-              </li>
-            </ul>
-
-            <p className="text-sm text-muted-foreground mb-6">
-              During your consultation, you'll see photographers that match your style preference.
-            </p>
+            <ol className="space-y-6 mb-12">
+              {steps.map((step, index) => (
+                <li key={index} className="flex items-start gap-4">
+                  <span className="w-8 h-8 border border-primary/40 flex items-center justify-center text-xs text-primary flex-shrink-0">
+                    {index + 1}
+                  </span>
+                  <span className="text-foreground/80 pt-1">{step}</span>
+                </li>
+              ))}
+            </ol>
 
             <Link href="/pricing">
-              <Button size="lg" className="rounded-none uppercase tracking-widest font-bold px-10">
-                Let's Go
+              <Button 
+                size="lg" 
+                className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-7 text-[11px] uppercase tracking-[0.2em] font-medium"
+              >
+                Begin Your Consultation
               </Button>
             </Link>
           </div>
 
+          {/* Image */}
           <div className="relative hidden md:block">
-            <div className="absolute -top-8 -left-8 w-48 h-48 bg-primary/10 rounded-full blur-3xl"></div>
+            <div className="absolute inset-4 border border-primary/20"></div>
             <img 
               src={brideImg} 
-              alt="Bride with bouquet" 
-              className="relative rounded-lg shadow-2xl w-full"
+              alt="Elegant bride with bouquet" 
+              className="relative w-full shadow-luxury-lg"
             />
           </div>
         </div>

@@ -1,70 +1,68 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Link } from "wouter";
 import heroImage from "@assets/generated_images/romantic_wedding_couple_under_veil.png";
 
 export function Hero() {
   return (
-    <div className="relative h-screen min-h-[700px] w-full overflow-hidden">
+    <section className="relative h-screen min-h-[700px] overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/30" />
+        {/* Elegant gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
       </div>
 
       {/* Content */}
-      <div className="relative h-full container mx-auto px-6 flex flex-col justify-center items-center text-center text-white pt-20">
-        <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-in fade-in slide-in-from-bottom-8 duration-1000">
-          Timeless Wedding <br className="hidden md:block" />
-          <span className="italic font-normal text-primary-foreground/90">Photography & Videography</span>
+      <div className="relative h-full container mx-auto px-8 flex flex-col items-center justify-center text-center text-white">
+        {/* Concierge Badge */}
+        <div className="mb-8 animate-fade-up opacity-0 stagger-1">
+          <span className="text-[10px] uppercase tracking-[0.4em] text-white/70 border border-white/30 px-6 py-2">
+            Bespoke Wedding Photography
+          </span>
+        </div>
+
+        {/* Main Headline */}
+        <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-light mb-6 text-white leading-[1.1] animate-fade-up opacity-0 stagger-2">
+          Timeless Moments,
+          <br />
+          <span className="italic font-normal">Artfully Preserved</span>
         </h1>
-        
-        <p className="text-lg md:text-xl max-w-2xl mb-10 text-white/90 font-light animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
-          Capturing the authentic beauty of your love story with an editorial touch. Available nationwide.
+
+        {/* Subheadline */}
+        <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-12 font-light tracking-wide leading-relaxed animate-fade-up opacity-0 stagger-3">
+          We craft intimate, editorial imagery for discerning couples 
+          who seek nothing less than extraordinary.
         </p>
 
-        {/* Availability Form */}
-        <div className="bg-white p-4 md:p-6 rounded-sm shadow-2xl w-full max-w-4xl flex flex-col md:flex-row gap-4 items-end animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500">
-          <div className="w-full md:flex-1 space-y-2 text-left">
-            <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Select Your City</label>
-            <Select>
-              <SelectTrigger className="w-full rounded-none border-0 border-b border-input bg-transparent px-0 shadow-none focus:ring-0 focus:border-primary text-foreground font-serif text-lg">
-                <SelectValue placeholder="Where are you getting married?" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="ny">New York</SelectItem>
-                <SelectItem value="la">Los Angeles</SelectItem>
-                <SelectItem value="chi">Chicago</SelectItem>
-                <SelectItem value="hou">Houston</SelectItem>
-                <SelectItem value="mia">Miami</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          <div className="w-full md:flex-1 space-y-2 text-left">
-            <label className="text-xs font-bold text-muted-foreground uppercase tracking-wider">Wedding Date</label>
-            <Input 
-              type="date" 
-              className="w-full rounded-none border-0 border-b border-input bg-transparent px-0 shadow-none focus-visible:ring-0 focus-visible:border-primary text-foreground font-serif text-lg"
-            />
-          </div>
-
-          <div className="w-full md:w-auto">
-            <Button size="lg" className="w-full rounded-none uppercase tracking-widest font-bold py-6 px-8 bg-primary hover:bg-primary/90 text-primary-foreground">
-              Check Availability
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 animate-fade-up opacity-0 stagger-4">
+          <Link href="/pricing">
+            <Button 
+              size="lg"
+              className="rounded-none bg-white text-black hover:bg-white/90 px-10 py-7 text-[11px] uppercase tracking-[0.2em] font-medium transition-all duration-300 hover:shadow-luxury"
+            >
+              Reserve Your Date
             </Button>
-          </div>
+          </Link>
+          <Link href="/portfolio">
+            <Button 
+              variant="outline"
+              size="lg"
+              className="rounded-none bg-transparent border-white/40 text-white hover:bg-white/10 px-10 py-7 text-[11px] uppercase tracking-[0.2em] font-medium transition-all duration-300"
+            >
+              View Portfolio
+            </Button>
+          </Link>
         </div>
-        
-        <div className="mt-8 flex gap-4 text-sm font-medium uppercase tracking-widest text-white/80 animate-in fade-in duration-1000 delay-700">
-            <span>✓ Trusted by 1000+ Couples</span>
-            <span className="hidden md:inline">•</span>
-            <span className="hidden md:inline">✓ Best of Weddings 2024</span>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 animate-fade-in opacity-0" style={{ animationDelay: '1s' }}>
+          <span className="text-[10px] uppercase tracking-[0.3em] text-white/50">Scroll</span>
+          <div className="w-px h-12 bg-gradient-to-b from-white/50 to-transparent"></div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

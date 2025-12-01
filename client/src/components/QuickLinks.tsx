@@ -1,24 +1,28 @@
 import { Link } from "wouter";
+import { ArrowRight } from "lucide-react";
 import firstLookImg from "@assets/generated_images/first_look_moment.png";
 import brideImg from "@assets/generated_images/bride_holding_bouquet.png";
 import receptionImg from "@assets/generated_images/reception_dance_party.png";
 
 const quickLinks = [
   {
-    title: "Pricing & Availability",
-    description: "Affordable options that fit your unique day.",
+    title: "Inquire",
+    subtitle: "Request a Private Consultation",
+    description: "Tailored packages for your unique celebration",
     image: firstLookImg,
     href: "/pricing"
   },
   {
-    title: "Take the Style Test",
-    description: "Discover your individual photography style!",
+    title: "Discover",
+    subtitle: "Your Signature Style",
+    description: "Find the aesthetic that speaks to you",
     image: brideImg,
     href: "/pricing"
   },
   {
-    title: "View Portfolio",
-    description: "Browse our wedding, engagement & video work.",
+    title: "Explore",
+    subtitle: "Our Curated Portfolio",
+    description: "Intimate moments, artfully captured",
     image: receptionImg,
     href: "/portfolio"
   }
@@ -26,21 +30,33 @@ const quickLinks = [
 
 export function QuickLinks() {
   return (
-    <section className="py-16 bg-white">
-      <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-6">
+    <section className="py-24 bg-background">
+      <div className="container mx-auto px-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {quickLinks.map((link, index) => (
             <Link key={index} href={link.href}>
-              <div className="group relative overflow-hidden rounded-sm cursor-pointer h-64">
+              <div className="group relative overflow-hidden cursor-pointer h-[420px] hover-lift">
+                {/* Image */}
                 <img 
                   src={link.image} 
                   alt={link.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h3 className="font-serif text-xl font-bold mb-1 text-white">{link.title}</h3>
-                  <p className="text-sm text-white/80">{link.description}</p>
+                
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+                
+                {/* Border Frame */}
+                <div className="absolute inset-4 border border-white/20 transition-all duration-500 group-hover:inset-6"></div>
+                
+                {/* Content */}
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                  <p className="text-[10px] uppercase tracking-[0.3em] text-white/60 mb-2">{link.title}</p>
+                  <h3 className="font-serif text-2xl font-light mb-2 text-white">{link.subtitle}</h3>
+                  <p className="text-sm text-white/70 mb-4">{link.description}</p>
+                  <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-white/80 group-hover:text-white transition-colors">
+                    Learn More <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
+                  </span>
                 </div>
               </div>
             </Link>

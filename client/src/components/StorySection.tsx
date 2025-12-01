@@ -2,40 +2,42 @@ import heroImg from "@assets/generated_images/romantic_wedding_couple_under_veil
 
 export function StorySection() {
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+    <section className="py-28 bg-white">
+      <div className="container mx-auto px-8">
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          {/* Image */}
           <div className="relative">
-            <div className="absolute -bottom-6 -right-6 w-full h-full border-2 border-primary/20 rounded-lg"></div>
+            <div className="absolute inset-4 border border-primary/20"></div>
             <img 
               src={heroImg} 
-              alt="Wedding couple" 
-              className="relative rounded-lg shadow-xl w-full"
+              alt="Romantic wedding moment" 
+              className="relative w-full shadow-luxury-lg"
             />
           </div>
 
+          {/* Content */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">
-              Your Love Story Starts Here.
+            <p className="text-[10px] uppercase tracking-[0.4em] text-primary mb-4">Our Philosophy</p>
+            <h2 className="text-3xl md:text-4xl font-serif font-light mb-4">
+              Your Story, Artfully Told
             </h2>
-            <p className="text-xl font-serif italic text-primary mb-6">
-              And ends happily ever after.
+            <p className="text-xl font-serif italic text-primary/80 mb-8">
+              Where moments become legacy.
             </p>
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
+            <div className="space-y-6 text-muted-foreground leading-relaxed">
               <p>
-                Not through words. Through moments. Memories. Glimpses of pure emotion—unfiltered 
-                and unexpected. That's where the magic happens. We capture it all as your love 
-                story unfolds on your big day.
+                Not through words alone—through light, gesture, and the subtle interplay of emotion. 
+                We capture the whispered promises, the stolen glances, the unguarded joy that defines 
+                your celebration.
               </p>
               <p>
-                Since 2004, we've been playing matchmaker, pairing real-life couples with their 
-                perfect wedding photographer and videographer to document that cloud-nine, 
-                once-in-a-lifetime feeling, photo by photo.
+                Since 2004, we have curated an exclusive collective of the world's most distinguished 
+                wedding photographers and cinematographers. Each artist is selected for their mastery 
+                of editorial storytelling and their ability to document love in its most authentic form.
               </p>
               <p>
-                After the confetti lands, the cake is cut and the sparklers fade, your photos or 
-                your movie-like wedding film is the one lasting piece of proof that this 
-                unbelievable night really happened. And yes, it was as incredible as you remember it.
+                Long after the evening fades, your gallery and film become cherished heirlooms—
+                tangible proof of an extraordinary chapter in your love story.
               </p>
             </div>
           </div>

@@ -1,20 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 const navLinks = [
-  { href: "/how-it-works", label: "How It Works" },
+  { href: "/how-it-works", label: "The Experience" },
   { href: "/portfolio", label: "Portfolio" },
-  { href: "/reviews", label: "Reviews" },
-  { href: "/about", label: "About" },
+  { href: "/reviews", label: "Testimonials" },
+  { href: "/about", label: "Our Story" },
 ];
 
 export function Navigation() {
@@ -41,32 +35,23 @@ export function Navigation() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent",
-        showTransparent ? "bg-transparent py-6 text-white" : "bg-white/95 backdrop-blur-sm py-4 shadow-sm border-border"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        showTransparent 
+          ? "bg-transparent py-8" 
+          : "glass-dark py-4 border-b border-white/10"
       )}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
-        <Link 
-          href="/" 
-          className={cn(
-            "font-serif text-xl md:text-2xl font-bold tracking-tight uppercase cursor-pointer", 
-            showTransparent ? "text-white" : "text-foreground"
-          )}
-        >
-          Ashton Vale
-        </Link>
-
-        {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center space-x-6">
-          {navLinks.map((link) => (
+      <div className="container mx-auto px-8 flex items-center justify-between">
+        {/* Left Nav Links */}
+        <div className="hidden lg:flex items-center space-x-10">
+          {navLinks.slice(0, 2).map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                "text-sm font-medium uppercase tracking-widest hover:text-primary transition-colors",
-                showTransparent ? "text-white/90" : "text-foreground/80",
-                location === link.href && "text-primary"
+                "text-[11px] font-medium uppercase tracking-[0.2em] transition-all duration-300 hover:opacity-60",
+                showTransparent ? "text-white" : "text-white/90",
+                location === link.href && "opacity-60"
               )}
             >
               {link.label}
@@ -74,56 +59,97 @@ export function Navigation() {
           ))}
         </div>
 
-        {/* CTA Button */}
-        <div className="hidden lg:block">
-          <Link href="/pricing">
-            <Button 
-              variant={showTransparent ? "outline" : "default"} 
+        {/* Centered Logo */}
+        <Link 
+          href="/" 
+          className={cn(
+            "font-serif text-2xl md:text-3xl tracking-wide cursor-pointer transition-all duration-300 absolute left-1/2 -translate-x-1/2", 
+            showTransparent ? "text-white" : "text-white"
+          )}
+        >
+          <span className="font-light">Ashton</span>
+          <span className="font-medium"> Vale</span>
+        </Link>
+
+        {/* Right Nav Links */}
+        <div className="hidden lg:flex items-center space-x-10">
+          {navLinks.slice(2).map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
               className={cn(
-                "rounded-none uppercase tracking-widest font-semibold px-6 transition-all text-sm",
-                showTransparent && "bg-white/10 border-white text-white hover:bg-white hover:text-black border-2"
+                "text-[11px] font-medium uppercase tracking-[0.2em] transition-all duration-300 hover:opacity-60",
+                showTransparent ? "text-white" : "text-white/90",
+                location === link.href && "opacity-60"
               )}
             >
-              Check Availability
+              {link.label}
+            </Link>
+          ))}
+          <Link href="/pricing">
+            <Button 
+              variant="outline"
+              className={cn(
+                "rounded-none text-[10px] uppercase tracking-[0.2em] font-medium px-6 py-5 transition-all duration-300 border",
+                showTransparent 
+                  ? "bg-transparent border-white/40 text-white hover:bg-white hover:text-black" 
+                  : "bg-transparent border-white/30 text-white hover:bg-white hover:text-black"
+              )}
+            >
+              Reserve Your Date
             </Button>
           </Link>
         </div>
 
         {/* Mobile Menu Toggle */}
         <button 
-          className="lg:hidden" 
+          className="lg:hidden ml-auto" 
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           data-testid="button-mobile-menu"
         >
           {isMobileMenuOpen ? (
-            <X className={showTransparent ? "text-white" : "text-foreground"} />
+            <X className="text-white" size={24} />
           ) : (
-            <Menu className={showTransparent ? "text-white" : "text-foreground"} />
+            <Menu className="text-white" size={24} />
           )}
         </button>
       </div>
 
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-white border-b border-border shadow-lg lg:hidden p-6 flex flex-col space-y-4 animate-in slide-in-from-top-5">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "text-foreground font-medium uppercase tracking-widest text-sm hover:text-primary py-2 border-b border-border/50",
-                location === link.href && "text-primary"
-              )}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link href="/pricing" onClick={() => setIsMobileMenuOpen(false)}>
-            <Button className="w-full rounded-none uppercase tracking-widest mt-4">
-              Check Availability
-            </Button>
-          </Link>
+        <div className="fixed inset-0 top-0 bg-black/95 lg:hidden flex flex-col items-center justify-center animate-fade-in">
+          <button 
+            className="absolute top-8 right-8" 
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <X className="text-white" size={28} />
+          </button>
+          
+          <div className="flex flex-col items-center space-y-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "text-white font-serif text-2xl tracking-wide hover:opacity-60 transition-opacity",
+                  location === link.href && "opacity-60"
+                )}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <div className="pt-8 border-t border-white/20 mt-8">
+              <Link href="/pricing" onClick={() => setIsMobileMenuOpen(false)}>
+                <Button 
+                  variant="outline"
+                  className="rounded-none text-[11px] uppercase tracking-[0.2em] font-medium px-10 py-6 bg-transparent border-white/40 text-white hover:bg-white hover:text-black"
+                >
+                  Reserve Your Date
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
       )}
     </nav>
