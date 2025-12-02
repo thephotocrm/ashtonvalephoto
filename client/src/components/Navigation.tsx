@@ -41,7 +41,7 @@ export function Navigation() {
           : "glass-dark py-4 border-b border-white/10"
       )}
     >
-      <div className="container mx-auto px-8 flex items-center justify-between">
+      <div className="w-full max-w-[1400px] mx-auto px-8 flex items-center justify-between">
         {/* Left Nav Links */}
         <div className="hidden lg:flex items-center space-x-10">
           {navLinks.slice(0, 2).map((link) => (
