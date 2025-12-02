@@ -3,7 +3,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Crown, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Link } from "wouter";
 
@@ -24,22 +24,55 @@ interface Package {
   startingAt?: boolean;
   image: string;
   featured: boolean;
+  flagship?: boolean;
   tagline: string;
   description: string;
   features: string[];
   includes: string[];
+  limitedAvailability?: string;
 }
 
 const packages: Package[] = [
   {
+    name: "The Estate Collection",
+    category: "Complete Experience",
+    price: "$8,495",
+    startingAt: true,
+    image: heroImg,
+    featured: true,
+    flagship: true,
+    tagline: "For couples who desire nothing less than extraordinary",
+    description: "Our most exclusive offering, The Estate Collection delivers an unparalleled documentation experience with extended coverage, a dedicated team of four artists, and our signature same-day edit premiered at your reception.",
+    limitedAvailability: "Limited to 15 weddings per year",
+    features: [
+      "Lead Photographer • 10 Hours",
+      "Associate Photographer • 10 Hours",
+      "Lead Cinematographer • 10 Hours",
+      "Second Cinematographer • 8 Hours",
+      "Choose Your Lead Artists",
+      "Unlimited Locations"
+    ],
+    includes: [
+      "Complimentary Engagement Session",
+      "Same-Day Highlight Edit",
+      "Cinematic Trailer + Full Film",
+      "Heirloom Fine Art Album (14×14) in Linen Box",
+      "Two Parent Replica Albums",
+      "Canvas Print Collection (3 Pieces)",
+      "Priority 4-Week Editing",
+      "Private Planning Portal",
+      "Dedicated Concierge Team"
+    ]
+  },
+  {
     name: "The Signature Collection",
     category: "Complete Experience",
-    price: "$4,895",
+    price: "$5,995",
     startingAt: true,
     image: brideImg,
     featured: true,
-    tagline: "Our most comprehensive experience",
-    description: "The ultimate celebration documentation featuring our lead photographer, associate, and lead cinematographer working in harmony to capture every precious moment.",
+    tagline: "Our most beloved comprehensive experience",
+    description: "The ultimate celebration documentation featuring our lead photographer, associate, and lead cinematographer working in harmony to capture every precious moment of your day.",
     features: [
       "Lead Photographer • 8 Hours",
       "Associate Photographer • 8 Hours",
@@ -51,7 +84,7 @@ const packages: Package[] = [
       "Curated Digital Gallery",
       "Cinematic Highlight Film",
       "Full Ceremony & Reception Film",
-      "Fine Art Album (12×12)",
+      "Fine Art Album (14×14)",
       "Replica Albums for Parents",
       "Complimentary Canvas Print",
       "Private Online Planning Portal",
@@ -61,7 +94,7 @@ const packages: Package[] = [
   {
     name: "The Editorial Suite",
     category: "Complete Experience",
-    price: "$3,495",
+    price: "$4,295",
     startingAt: true,
     image: engagementImg,
     featured: true,
@@ -75,6 +108,7 @@ const packages: Package[] = [
     ],
     includes: [
       "Curated Digital Gallery",
+      "Social Media Teaser",
       "Full Ceremony & Reception Film",
       "Signature Album (10×10)",
       "Private Online Planning Portal",
@@ -84,8 +118,8 @@ const packages: Package[] = [
   {
     name: "Photography Premier",
     category: "Photography",
-    price: "$2,695",
-    image: heroImg,
+    price: "$3,195",
+    image: firstLookImg,
     featured: false,
     tagline: "Comprehensive photography coverage",
     description: "Select your lead photographer and enjoy comprehensive coverage with a second artist to capture every angle of your celebration.",
@@ -97,6 +131,7 @@ const packages: Package[] = [
     ],
     includes: [
       "Curated Digital Gallery",
+      "Engagement Mini-Session (60 min)",
       "Signature Album (10×10)",
       "Private Online Planning Portal",
       "Dedicated Concierge Team"
@@ -105,8 +140,8 @@ const packages: Package[] = [
   {
     name: "Photography Essentials",
     category: "Photography",
-    price: "$1,895",
-    image: firstLookImg,
+    price: "$2,395",
+    image: groomImg,
     featured: false,
     tagline: "Timeless imagery, beautifully captured",
     description: "Perfect for intimate celebrations, our lead photographer will artfully document your day with refined elegance.",
@@ -124,7 +159,7 @@ const packages: Package[] = [
   {
     name: "Cinematic Premier",
     category: "Cinematography",
-    price: "$2,795",
+    price: "$3,495",
     image: ceremonyImg,
     featured: false,
     tagline: "Editorial filmmaking at its finest",
@@ -136,6 +171,7 @@ const packages: Package[] = [
       "Full Ceremony & Reception Film"
     ],
     includes: [
+      "60-Second Social Edit",
       "Social Media Teaser",
       "Private Online Planning Portal",
       "Dedicated Concierge Team"
@@ -144,7 +180,7 @@ const packages: Package[] = [
   {
     name: "Cinematic Essentials",
     category: "Cinematography",
-    price: "$2,195",
+    price: "$2,695",
     image: danceImg,
     featured: false,
     tagline: "Your story, cinematically told",
@@ -158,24 +194,17 @@ const packages: Package[] = [
       "Private Online Planning Portal",
       "Dedicated Concierge Team"
     ]
-  },
-  {
-    name: "Engagement Session",
-    category: "Photography",
-    price: "$600",
-    image: groomImg,
-    featured: false,
-    tagline: "Celebrate your love story",
-    description: "An intimate portrait session to capture the joy and anticipation of your upcoming celebration.",
-    features: [
-      "Lead Photographer • 90 Minutes",
-      "Location of Your Choice"
-    ],
-    includes: [
-      "Curated Digital Gallery",
-      "Styling Consultation"
-    ]
   }
+];
+
+const addOns = [
+  { name: "Engagement Session", price: "$795", description: "90-minute portrait session at your chosen location" },
+  { name: "Second Photographer", price: "$495", description: "Additional coverage (+2 hours)" },
+  { name: "Second Cinematographer", price: "$895", description: "Enhanced film coverage" },
+  { name: "Same-Day Edit", price: "$1,200", description: "Highlight reel premiered at your reception" },
+  { name: "Heirloom Album Box", price: "$395", description: "Luxe linen presentation box" },
+  { name: "Parent Album Set", price: "$595", description: "Two replica albums for parents" },
+  { name: "Rush Delivery", price: "$500", description: "Priority 2-week editing" },
 ];
 
 export default function Packages() {
@@ -244,7 +273,10 @@ export default function Packages() {
               {featuredPackages.map((pkg, index) => (
                 <div 
                   key={index} 
-                  className="grid md:grid-cols-2 gap-0 mb-12 overflow-hidden border border-border/30"
+                  className={cn(
+                    "grid md:grid-cols-2 gap-0 mb-12 overflow-hidden border",
+                    pkg.flagship ? "border-primary/50 shadow-luxury-lg" : "border-border/30"
+                  )}
                 >
                   {/* Image Side */}
                   <div className={cn("relative min-h-[450px] md:min-h-[550px]", index % 2 === 1 && "md:order-2")}>
@@ -253,22 +285,62 @@ export default function Packages() {
                       alt={pkg.name}
                       className="absolute inset-0 w-full h-full object-cover"
                     />
+                    {pkg.flagship && (
+                      <div className="absolute top-6 left-6 bg-primary text-white px-4 py-2 flex items-center gap-2">
+                        <Crown size={14} />
+                        <span className="text-[10px] uppercase tracking-[0.2em] font-medium">Flagship Collection</span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Content Side */}
-                  <div className={cn("p-10 md:p-14 flex flex-col justify-center bg-ivory", index % 2 === 1 && "md:order-1")}>
-                    <p className="text-[10px] uppercase tracking-[0.4em] text-primary mb-4">{pkg.category}</p>
-                    <h2 className="font-serif text-3xl md:text-4xl font-light mb-3">{pkg.name}</h2>
-                    <p className="text-muted-foreground text-sm italic mb-6">{pkg.tagline}</p>
+                  <div className={cn(
+                    "p-10 md:p-14 flex flex-col justify-center",
+                    pkg.flagship ? "bg-neutral-900 text-white" : "bg-ivory",
+                    index % 2 === 1 && "md:order-1"
+                  )}>
+                    <p className={cn(
+                      "text-[10px] uppercase tracking-[0.4em] mb-4",
+                      pkg.flagship ? "text-primary" : "text-primary"
+                    )}>{pkg.category}</p>
+                    <h2 className={cn(
+                      "font-serif text-3xl md:text-4xl font-light mb-3",
+                      pkg.flagship && "text-white"
+                    )}>{pkg.name}</h2>
+                    <p className={cn(
+                      "text-sm italic mb-6",
+                      pkg.flagship ? "text-white/70" : "text-muted-foreground"
+                    )}>{pkg.tagline}</p>
+                    
+                    {pkg.limitedAvailability && (
+                      <div className="flex items-center gap-2 mb-4">
+                        <Sparkles size={14} className="text-primary" />
+                        <span className={cn(
+                          "text-[11px] uppercase tracking-[0.15em]",
+                          pkg.flagship ? "text-primary" : "text-primary"
+                        )}>{pkg.limitedAvailability}</span>
+                      </div>
+                    )}
                     
                     <p className="mb-8">
-                      {pkg.startingAt && <span className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground mr-2">Starting at</span>}
-                      <span className="font-serif text-3xl text-primary">{pkg.price}</span>
+                      {pkg.startingAt && (
+                        <span className={cn(
+                          "text-[11px] uppercase tracking-[0.15em] mr-2",
+                          pkg.flagship ? "text-white/60" : "text-muted-foreground"
+                        )}>Starting at</span>
+                      )}
+                      <span className={cn(
+                        "font-serif text-3xl",
+                        pkg.flagship ? "text-white" : "text-primary"
+                      )}>{pkg.price}</span>
                     </p>
 
                     <div className="space-y-3 mb-8">
-                      {pkg.features.map((feature, i) => (
-                        <p key={i} className="flex items-center gap-3 text-sm text-foreground/80">
+                      {pkg.features.slice(0, 5).map((feature, i) => (
+                        <p key={i} className={cn(
+                          "flex items-center gap-3 text-sm",
+                          pkg.flagship ? "text-white/80" : "text-foreground/80"
+                        )}>
                           <span className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>
                           {feature}
                         </p>
@@ -277,8 +349,13 @@ export default function Packages() {
 
                     <Button 
                       onClick={() => setSelectedPackage(pkg)}
-                      variant="outline"
-                      className="self-start rounded-none border-foreground/30 text-foreground hover:bg-foreground hover:text-white px-8 py-6 text-[11px] uppercase tracking-[0.2em] font-medium"
+                      variant={pkg.flagship ? "default" : "outline"}
+                      className={cn(
+                        "self-start rounded-none px-8 py-6 text-[11px] uppercase tracking-[0.2em] font-medium",
+                        pkg.flagship 
+                          ? "bg-white text-black hover:bg-white/90" 
+                          : "border-foreground/30 text-foreground hover:bg-foreground hover:text-white"
+                      )}
                     >
                       View Full Details <ArrowRight size={14} className="ml-2" />
                     </Button>
@@ -296,7 +373,7 @@ export default function Packages() {
               <div className="text-center mb-12">
                 <h2 className="font-serif text-2xl font-light">Additional Collections</h2>
               </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 {regularPackages.map((pkg, index) => (
                   <div 
                     key={index} 
@@ -344,6 +421,25 @@ export default function Packages() {
           </section>
         )}
 
+        {/* Add-Ons Section */}
+        <section className="py-20 bg-ivory">
+          <div className="container mx-auto px-8">
+            <div className="text-center mb-12">
+              <p className="text-[10px] uppercase tracking-[0.4em] text-primary mb-4">Enhance Your Experience</p>
+              <h2 className="font-serif text-3xl font-light">À La Carte</h2>
+            </div>
+            <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              {addOns.map((addon, index) => (
+                <div key={index} className="bg-white p-6 border border-border/30 text-center">
+                  <h3 className="font-serif text-lg mb-2">{addon.name}</h3>
+                  <p className="text-primary font-serif text-xl mb-2">{addon.price}</p>
+                  <p className="text-[11px] text-muted-foreground">{addon.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section className="py-20 bg-neutral-900 text-white text-center">
           <div className="container mx-auto px-8">
@@ -370,7 +466,10 @@ export default function Packages() {
 
       {/* Package Details Modal */}
       <Dialog open={!!selectedPackage} onOpenChange={() => setSelectedPackage(null)}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-0 rounded-none">
+        <DialogContent className={cn(
+          "max-w-4xl max-h-[90vh] overflow-y-auto p-0 rounded-none",
+          selectedPackage?.flagship && "border-primary/50"
+        )}>
           {selectedPackage && (
             <div className="grid md:grid-cols-2">
               {/* Left side - Image */}
@@ -380,23 +479,53 @@ export default function Packages() {
                   alt={selectedPackage.name}
                   className="w-full h-full object-cover min-h-[400px]"
                 />
+                {selectedPackage.flagship && (
+                  <div className="absolute top-4 left-4 bg-primary text-white px-3 py-1.5 flex items-center gap-2">
+                    <Crown size={12} />
+                    <span className="text-[9px] uppercase tracking-[0.15em]">Flagship</span>
+                  </div>
+                )}
               </div>
 
               {/* Right side - Details */}
-              <div className="p-10">
+              <div className={cn(
+                "p-10",
+                selectedPackage.flagship && "bg-neutral-900 text-white"
+              )}>
                 <DialogHeader className="mb-6 text-left">
                   <p className="text-[10px] uppercase tracking-[0.3em] text-primary mb-2">{selectedPackage.category}</p>
-                  <DialogTitle className="font-serif text-2xl font-light">{selectedPackage.name}</DialogTitle>
-                  <p className="font-serif text-2xl text-primary mt-2">{selectedPackage.price}</p>
+                  <DialogTitle className={cn(
+                    "font-serif text-2xl font-light",
+                    selectedPackage.flagship && "text-white"
+                  )}>{selectedPackage.name}</DialogTitle>
+                  <p className={cn(
+                    "font-serif text-2xl mt-2",
+                    selectedPackage.flagship ? "text-white" : "text-primary"
+                  )}>{selectedPackage.price}</p>
+                  {selectedPackage.limitedAvailability && (
+                    <p className="text-[10px] uppercase tracking-[0.15em] text-primary mt-2 flex items-center gap-2">
+                      <Sparkles size={12} />
+                      {selectedPackage.limitedAvailability}
+                    </p>
+                  )}
                 </DialogHeader>
 
-                <p className="text-muted-foreground text-sm mb-8">{selectedPackage.description}</p>
+                <p className={cn(
+                  "text-sm mb-8",
+                  selectedPackage.flagship ? "text-white/70" : "text-muted-foreground"
+                )}>{selectedPackage.description}</p>
 
                 <div className="mb-8">
-                  <h4 className="text-[10px] uppercase tracking-[0.2em] text-foreground mb-4">Coverage Includes</h4>
+                  <h4 className={cn(
+                    "text-[10px] uppercase tracking-[0.2em] mb-4",
+                    selectedPackage.flagship ? "text-white" : "text-foreground"
+                  )}>Coverage Includes</h4>
                   <div className="space-y-2">
                     {selectedPackage.features.map((feature, i) => (
-                      <p key={i} className="flex items-center gap-3 text-sm">
+                      <p key={i} className={cn(
+                        "flex items-center gap-3 text-sm",
+                        selectedPackage.flagship ? "text-white/80" : ""
+                      )}>
                         <span className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>
                         {feature}
                       </p>
@@ -405,11 +534,20 @@ export default function Packages() {
                 </div>
 
                 <div className="mb-8">
-                  <h4 className="text-[10px] uppercase tracking-[0.2em] text-foreground mb-4">Also Included</h4>
+                  <h4 className={cn(
+                    "text-[10px] uppercase tracking-[0.2em] mb-4",
+                    selectedPackage.flagship ? "text-white" : "text-foreground"
+                  )}>Also Included</h4>
                   <div className="space-y-2">
                     {selectedPackage.includes.map((item, i) => (
-                      <p key={i} className="flex items-center gap-3 text-sm text-muted-foreground">
-                        <span className="w-1.5 h-1.5 bg-border rounded-full flex-shrink-0"></span>
+                      <p key={i} className={cn(
+                        "flex items-center gap-3 text-sm",
+                        selectedPackage.flagship ? "text-white/60" : "text-muted-foreground"
+                      )}>
+                        <span className={cn(
+                          "w-1.5 h-1.5 rounded-full flex-shrink-0",
+                          selectedPackage.flagship ? "bg-white/30" : "bg-border"
+                        )}></span>
                         {item}
                       </p>
                     ))}
@@ -417,7 +555,12 @@ export default function Packages() {
                 </div>
 
                 <Link href="/pricing">
-                  <Button className="w-full rounded-none bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-[11px] uppercase tracking-[0.2em] font-medium">
+                  <Button className={cn(
+                    "w-full rounded-none py-6 text-[11px] uppercase tracking-[0.2em] font-medium",
+                    selectedPackage.flagship 
+                      ? "bg-white text-black hover:bg-white/90" 
+                      : "bg-primary hover:bg-primary/90 text-primary-foreground"
+                  )}>
                     Inquire About This Collection
                   </Button>
                 </Link>
