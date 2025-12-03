@@ -127,3 +127,44 @@ Preferred communication style: Simple, everyday language.
 - Images stored in `/attached_assets/generated_images/`
 - Vite alias `@assets` for importing static assets
 - Public assets served from `/client/public/`
+
+## Pricing Strategy
+
+**Current Package Pricing (Luxury Market Aligned)**
+
+Complete Experience Collections:
+- **The Bespoke Collection**: $14,495 (Flagship - 8 weddings/year)
+  - 12 hours coverage, 5 artists, rehearsal dinner, 16×16 leather album
+- **The Estate Collection**: $10,495 (15 weddings/year)
+  - 10 hours coverage, 4 artists, 14×14 leather album
+- **The Signature Collection**: $6,995 (25 weddings/year)
+  - 8 hours coverage, dual cinematography, 12×12 linen album
+- **The Editorial Suite**: $4,995
+  - 8 hours coverage, single cinematographer, 10×10 album
+
+Photography Only:
+- **Photography Premier**: $3,695 (with associate)
+- **The Atelier**: $2,895 (lead only)
+
+Cinematography Only:
+- **Cinematic Premier**: $3,995 (with associate)
+- **The Documentary**: $3,195 (lead only, includes highlight film)
+
+**Album Differentiation Strategy**
+- Bespoke: 16×16 leather-bound with archival box
+- Estate: 14×14 leather-bound
+- Signature: 12×12 linen-bound
+- Editorial/Premier: 10×10 signature album
+
+**Add-Ons**
+- Engagement Session: $895
+- Same-Day Edit: $1,495
+- Aerial Cinematography: $495
+- Next-Day Teaser: $395
+- Rehearsal Dinner: $1,295
+
+**Style Quiz Recommendations**
+- Connoisseur → Bespoke ($14,495)
+- Visionary → Estate ($10,495)
+- Romantic/Modernist → Signature ($6,995)
+- Storyteller → Editorial ($4,995)
