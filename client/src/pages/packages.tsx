@@ -50,16 +50,16 @@ const packages: Package[] = [
       "Lead Cinematographer • 12 Hours",
       "Second Cinematographer • 10 Hours",
       "Lighting Assistant",
-      "Rehearsal Dinner Coverage",
-      "Choose Your Lead Artists",
+      "Full Rehearsal Dinner Coverage",
+      "Curator-Matched Artist Team",
       "Unlimited Locations"
     ],
     includes: [
       "Complimentary Engagement Session",
       "Same-Day Edit (premiered at reception)",
-      "Feature Film (15-20 min)",
+      "Feature Film (15-20 min documentary)",
       "Highlight Film (3-5 min)",
-      "Full Wedding Film",
+      "Full Wedding Film (ceremony + reception)",
       "Leather-Bound Heirloom Album (16×16)",
       "Two Parent Replica Albums",
       "Fine Art Matted Prints in Archival Box",
@@ -85,14 +85,14 @@ const packages: Package[] = [
       "Associate Photographer • 10 Hours",
       "Lead Cinematographer • 10 Hours",
       "Second Cinematographer • 8 Hours",
-      "Choose Your Lead Artists",
+      "Curator-Matched Artist Team",
       "Unlimited Locations"
     ],
     includes: [
       "Complimentary Engagement Session",
       "Same-Day Edit (premiered at reception)",
       "Highlight Film (3-5 min)",
-      "Full Wedding Film",
+      "Full Wedding Film (ceremony + reception)",
       "Leather-Bound Heirloom Album (14×14)",
       "Two Parent Replica Albums",
       "Canvas Print Collection (3 Pieces)",
@@ -116,13 +116,13 @@ const packages: Package[] = [
       "Associate Photographer • 8 Hours",
       "Lead Cinematographer • 8 Hours",
       "Second Cinematographer • 6 Hours",
-      "Choose Your Lead Artist",
+      "Curator-Matched Artist Team",
       "Unlimited Locations"
     ],
     includes: [
       "Curated Digital Gallery",
       "Highlight Film (3-5 min)",
-      "Full Wedding Film",
+      "Full Wedding Film (ceremony + reception)",
       "Linen-Bound Fine Art Album (12×12)",
       "One Parent Replica Album",
       "Complimentary Canvas Print",
@@ -139,16 +139,17 @@ const packages: Package[] = [
     featured: true,
     tagline: "Photography & cinematography, beautifully balanced",
     description: "Comprehensive coverage of your celebration with our signature photography and cinematic storytelling, perfect for couples who desire both mediums.",
+    limitedAvailability: "Limited to 30 weddings per year",
     features: [
       "Lead Photographer • 8 Hours",
       "Associate Photographer • 6 Hours",
       "Lead Cinematographer • 8 Hours",
-      "Choose Your Lead Artist"
+      "Curator-Matched Artist Team"
     ],
     includes: [
       "Curated Digital Gallery",
       "Highlight Film (3-5 min)",
-      "Full Wedding Film",
+      "Full Wedding Film (ceremony + reception)",
       "Signature Album (10×10)",
       "Private Planning Portal",
       "Dedicated Concierge Team"
@@ -161,11 +162,11 @@ const packages: Package[] = [
     image: firstLookImg,
     featured: false,
     tagline: "Comprehensive photography coverage",
-    description: "Select your lead photographer and enjoy comprehensive coverage with a second artist to capture every angle of your celebration.",
+    description: "Comprehensive dual-photographer coverage with a curator-matched team to capture every angle of your celebration.",
     features: [
       "Lead Photographer • 8 Hours",
       "Associate Photographer • 6 Hours",
-      "Choose Your Lead Artist",
+      "Curator-Matched Artist Team",
       "Unlimited Locations"
     ],
     includes: [
@@ -183,10 +184,10 @@ const packages: Package[] = [
     image: groomImg,
     featured: false,
     tagline: "Timeless imagery, beautifully captured",
-    description: "Perfect for intimate celebrations, our lead photographer will artfully document your day with refined elegance.",
+    description: "Perfect for intimate celebrations, our curator-matched lead photographer will artfully document your day with refined elegance.",
     features: [
       "Lead Photographer • 8 Hours",
-      "Choose Your Lead Artist",
+      "Curator-Matched Artist",
       "Unlimited Locations"
     ],
     includes: [
@@ -202,16 +203,16 @@ const packages: Package[] = [
     image: danceImg,
     featured: false,
     tagline: "Editorial filmmaking at its finest",
-    description: "Comprehensive cinematic coverage with both lead and associate cinematographers for a truly immersive wedding film.",
+    description: "Comprehensive cinematic coverage with a curator-matched team of two cinematographers for a truly immersive wedding film.",
     features: [
       "Lead Cinematographer • 8 Hours",
       "Associate Cinematographer • 6 Hours",
-      "Highlight Film (3-5 min)",
-      "Full Wedding Film"
+      "Curator-Matched Artist Team"
     ],
     includes: [
-      "Social Teaser (60 sec)",
-      "Next-Day Edit",
+      "Highlight Film (3-5 min)",
+      "Full Wedding Film (ceremony + reception)",
+      "Social Teaser (60 sec, next-day delivery)",
       "Private Planning Portal",
       "Dedicated Concierge Team"
     ]
@@ -223,14 +224,15 @@ const packages: Package[] = [
     image: firstLookImg,
     featured: false,
     tagline: "Your story, cinematically told",
-    description: "Professional cinematic documentation with our lead cinematographer capturing your celebration with artistry and intention.",
+    description: "Professional cinematic documentation with our curator-matched lead cinematographer capturing your celebration with artistry and intention.",
     features: [
       "Lead Cinematographer • 8 Hours",
-      "Highlight Film (3-5 min)",
+      "Curator-Matched Artist",
       "Unlimited Locations"
     ],
     includes: [
-      "Full Wedding Film",
+      "Highlight Film (3-5 min)",
+      "Full Wedding Film (ceremony + reception)",
       "Private Planning Portal",
       "Dedicated Concierge Team"
     ]
@@ -239,12 +241,12 @@ const packages: Package[] = [
 
 const addOns = [
   { name: "Engagement Session", price: "$895", description: "90-minute portrait session at your chosen location", includedIn: "Included in Bespoke & Estate" },
-  { name: "Second Photographer", price: "$595/6hrs", description: "Additional photographer for expanded coverage", includedIn: null },
-  { name: "Second Cinematographer", price: "$995/6hrs", description: "Additional cinematographer for multi-angle filming", includedIn: "Included in Bespoke, Estate & Signature" },
-  { name: "Same-Day Edit", price: "$1,495", description: "3-5 minute highlight film premiered at your reception", includedIn: "Included in Bespoke & Estate" },
-  { name: "Next-Day Edit", price: "$395", description: "60-second social teaser delivered next day", includedIn: null },
+  { name: "Second Photographer", price: "$595", description: "Additional photographer for 6 hours of coverage", includedIn: null },
+  { name: "Second Cinematographer", price: "$995", description: "Additional cinematographer for 6 hours of coverage", includedIn: "Included in Bespoke, Estate & Signature" },
+  { name: "Same-Day Edit", price: "$1,495", description: "3-5 min highlight film premiered at your reception", includedIn: "Included in Bespoke & Estate" },
+  { name: "Social Teaser", price: "$395", description: "60-second edit delivered next day", includedIn: "Included in Cinematic Premier" },
   { name: "Aerial Cinematography", price: "$495", description: "Drone coverage of venue & ceremony", includedIn: null },
-  { name: "Rehearsal Dinner", price: "$1,295", description: "2-hour photo & video coverage of your rehearsal", includedIn: "Included in Bespoke" },
+  { name: "Rehearsal Dinner", price: "$1,295", description: "Full evening photo & video coverage", includedIn: "Included in Bespoke (full coverage)" },
   { name: "Heirloom Album Upgrade", price: "$495", description: "Upgrade to leather-bound presentation box", includedIn: null },
   { name: "Parent Album Set", price: "$695", description: "Two 8×8 replica albums for parents", includedIn: "Included in Bespoke, Estate & Signature" },
   { name: "Rush Delivery", price: "$695", description: "Priority 2-week turnaround", includedIn: "Included in Bespoke" },
