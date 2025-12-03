@@ -56,9 +56,10 @@ const packages: Package[] = [
     ],
     includes: [
       "Complimentary Engagement Session",
-      "Same-Day Highlight Edit",
-      "Cinematic Feature Film (15-20 min)",
-      "Cinematic Trailer + Full Film",
+      "Same-Day Edit (premiered at reception)",
+      "Feature Film (15-20 min)",
+      "Highlight Film (3-5 min)",
+      "Full Wedding Film",
       "Leather-Bound Heirloom Album (16×16)",
       "Two Parent Replica Albums",
       "Fine Art Matted Prints in Archival Box",
@@ -89,8 +90,9 @@ const packages: Package[] = [
     ],
     includes: [
       "Complimentary Engagement Session",
-      "Same-Day Highlight Edit",
-      "Cinematic Trailer + Full Film",
+      "Same-Day Edit (premiered at reception)",
+      "Highlight Film (3-5 min)",
+      "Full Wedding Film",
       "Leather-Bound Heirloom Album (14×14)",
       "Two Parent Replica Albums",
       "Canvas Print Collection (3 Pieces)",
@@ -119,12 +121,12 @@ const packages: Package[] = [
     ],
     includes: [
       "Curated Digital Gallery",
-      "Cinematic Highlight Film",
-      "Full Ceremony & Reception Film",
+      "Highlight Film (3-5 min)",
+      "Full Wedding Film",
       "Linen-Bound Fine Art Album (12×12)",
       "One Parent Replica Album",
       "Complimentary Canvas Print",
-      "Private Online Planning Portal",
+      "Private Planning Portal",
       "Dedicated Concierge Team"
     ]
   },
@@ -145,10 +147,10 @@ const packages: Package[] = [
     ],
     includes: [
       "Curated Digital Gallery",
-      "Cinematic Highlight Film",
-      "Full Ceremony & Reception Film",
+      "Highlight Film (3-5 min)",
+      "Full Wedding Film",
       "Signature Album (10×10)",
-      "Private Online Planning Portal",
+      "Private Planning Portal",
       "Dedicated Concierge Team"
     ]
   },
@@ -170,7 +172,7 @@ const packages: Package[] = [
       "Curated Digital Gallery",
       "Engagement Mini-Session (60 min)",
       "Signature Album (10×10)",
-      "Private Online Planning Portal",
+      "Private Planning Portal",
       "Dedicated Concierge Team"
     ]
   },
@@ -189,7 +191,7 @@ const packages: Package[] = [
     ],
     includes: [
       "Curated Digital Gallery",
-      "Private Online Planning Portal",
+      "Private Planning Portal",
       "Dedicated Concierge Team"
     ]
   },
@@ -204,13 +206,13 @@ const packages: Package[] = [
     features: [
       "Lead Cinematographer • 8 Hours",
       "Associate Cinematographer • 6 Hours",
-      "Cinematic Highlight Reel",
-      "Full Ceremony & Reception Film"
+      "Highlight Film (3-5 min)",
+      "Full Wedding Film"
     ],
     includes: [
-      "60-Second Social Edit",
-      "Next-Day Teaser",
-      "Private Online Planning Portal",
+      "Social Teaser (60 sec)",
+      "Next-Day Edit",
+      "Private Planning Portal",
       "Dedicated Concierge Team"
     ]
   },
@@ -228,24 +230,24 @@ const packages: Package[] = [
       "Unlimited Locations"
     ],
     includes: [
-      "Full Ceremony & Reception Film",
-      "Private Online Planning Portal",
+      "Full Wedding Film",
+      "Private Planning Portal",
       "Dedicated Concierge Team"
     ]
   }
 ];
 
 const addOns = [
-  { name: "Engagement Session", price: "$895", description: "90-minute portrait session at your chosen location" },
-  { name: "Second Photographer", price: "$595", description: "Additional full-day coverage" },
-  { name: "Second Cinematographer", price: "$995", description: "Enhanced multi-angle film coverage" },
-  { name: "Same-Day Edit", price: "$1,495", description: "Highlight reel premiered at your reception" },
-  { name: "Next-Day Teaser", price: "$395", description: "60-second social edit delivered next day" },
-  { name: "Aerial Cinematography", price: "$495", description: "Drone footage of venue & ceremony" },
-  { name: "Rehearsal Dinner", price: "$1,295", description: "2-hour coverage of your rehearsal" },
-  { name: "Heirloom Album Upgrade", price: "$495", description: "Upgrade to leather-bound presentation" },
-  { name: "Parent Album Set", price: "$695", description: "Two replica albums for parents" },
-  { name: "Rush Delivery", price: "$695", description: "Priority 2-week editing" },
+  { name: "Engagement Session", price: "$895", description: "90-minute portrait session at your chosen location", includedIn: "Included in Bespoke & Estate" },
+  { name: "Second Photographer", price: "$595/6hrs", description: "Additional photographer for expanded coverage", includedIn: null },
+  { name: "Second Cinematographer", price: "$995/6hrs", description: "Additional cinematographer for multi-angle filming", includedIn: "Included in Bespoke, Estate & Signature" },
+  { name: "Same-Day Edit", price: "$1,495", description: "3-5 minute highlight film premiered at your reception", includedIn: "Included in Bespoke & Estate" },
+  { name: "Next-Day Edit", price: "$395", description: "60-second social teaser delivered next day", includedIn: null },
+  { name: "Aerial Cinematography", price: "$495", description: "Drone coverage of venue & ceremony", includedIn: null },
+  { name: "Rehearsal Dinner", price: "$1,295", description: "2-hour photo & video coverage of your rehearsal", includedIn: "Included in Bespoke" },
+  { name: "Heirloom Album Upgrade", price: "$495", description: "Upgrade to leather-bound presentation box", includedIn: null },
+  { name: "Parent Album Set", price: "$695", description: "Two 8×8 replica albums for parents", includedIn: "Included in Bespoke, Estate & Signature" },
+  { name: "Rush Delivery", price: "$695", description: "Priority 2-week turnaround", includedIn: "Included in Bespoke" },
 ];
 
 export default function Packages() {
@@ -471,10 +473,13 @@ export default function Packages() {
             </div>
             <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {addOns.map((addon, index) => (
-                <div key={index} className="bg-white p-6 border border-border/30 text-center">
+                <div key={index} className="bg-white p-6 border border-border/30 text-center relative">
                   <h3 className="font-serif text-lg mb-2">{addon.name}</h3>
                   <p className="text-primary font-serif text-xl mb-2">{addon.price}</p>
-                  <p className="text-[11px] text-muted-foreground">{addon.description}</p>
+                  <p className="text-[11px] text-muted-foreground mb-2">{addon.description}</p>
+                  {addon.includedIn && (
+                    <p className="text-[10px] text-primary/70 italic">{addon.includedIn}</p>
+                  )}
                 </div>
               ))}
             </div>
