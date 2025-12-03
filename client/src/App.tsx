@@ -11,6 +11,7 @@ import Pricing from "@/pages/pricing";
 import Packages from "@/pages/packages";
 import Portfolio from "@/pages/portfolio";
 import Reviews from "@/pages/reviews";
+import StyleQuiz from "@/pages/style-quiz";
 
 function Router() {
   return (
@@ -22,6 +23,7 @@ function Router() {
       <Route path="/packages" component={Packages} />
       <Route path="/portfolio" component={Portfolio} />
       <Route path="/reviews" component={Reviews} />
+      <Route path="/style-quiz" component={StyleQuiz} />
       <Route component={NotFound} />
     </Switch>
   );
