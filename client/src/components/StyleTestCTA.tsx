@@ -37,14 +37,15 @@ export function StyleTestCTA() {
               ))}
             </ol>
 
-            <Link href="/style-quiz">
-              <Button 
-                size="lg" 
-                className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-7 text-[11px] uppercase tracking-[0.2em] font-medium"
-              >
+            <Button 
+              asChild
+              size="lg" 
+              className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-7 text-[11px] uppercase tracking-[0.2em] font-medium"
+            >
+              <Link href="/style-quiz">
                 Discover Your Signature Style
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
 
           {/* Image */}

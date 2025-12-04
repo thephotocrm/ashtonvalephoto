@@ -24,14 +24,15 @@ export function FinalCTA() {
           Let us craft a timeless collection of moments 
           that will be treasured for generations.
         </p>
-        <Link href="/pricing">
-          <Button 
-            size="lg"
-            className="rounded-none bg-white text-black hover:bg-white/90 px-12 py-7 text-[11px] uppercase tracking-[0.2em] font-medium transition-all duration-300"
-          >
+        <Button 
+          asChild
+          size="lg"
+          className="rounded-none bg-white text-black hover:bg-white/90 px-12 py-7 text-[11px] uppercase tracking-[0.2em] font-medium transition-all duration-300"
+        >
+          <Link href="/pricing">
             Request a Private Consultation
-          </Button>
-        </Link>
+          </Link>
+        </Button>
       </div>
     </section>
   );

@@ -31,11 +31,11 @@ export function PromoBanner() {
                 Free canvas print & $100 credit
               </li>
             </ul>
-            <Link href="/pricing">
-              <Button size="lg" className="rounded-none uppercase tracking-widest font-bold px-8">
+            <Button asChild size="lg" className="rounded-none uppercase tracking-widest font-bold px-8">
+              <Link href="/pricing">
                 Learn More
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
           
           <div className="relative hidden md:block">

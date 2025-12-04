@@ -58,14 +58,15 @@ export function WhyAshtonVale() {
 
         {/* CTA */}
         <div className="text-center">
-          <Link href="/pricing">
-            <Button 
-              size="lg"
-              className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-7 text-[11px] uppercase tracking-[0.2em] font-medium"
-            >
+          <Button 
+            asChild
+            size="lg"
+            className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-7 text-[11px] uppercase tracking-[0.2em] font-medium"
+          >
+            <Link href="/pricing">
               Request a Consultation
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

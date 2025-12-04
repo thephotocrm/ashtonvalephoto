@@ -102,14 +102,15 @@ export default function Portfolio() {
                   Our cinematic wedding films capture the emotion and artistry of your celebration. 
                   Request access to view our complete film portfolio.
                 </p>
-                <Link href="/pricing">
-                  <Button 
-                    size="lg"
-                    className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-6 text-[11px] uppercase tracking-[0.2em] font-medium"
-                  >
+                <Button 
+                  asChild
+                  size="lg"
+                  className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-6 text-[11px] uppercase tracking-[0.2em] font-medium"
+                >
+                  <Link href="/pricing">
                     Request Film Portfolio
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </div>
             ) : (
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -145,14 +146,15 @@ export default function Portfolio() {
             <p className="text-muted-foreground max-w-lg mx-auto mb-10">
               Every love story deserves to be told with artistry and intention.
             </p>
-            <Link href="/pricing">
-              <Button 
-                size="lg"
-                className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-7 text-[11px] uppercase tracking-[0.2em] font-medium"
-              >
+            <Button 
+              asChild
+              size="lg"
+              className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-7 text-[11px] uppercase tracking-[0.2em] font-medium"
+            >
+              <Link href="/pricing">
                 Request a Consultation
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </section>
 

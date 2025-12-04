@@ -48,15 +48,16 @@ export function ReviewsCarousel() {
               Each testimonial represents a story we were honored to capture. 
               Discover why discerning couples choose Ashton Vale for their most cherished moments.
             </p>
-            <Link href="/reviews">
-              <Button 
-                variant="outline" 
-                size="lg" 
-                className="rounded-none text-[11px] uppercase tracking-[0.2em] font-medium border-primary/50 text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary px-8 md:px-10 py-6"
-              >
+            <Button 
+              asChild
+              variant="outline" 
+              size="lg" 
+              className="rounded-none text-[11px] uppercase tracking-[0.2em] font-medium border-primary/50 text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary px-8 md:px-10 py-6"
+            >
+              <Link href="/reviews">
                 Read All Testimonials
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
 
           {/* Carousel */}

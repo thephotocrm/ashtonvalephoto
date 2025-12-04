@@ -757,14 +757,15 @@ export default function StyleQuiz() {
                     Based on your aesthetic preferences, this collection offers the perfect 
                     blend of coverage and artistry to bring your vision to life.
                   </p>
-                  <Link href="/packages">
-                    <Button 
-                      className="w-full rounded-none bg-white text-black hover:bg-white/90 py-6 text-[11px] uppercase tracking-[0.2em] font-medium"
-                      data-testid="button-view-collection"
-                    >
+                  <Button 
+                    asChild
+                    className="w-full rounded-none bg-white text-black hover:bg-white/90 py-6 text-[11px] uppercase tracking-[0.2em] font-medium"
+                    data-testid="button-view-collection"
+                  >
+                    <Link href="/packages">
                       View Collection Details
-                    </Button>
-                  </Link>
+                    </Link>
+                  </Button>
                 </div>
               </div>
 
@@ -789,15 +790,16 @@ export default function StyleQuiz() {
                   Schedule a complimentary consultation to discuss your vision and explore 
                   how we can bring your {result.title.toLowerCase()} aesthetic to life.
                 </p>
-                <Link href="/pricing">
-                  <Button 
-                    variant="outline"
-                    className="rounded-none border-foreground/30 px-10 py-6 text-[11px] uppercase tracking-[0.2em] font-medium"
-                    data-testid="button-request-consultation"
-                  >
+                <Button 
+                  asChild
+                  variant="outline"
+                  className="rounded-none border-foreground/30 px-10 py-6 text-[11px] uppercase tracking-[0.2em] font-medium"
+                  data-testid="button-request-consultation"
+                >
+                  <Link href="/pricing">
                     Request a Private Consultation
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </div>
             </div>
           </section>

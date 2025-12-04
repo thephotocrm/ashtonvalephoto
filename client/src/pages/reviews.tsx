@@ -150,14 +150,15 @@ export default function Reviews() {
                     <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Years</p>
                   </div>
                 </div>
-                <Link href="/pricing">
-                  <Button 
-                    size="lg"
-                    className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-6 text-[11px] uppercase tracking-[0.2em] font-medium"
-                  >
+                <Button 
+                  asChild
+                  size="lg"
+                  className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-6 text-[11px] uppercase tracking-[0.2em] font-medium"
+                >
+                  <Link href="/pricing">
                     Begin Your Story
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>

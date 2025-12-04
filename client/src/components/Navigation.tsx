@@ -86,19 +86,20 @@ export function Navigation() {
               {link.label}
             </Link>
           ))}
-          <Link href="/pricing">
-            <Button 
-              variant="outline"
-              className={cn(
-                "rounded-none text-[10px] uppercase tracking-[0.2em] font-medium px-6 py-5 transition-all duration-300 border",
-                showTransparent 
-                  ? "bg-transparent border-white/40 text-white hover:bg-white hover:text-black" 
-                  : "bg-transparent border-white/30 text-white hover:bg-white hover:text-black"
-              )}
-            >
+          <Button 
+            asChild
+            variant="outline"
+            className={cn(
+              "rounded-none text-[10px] uppercase tracking-[0.2em] font-medium px-6 py-5 transition-all duration-300 border",
+              showTransparent 
+                ? "bg-transparent border-white/40 text-white hover:bg-white hover:text-black" 
+                : "bg-transparent border-white/30 text-white hover:bg-white hover:text-black"
+            )}
+          >
+            <Link href="/pricing">
               Reserve Your Date
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -140,14 +141,15 @@ export function Navigation() {
               </Link>
             ))}
             <div className="pt-8 border-t border-white/20 mt-8">
-              <Link href="/pricing" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button 
-                  variant="outline"
-                  className="rounded-none text-[11px] uppercase tracking-[0.2em] font-medium px-10 py-6 bg-transparent border-white/40 text-white hover:bg-white hover:text-black"
-                >
+              <Button 
+                asChild
+                variant="outline"
+                className="rounded-none text-[11px] uppercase tracking-[0.2em] font-medium px-10 py-6 bg-transparent border-white/40 text-white hover:bg-white hover:text-black"
+              >
+                <Link href="/pricing" onClick={() => setIsMobileMenuOpen(false)}>
                   Reserve Your Date
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </div>

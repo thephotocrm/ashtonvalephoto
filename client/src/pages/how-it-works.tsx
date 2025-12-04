@@ -82,14 +82,15 @@ export default function HowItWorks() {
             </div>
             
             <div className="text-center mt-16">
-              <Link href="/pricing">
-                <Button 
-                  size="lg"
-                  className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-7 text-[11px] uppercase tracking-[0.2em] font-medium"
-                >
+              <Button 
+                asChild
+                size="lg"
+                className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-7 text-[11px] uppercase tracking-[0.2em] font-medium"
+              >
+                <Link href="/pricing">
                   Begin Your Journey
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </div>
         </section>
@@ -128,15 +129,16 @@ export default function HowItWorks() {
                     a partner who understands that trust, taste, and attention to detail matter.
                   </p>
                 </div>
-                <Link href="/pricing">
-                  <Button 
-                    variant="outline"
-                    size="lg"
-                    className="rounded-none border-foreground/30 text-foreground hover:bg-foreground hover:text-white px-10 py-6 text-[11px] uppercase tracking-[0.2em] font-medium"
-                  >
+                <Button 
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="rounded-none border-foreground/30 text-foreground hover:bg-foreground hover:text-white px-10 py-6 text-[11px] uppercase tracking-[0.2em] font-medium"
+                >
+                  <Link href="/pricing">
                     Request a Consultation
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>

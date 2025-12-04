@@ -500,14 +500,15 @@ export default function Packages() {
               Each celebration is unique. Contact us to discuss how we can tailor 
               a collection specifically for your day.
             </p>
-            <Link href="/pricing">
-              <Button 
-                size="lg"
-                className="rounded-none bg-white text-black hover:bg-white/90 px-12 py-7 text-[11px] uppercase tracking-[0.2em] font-medium"
-              >
+            <Button 
+              asChild
+              size="lg"
+              className="rounded-none bg-white text-black hover:bg-white/90 px-12 py-7 text-[11px] uppercase tracking-[0.2em] font-medium"
+            >
+              <Link href="/pricing">
                 Request a Consultation
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </section>
       </main>
@@ -603,16 +604,19 @@ export default function Packages() {
                   </div>
                 </div>
 
-                <Link href="/pricing">
-                  <Button className={cn(
+                <Button 
+                  asChild
+                  className={cn(
                     "w-full rounded-none py-6 text-[11px] uppercase tracking-[0.2em] font-medium",
                     selectedPackage.flagship 
                       ? "bg-white text-black hover:bg-white/90" 
                       : "bg-primary hover:bg-primary/90 text-primary-foreground"
-                  )}>
+                  )}
+                >
+                  <Link href="/pricing">
                     Inquire About This Collection
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </div>
             </div>
           )}

@@ -38,23 +38,25 @@ export function Hero() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 animate-fade-up opacity-0 stagger-4">
-          <Link href="/pricing">
-            <Button 
-              size="lg"
-              className="rounded-none bg-white text-black hover:bg-white/90 px-10 py-7 text-[11px] uppercase tracking-[0.2em] font-medium transition-all duration-300 hover:shadow-luxury"
-            >
+          <Button 
+            asChild
+            size="lg"
+            className="rounded-none bg-white text-black hover:bg-white/90 px-10 py-7 text-[11px] uppercase tracking-[0.2em] font-medium transition-all duration-300 hover:shadow-luxury"
+          >
+            <Link href="/pricing">
               Reserve Your Date
-            </Button>
-          </Link>
-          <Link href="/portfolio">
-            <Button 
-              variant="outline"
-              size="lg"
-              className="rounded-none bg-transparent border-white/40 text-white hover:bg-white/10 px-10 py-7 text-[11px] uppercase tracking-[0.2em] font-medium transition-all duration-300"
-            >
+            </Link>
+          </Button>
+          <Button 
+            asChild
+            variant="outline"
+            size="lg"
+            className="rounded-none bg-transparent border-white/40 text-white hover:bg-white/10 px-10 py-7 text-[11px] uppercase tracking-[0.2em] font-medium transition-all duration-300"
+          >
+            <Link href="/portfolio">
               View Portfolio
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
 
         {/* Scroll Indicator */}
