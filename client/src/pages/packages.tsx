@@ -290,15 +290,15 @@ export default function Packages() {
         </section>
 
         {/* Tabs */}
-        <section className="py-6 bg-white border-b border-border/50">
-          <div className="container mx-auto px-8">
-            <div className="flex justify-center gap-10">
+        <section className="py-6 bg-white border-b border-border/50 overflow-hidden">
+          <div className="container mx-auto px-4 md:px-8">
+            <div className="flex justify-start md:justify-center gap-4 md:gap-10 overflow-x-auto scrollbar-hide pb-2 -mb-2">
               {tabs.map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
                   className={cn(
-                    "text-[11px] uppercase tracking-[0.2em] font-medium transition-all pb-2 border-b-2",
+                    "text-[10px] md:text-[11px] uppercase tracking-[0.15em] md:tracking-[0.2em] font-medium transition-all pb-2 border-b-2 whitespace-nowrap flex-shrink-0",
                     activeTab === tab 
                       ? "text-foreground border-primary" 
                       : "text-muted-foreground border-transparent hover:text-foreground"

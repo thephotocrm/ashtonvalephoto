@@ -190,6 +190,15 @@
 .stagger-3 { animation-delay: 0.3s; }
 .stagger-4 { animation-delay: 0.4s; }
 
+/* Hide scrollbar but allow scrolling */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* Luxury shadow */
 .shadow-luxury {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08), 
