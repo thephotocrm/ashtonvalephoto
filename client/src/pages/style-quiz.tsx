@@ -22,12 +22,13 @@ import engagementImg from "@assets/generated_images/engagement_couple_laughing.p
 import receptionImg from "@assets/generated_images/reception_dance_party.png";
 import ringsImg from "@assets/generated_images/wedding_rings_on_roses.png";
 import cakeImg from "@assets/generated_images/elegant_wedding_cake.png";
+import historicVenueImg from "@assets/generated_images/historic_grand_ballroom_venue.png";
+import artisticVenueImg from "@assets/generated_images/modern_artistic_venue_space.png";
+import editorialVenueImg from "@assets/generated_images/editorial_luxury_hotel_venue.png";
+import gardenVenueImg from "@assets/generated_images/romantic_garden_wedding_venue.png";
+import warmGoldenImg from "@assets/generated_images/warm_golden_sunset_tones.png";
+import softNaturalImg from "@assets/generated_images/soft_natural_light_aesthetic.png";
 import curatorImg from "@assets/generated_images/female_photographer_portrait_1.png";
-import videographerImg from "@assets/generated_images/female_videographer_portrait.png";
-import malePhotographerImg from "@assets/generated_images/male_photographer_portrait_1.png";
-import extraImg1 from "@assets/image_1764489208453.png";
-import extraImg2 from "@assets/image_1764489233672.png";
-import extraImg3 from "@assets/image_1764489950513.png";
 
 type StyleProfile = "connoisseur" | "visionary" | "romantic" | "modernist" | "storyteller";
 
@@ -69,20 +70,20 @@ const quizSteps: QuizStep[] = [
     title: "Tonal Palette",
     subtitle: "Which visual tone resonates with you?",
     choices: [
-      { id: "t1", image: danceImg, label: "Warm & Golden", style: "romantic" },
+      { id: "t1", image: warmGoldenImg, label: "Warm & Golden", style: "romantic" },
       { id: "t2", image: receptionImg, label: "Rich & Vibrant", style: "visionary" },
-      { id: "t3", image: extraImg1, label: "Classic & Timeless", style: "connoisseur" },
-      { id: "t4", image: extraImg2, label: "Soft & Natural", style: "modernist" },
+      { id: "t3", image: brideImg, label: "Classic & Timeless", style: "connoisseur" },
+      { id: "t4", image: softNaturalImg, label: "Soft & Natural", style: "modernist" },
     ]
   },
   {
     title: "Your Canvas",
     subtitle: "Which setting captures your imagination?",
     choices: [
-      { id: "v1", image: extraImg3, label: "Historic Grandeur", style: "connoisseur" },
-      { id: "v2", image: videographerImg, label: "Artistic Vision", style: "storyteller" },
-      { id: "v3", image: malePhotographerImg, label: "Editorial Excellence", style: "visionary" },
-      { id: "v4", image: curatorImg, label: "Creative Direction", style: "romantic" },
+      { id: "v1", image: historicVenueImg, label: "Historic Grandeur", style: "connoisseur" },
+      { id: "v2", image: artisticVenueImg, label: "Artistic Vision", style: "storyteller" },
+      { id: "v3", image: editorialVenueImg, label: "Editorial Excellence", style: "visionary" },
+      { id: "v4", image: gardenVenueImg, label: "Creative Direction", style: "romantic" },
     ]
   },
 ];
