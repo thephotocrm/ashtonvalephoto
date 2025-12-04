@@ -34,16 +34,16 @@ const reviews = [
 
 export function ReviewsCarousel() {
   return (
-    <section className="py-28 bg-ivory">
-      <div className="container mx-auto px-8">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+    <section className="py-16 md:py-28 bg-ivory overflow-hidden">
+      <div className="container mx-auto px-4 md:px-8">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
           {/* Left Content */}
-          <div>
+          <div className="text-center md:text-left">
             <p className="text-[10px] uppercase tracking-[0.4em] text-primary mb-4">Testimonials</p>
-            <h2 className="text-3xl md:text-4xl font-serif font-light mb-6">
+            <h2 className="text-2xl md:text-4xl font-serif font-light mb-6">
               Words from Our Couples
             </h2>
-            <div className="divider-gold w-24 mb-8"></div>
+            <div className="divider-gold w-24 mb-8 mx-auto md:mx-0"></div>
             <p className="text-muted-foreground mb-8 leading-relaxed">
               Each testimonial represents a story we were honored to capture. 
               Discover why discerning couples choose Ashton Vale for their most cherished moments.
@@ -52,7 +52,7 @@ export function ReviewsCarousel() {
               <Button 
                 variant="outline" 
                 size="lg" 
-                className="rounded-none text-[11px] uppercase tracking-[0.2em] font-medium border-primary/50 text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary px-10 py-6"
+                className="rounded-none text-[11px] uppercase tracking-[0.2em] font-medium border-primary/50 text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary px-8 md:px-10 py-6"
               >
                 Read All Testimonials
               </Button>
@@ -60,24 +60,24 @@ export function ReviewsCarousel() {
           </div>
 
           {/* Carousel */}
-          <div>
+          <div className="w-full overflow-hidden">
             <Carousel
               opts={{
                 loop: true,
               }}
-              className="w-full"
+              className="w-full max-w-full"
             >
-              <CarouselContent>
+              <CarouselContent className="-ml-2 md:-ml-4">
                 {reviews.map((review, index) => (
-                  <CarouselItem key={index}>
-                    <div className="bg-white p-10 shadow-luxury">
-                      <Quote size={32} className="text-primary/20 mb-6" strokeWidth={1} />
-                      <p className="text-foreground/80 leading-relaxed italic text-lg mb-8">
+                  <CarouselItem key={index} className="pl-2 md:pl-4">
+                    <div className="bg-white p-6 md:p-10 shadow-luxury">
+                      <Quote size={28} className="text-primary/20 mb-4 md:mb-6" strokeWidth={1} />
+                      <p className="text-foreground/80 leading-relaxed italic text-base md:text-lg mb-6 md:mb-8">
                         "{review.quote}"
                       </p>
-                      <div className="border-t border-border pt-6">
-                        <h3 className="font-serif text-lg mb-1">{review.couple}</h3>
-                        <p className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                      <div className="border-t border-border pt-4 md:pt-6">
+                        <h3 className="font-serif text-base md:text-lg mb-1">{review.couple}</h3>
+                        <p className="text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
                           {review.location}
                         </p>
                       </div>
@@ -85,7 +85,7 @@ export function ReviewsCarousel() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <div className="flex gap-2 mt-8 justify-center">
+              <div className="flex gap-2 mt-6 md:mt-8 justify-center">
                 <CarouselPrevious className="static translate-y-0 bg-white border-border/50 hover:bg-primary hover:text-white hover:border-primary w-10 h-10" />
                 <CarouselNext className="static translate-y-0 bg-white border-border/50 hover:bg-primary hover:text-white hover:border-primary w-10 h-10" />
               </div>
