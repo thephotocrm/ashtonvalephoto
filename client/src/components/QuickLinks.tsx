@@ -17,7 +17,7 @@ const quickLinks = [
     subtitle: "Your Signature Style",
     description: "Find the aesthetic that speaks to you",
     image: brideImg,
-    href: "/pricing"
+    href: "/style-quiz"
   },
   {
     title: "Explore",
