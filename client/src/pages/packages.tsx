@@ -36,36 +36,36 @@ const packages: Package[] = [
   {
     name: "The Bespoke Collection",
     category: "Complete Experience",
-    price: "$14,495",
+    price: "$15,995",
     startingAt: true,
     image: heroImg,
     featured: true,
     flagship: true,
-    tagline: "The pinnacle of wedding documentation",
+    tagline: "The pinnacle of wedding weekend artistry",
     description: "Our most prestigious offering for the most discerning couples. The Bespoke Collection encompasses your entire wedding weekend with unparalleled artistry, a dedicated team of five artists, and exclusive deliverables reserved only for this collection.",
-    limitedAvailability: "Limited to 8 weddings per year",
+    limitedAvailability: "Limited to 6 weddings per year",
     features: [
       "Lead Photographer • 12 Hours",
       "Associate Photographer • 12 Hours",
       "Lead Cinematographer • 12 Hours",
       "Second Cinematographer • 10 Hours",
       "Lighting Assistant",
-      "Full Rehearsal Dinner Coverage",
+      "Rehearsal Dinner Coverage (3 Hours, Full Team)",
       "Curator-Matched Artist Team",
       "Unlimited Locations"
     ],
     includes: [
       "Complimentary Engagement Session",
-      "Same-Day Edit (premiered at reception)",
-      "Feature Film (15-20 min documentary)",
+      "Same-Day Edit (3-5 min)",
+      "Feature Film (15-20 min)",
       "Highlight Film (3-5 min)",
-      "Full Wedding Film (ceremony + reception)",
+      "Full Documentary Film (entire day)",
       "Leather-Bound Heirloom Album (16×16)",
       "Two Parent Replica Albums",
-      "Fine Art Matted Prints in Archival Box",
+      "Fine Art Matted Print Box",
       "Canvas Print Collection (5 Pieces)",
       "Priority 2-Week Editing",
-      "Private Film Premiere Screening",
+      "Private Film Premiere",
       "Private Planning Portal",
       "Dedicated Concierge Team"
     ]
@@ -73,13 +73,13 @@ const packages: Package[] = [
   {
     name: "The Estate Collection",
     category: "Complete Experience",
-    price: "$10,495",
+    price: "$11,495",
     startingAt: true,
     image: brideImg,
     featured: true,
-    tagline: "For couples who desire nothing less than extraordinary",
+    tagline: "For couples who desire an extraordinary, elevated experience",
     description: "Our signature luxury offering, The Estate Collection delivers an unparalleled documentation experience with extended coverage, a dedicated team of four artists, and our signature same-day edit premiered at your reception.",
-    limitedAvailability: "Limited to 15 weddings per year",
+    limitedAvailability: "Limited to 12 weddings per year",
     features: [
       "Lead Photographer • 10 Hours",
       "Associate Photographer • 10 Hours",
@@ -90,9 +90,9 @@ const packages: Package[] = [
     ],
     includes: [
       "Complimentary Engagement Session",
-      "Same-Day Edit (premiered at reception)",
+      "Same-Day Edit (3-5 min)",
       "Highlight Film (3-5 min)",
-      "Full Wedding Film (ceremony + reception)",
+      "Full Documentary Film (ceremony + reception + toasts)",
       "Leather-Bound Heirloom Album (14×14)",
       "Two Parent Replica Albums",
       "Canvas Print Collection (3 Pieces)",
@@ -104,28 +104,28 @@ const packages: Package[] = [
   {
     name: "The Signature Collection",
     category: "Complete Experience",
-    price: "$6,995",
+    price: "$7,495",
     startingAt: true,
     image: engagementImg,
     featured: true,
-    tagline: "Our most beloved comprehensive experience",
-    description: "The ultimate celebration documentation featuring our lead photographer, associate, and full cinematography team working in harmony to capture every precious moment of your day.",
-    limitedAvailability: "Limited to 25 weddings per year",
+    tagline: "Our most beloved full-day photo + cinema experience",
+    description: "The ultimate celebration documentation featuring our lead photographer, associate, and cinematography team working in harmony to capture every precious moment of your day.",
+    limitedAvailability: "Limited to 18 weddings per year",
     features: [
       "Lead Photographer • 8 Hours",
       "Associate Photographer • 8 Hours",
       "Lead Cinematographer • 8 Hours",
-      "Second Cinematographer • 6 Hours",
+      "Second Cinematographer • 4 Hours",
       "Curator-Matched Artist Team",
       "Unlimited Locations"
     ],
     includes: [
       "Curated Digital Gallery",
       "Highlight Film (3-5 min)",
-      "Full Wedding Film (ceremony + reception)",
-      "Linen-Bound Fine Art Album (12×12)",
-      "One Parent Replica Album",
-      "Complimentary Canvas Print",
+      "Full Ceremony + Reception Documentary",
+      "Fine Art Album (12×12 Linen)",
+      "One Parent Album",
+      "One 16×20 Canvas Print",
       "Private Planning Portal",
       "Dedicated Concierge Team"
     ]
@@ -133,24 +133,24 @@ const packages: Package[] = [
   {
     name: "The Editorial Suite",
     category: "Complete Experience",
-    price: "$4,995",
+    price: "$5,495",
     startingAt: true,
     image: ceremonyImg,
     featured: true,
     tagline: "Photography & cinematography, beautifully balanced",
-    description: "Comprehensive coverage of your celebration with our signature photography and cinematic storytelling, perfect for couples who desire both mediums.",
+    description: "A refined photo and cinema experience perfect for couples who desire both mediums in an elegant, streamlined package.",
     limitedAvailability: "Limited to 30 weddings per year",
     features: [
       "Lead Photographer • 8 Hours",
-      "Associate Photographer • 6 Hours",
+      "Associate Photographer • 4 Hours",
       "Lead Cinematographer • 8 Hours",
       "Curator-Matched Artist Team"
     ],
     includes: [
       "Curated Digital Gallery",
-      "Highlight Film (3-5 min)",
-      "Full Wedding Film (ceremony + reception)",
-      "Signature Album (10×10)",
+      "Highlight Film (2-3 min)",
+      "Ceremony Documentary",
+      "Signature Album (10×10 Linen)",
       "Private Planning Portal",
       "Dedicated Concierge Team"
     ]
@@ -158,7 +158,7 @@ const packages: Package[] = [
   {
     name: "Photography Premier",
     category: "Photography",
-    price: "$3,695",
+    price: "$3,995",
     image: firstLookImg,
     featured: false,
     tagline: "Comprehensive photography coverage",
@@ -171,8 +171,8 @@ const packages: Package[] = [
     ],
     includes: [
       "Curated Digital Gallery",
-      "Engagement Mini-Session (60 min)",
-      "Signature Album (10×10)",
+      "Engagement Mini-Session",
+      "10×10 Linen Album",
       "Private Planning Portal",
       "Dedicated Concierge Team"
     ]
@@ -180,7 +180,7 @@ const packages: Package[] = [
   {
     name: "The Atelier",
     category: "Photography",
-    price: "$2,895",
+    price: "$3,195",
     image: groomImg,
     featured: false,
     tagline: "Timeless imagery, beautifully captured",
@@ -199,7 +199,7 @@ const packages: Package[] = [
   {
     name: "Cinematic Premier",
     category: "Cinematography",
-    price: "$3,995",
+    price: "$4,495",
     image: danceImg,
     featured: false,
     tagline: "Editorial filmmaking at its finest",
@@ -211,8 +211,9 @@ const packages: Package[] = [
     ],
     includes: [
       "Highlight Film (3-5 min)",
-      "Full Wedding Film (ceremony + reception)",
-      "Social Teaser (60 sec, next-day delivery)",
+      "Full Ceremony + Reception Documentary",
+      "Social Teaser (60 sec)",
+      "Next-Day Teaser",
       "Private Planning Portal",
       "Dedicated Concierge Team"
     ]
@@ -220,7 +221,7 @@ const packages: Package[] = [
   {
     name: "The Documentary",
     category: "Cinematography",
-    price: "$3,195",
+    price: "$3,495",
     image: firstLookImg,
     featured: false,
     tagline: "Your story, cinematically told",
@@ -231,8 +232,8 @@ const packages: Package[] = [
       "Unlimited Locations"
     ],
     includes: [
-      "Highlight Film (3-5 min)",
-      "Full Wedding Film (ceremony + reception)",
+      "Highlight Film (2-3 min)",
+      "Ceremony Documentary",
       "Private Planning Portal",
       "Dedicated Concierge Team"
     ]
@@ -241,15 +242,15 @@ const packages: Package[] = [
 
 const addOns = [
   { name: "Engagement Session", price: "$895", description: "90-minute portrait session at your chosen location", includedIn: "Included in Bespoke & Estate" },
-  { name: "Second Photographer", price: "$595", description: "Additional photographer for 6 hours of coverage", includedIn: null },
-  { name: "Second Cinematographer", price: "$995", description: "Additional cinematographer for 6 hours of coverage", includedIn: "Included in Bespoke, Estate & Signature" },
-  { name: "Same-Day Edit", price: "$1,495", description: "3-5 min highlight film premiered at your reception", includedIn: "Included in Bespoke & Estate" },
-  { name: "Social Teaser", price: "$395", description: "60-second edit delivered next day", includedIn: "Included in Cinematic Premier" },
-  { name: "Aerial Cinematography", price: "$495", description: "Drone coverage of venue & ceremony", includedIn: null },
-  { name: "Rehearsal Dinner", price: "$1,295", description: "Full evening photo & video coverage", includedIn: "Included in Bespoke (full coverage)" },
-  { name: "Heirloom Album Upgrade", price: "$495", description: "Upgrade to leather-bound presentation box", includedIn: null },
-  { name: "Parent Album Set", price: "$695", description: "Two 8×8 replica albums for parents", includedIn: "Included in Bespoke, Estate & Signature" },
-  { name: "Rush Delivery", price: "$695", description: "Priority 2-week turnaround", includedIn: "Included in Bespoke" },
+  { name: "Second Photographer", price: "$795", description: "Additional photographer for 4 hours of coverage", includedIn: null },
+  { name: "Second Cinematographer", price: "$1,295", description: "Additional cinematographer for 6 hours of coverage", includedIn: "Included in Bespoke, Estate & Signature" },
+  { name: "Same-Day Edit", price: "$1,495", description: "3-5 min film premiered at your reception", includedIn: "Included in Bespoke & Estate" },
+  { name: "Next-Day Teaser", price: "$395", description: "60-second social clip delivered next day", includedIn: null },
+  { name: "Aerial Cinematography", price: "$495", description: "Drone coverage (venue/weather permitting)", includedIn: null },
+  { name: "Rehearsal Dinner", price: "$1,495", description: "2 hours, small team coverage", includedIn: "Included in Bespoke (full team)" },
+  { name: "Heirloom Album Upgrade", price: "$695", description: "Upgrade album to leather-bound", includedIn: null },
+  { name: "Parent Album Set", price: "$795", description: "Two 8×8 linen parent albums", includedIn: "Included in Bespoke, Estate & Signature" },
+  { name: "Rush Delivery", price: "$995", description: "Priority 2-week turnaround", includedIn: "Included in Bespoke" },
 ];
 
 export default function Packages() {

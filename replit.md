@@ -133,52 +133,57 @@ Preferred communication style: Simple, everyday language.
 **Current Package Pricing (Luxury Market Aligned)**
 
 Complete Experience Collections:
-- **The Bespoke Collection**: $14,495 (Flagship - 8 weddings/year)
-  - 12 hours coverage, 5 artists, full rehearsal dinner, 16×16 leather album
-- **The Estate Collection**: $10,495 (15 weddings/year)
+- **The Bespoke Collection**: $15,995 (Flagship - 6 weddings/year)
+  - 12 hours coverage, 5 artists + lighting assistant, 3hr rehearsal dinner, 16×16 leather album
+  - Feature Film (15-20 min), Full Documentary Film, Same-Day Edit, Fine Art Print Box, Canvas Collection (5 pieces)
+- **The Estate Collection**: $11,495 (12 weddings/year)
   - 10 hours coverage, 4 artists, 14×14 leather album
-- **The Signature Collection**: $6,995 (25 weddings/year)
-  - 8 hours coverage, dual cinematography, 12×12 linen album
-- **The Editorial Suite**: $4,995 (30 weddings/year)
-  - 8 hours coverage, single cinematographer, 10×10 album
+  - Full Documentary Film, Same-Day Edit, Canvas Collection (3 pieces), 4-week editing
+- **The Signature Collection**: $7,495 (18 weddings/year)
+  - 8 hours coverage, 4 artists (2nd cinematographer 4 hrs), 12×12 linen album
+  - Full Ceremony + Reception Documentary, One 16×20 Canvas Print, No Same-Day Edit
+- **The Editorial Suite**: $5,495 (30 weddings/year)
+  - 8 hours photo/cinema, associate photo 4 hrs only, NO second cinematographer
+  - Highlight Film (2-3 min), Ceremony Documentary only, 10×10 linen album
 
 Photography Only:
-- **Photography Premier**: $3,695 (with associate)
-- **The Atelier**: $2,895 (lead only)
+- **Photography Premier**: $3,995 (lead + associate 6 hrs, engagement mini-session, 10×10 album)
+- **The Atelier**: $3,195 (lead only, digital gallery)
 
 Cinematography Only:
-- **Cinematic Premier**: $3,995 (with associate, includes social teaser)
-- **The Documentary**: $3,195 (lead only, includes highlight film)
+- **Cinematic Premier**: $4,495 (lead + associate 6 hrs, full documentary, social teaser, next-day teaser)
+- **The Documentary**: $3,495 (lead only, 2-3 min highlight, ceremony documentary)
 
 **Film Terminology (Standardized)**
-- Highlight Film (3-5 min): Short artistic recap
+- Highlight Film (3-5 min): Short artistic recap (2-3 min for Editorial/Documentary)
 - Feature Film (15-20 min): Extended documentary (Bespoke exclusive)
-- Full Wedding Film: Complete ceremony + reception documentation
-- Same-Day Edit: Highlight premiered at reception (Bespoke & Estate)
-- Social Teaser (60 sec): Quick social edit, next-day delivery
+- Full Documentary Film: Complete ceremony + reception documentation
+- Same-Day Edit: 3-5 min film premiered at reception (Bespoke & Estate)
+- Social Teaser (60 sec): Quick social clip
 
 **Album Differentiation Strategy**
 - Bespoke: 16×16 leather-bound with archival box
 - Estate: 14×14 leather-bound
 - Signature: 12×12 linen-bound
-- Editorial/Premier: 10×10 signature album
+- Editorial/Premier/Documentary: 10×10 linen album
 
 **Artist Matching**
 - All packages use "Curator-Matched" artist selection (curation over choice)
 
 **Add-Ons**
 - Engagement Session: $895 (included in Bespoke & Estate)
-- Second Photographer: $595 (6 hours)
-- Second Cinematographer: $995 (6 hours, included in Bespoke/Estate/Signature)
+- Second Photographer: $795 (4 hours)
+- Second Cinematographer: $1,295 (6 hours, included in Bespoke/Estate/Signature)
 - Same-Day Edit: $1,495 (included in Bespoke & Estate)
-- Social Teaser: $395 (included in Cinematic Premier)
+- Next-Day Teaser: $395 (60-second social clip)
 - Aerial Cinematography: $495
-- Rehearsal Dinner: $1,295 full evening (included in Bespoke)
-- Parent Album Set: $695 (included in Bespoke/Estate/Signature)
-- Rush Delivery: $695 (included in Bespoke)
+- Rehearsal Dinner: $1,495 (2 hours small team, included in Bespoke full team)
+- Heirloom Album Upgrade: $695 (upgrade to leather-bound)
+- Parent Album Set: $795 (two 8×8 linen, included in Bespoke/Estate/Signature)
+- Rush Delivery: $995 (2-week turnaround, included in Bespoke)
 
 **Style Quiz Recommendations**
-- Connoisseur → Bespoke ($14,495)
-- Visionary → Estate ($10,495)
-- Romantic/Modernist → Signature ($6,995)
-- Storyteller → Editorial ($4,995)
+- Connoisseur → Bespoke ($15,995)
+- Visionary → Estate ($11,495)
+- Romantic/Modernist → Signature ($7,495)
+- Storyteller → Editorial ($5,495)

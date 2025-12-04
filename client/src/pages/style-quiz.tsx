@@ -102,7 +102,7 @@ const styleProfiles: Record<StyleProfile, {
     description: "You possess an appreciation for the finer things—classic composition, understated luxury, and imagery that transcends trends. Your wedding documentation will be a masterwork of refined taste, destined to become a cherished heirloom.",
     characteristics: ["Timeless compositions", "Exquisite attention to detail", "Classic elegance", "Museum-quality imagery"],
     recommendedCollection: "The Bespoke Collection",
-    recommendedPrice: "$14,495",
+    recommendedPrice: "$15,995",
     image: brideImg
   },
   visionary: {
@@ -111,7 +111,7 @@ const styleProfiles: Record<StyleProfile, {
     description: "You see your wedding as a cinematic production worthy of the pages of Vogue. Bold, fashion-forward, and utterly striking—your imagery will make a statement that commands attention and admiration.",
     characteristics: ["Editorial sophistication", "Dramatic lighting", "Fashion-forward aesthetic", "Cinematic grandeur"],
     recommendedCollection: "The Estate Collection",
-    recommendedPrice: "$10,495",
+    recommendedPrice: "$11,495",
     image: ceremonyImg
   },
   romantic: {
@@ -120,7 +120,7 @@ const styleProfiles: Record<StyleProfile, {
     description: "You treasure the tender moments—the stolen glances, the gentle touches, the poetry of natural light. Your imagery will be soft, dreamy, and deeply emotive, capturing the essence of your love story.",
     characteristics: ["Soft, natural light", "Emotional storytelling", "Dreamy atmospheres", "Intimate moments"],
     recommendedCollection: "The Signature Collection",
-    recommendedPrice: "$6,995",
+    recommendedPrice: "$7,495",
     image: heroImg
   },
   modernist: {
@@ -129,7 +129,7 @@ const styleProfiles: Record<StyleProfile, {
     description: "Clean lines, bold geometry, and contemporary sophistication define your aesthetic. You appreciate modern design sensibilities and imagery that feels fresh, current, and distinctly you.",
     characteristics: ["Clean compositions", "Architectural elements", "Contemporary style", "Sophisticated minimalism"],
     recommendedCollection: "The Signature Collection",
-    recommendedPrice: "$6,995",
+    recommendedPrice: "$7,495",
     image: groomImg
   },
   storyteller: {
@@ -138,7 +138,7 @@ const styleProfiles: Record<StyleProfile, {
     description: "Above all, you value authenticity. You want your wedding captured as it truly unfolds—the laughter, the tears, the spontaneous joy. Your imagery will be a genuine chronicle of your celebration.",
     characteristics: ["Documentary approach", "Genuine emotions", "Candid moments", "Authentic storytelling"],
     recommendedCollection: "The Editorial Suite",
-    recommendedPrice: "$4,995",
+    recommendedPrice: "$5,495",
     image: engagementImg
   }
 };
