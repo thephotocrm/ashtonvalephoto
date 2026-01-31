@@ -31,8 +31,8 @@ export function StorySection() {
                 your celebration.
               </p>
               <p>
-                Since 2004, we have curated an exclusive collective of the world's most distinguished 
-                wedding photographers and cinematographers. Each artist is selected for their mastery 
+                For half a decade, we have curated an exclusive collective of the world's most distinguished
+                wedding photographers and cinematographers. Each artist is selected for their mastery
                 of editorial storytelling and their ability to document love in its most authentic form.
               </p>
               <p>

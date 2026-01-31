@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import heroImg from "@assets/generated_images/romantic_wedding_couple_under_veil.png";
+import heroImg from "@assets/generated_images/first_look_moment.png";
 
 export function FinalCTA() {
   return (
