@@ -39,7 +39,7 @@ export default function About() {
                 <h2 className="text-3xl md:text-4xl font-serif font-light mb-8">A Curated Network of Visionaries</h2>
                 <div className="space-y-6 text-muted-foreground leading-relaxed">
                   <p>
-                    For two decades, Ashton Vale has cultivated an exclusive collective of the world's most 
+                    For half a decade, Ashton Vale has cultivated an exclusive collective of the world's most 
                     distinguished wedding photographers and cinematographers. Each artist is personally 
                     selected for their exceptional eye, refined technique, and ability to capture emotion 
                     in its purest form.
@@ -78,19 +78,19 @@ export default function About() {
             <div className="grid md:grid-cols-2 gap-16 items-center">
               <div className="order-2 md:order-1">
                 <div className="grid grid-cols-2 gap-6">
-                  <div className="bg-white p-8 text-center border border-border/30">
+                  <div className="bg-white p-8 text-center border border-border/30 shadow-luxury hover:border-primary/20 transition-all duration-300">
                     <p className="text-4xl font-serif text-primary mb-2">20+</p>
                     <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Years of Excellence</p>
                   </div>
-                  <div className="bg-white p-8 text-center border border-border/30">
+                  <div className="bg-white p-8 text-center border border-border/30 shadow-luxury hover:border-primary/20 transition-all duration-300">
                     <p className="text-4xl font-serif text-primary mb-2">3,000+</p>
                     <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">5-Star Reviews</p>
                   </div>
-                  <div className="bg-white p-8 text-center border border-border/30">
+                  <div className="bg-white p-8 text-center border border-border/30 shadow-luxury hover:border-primary/20 transition-all duration-300">
                     <p className="text-4xl font-serif text-primary mb-2">10×</p>
                     <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Couples' Choice</p>
                   </div>
-                  <div className="bg-white p-8 text-center border border-border/30">
+                  <div className="bg-white p-8 text-center border border-border/30 shadow-luxury hover:border-primary/20 transition-all duration-300">
                     <p className="text-3xl font-serif text-primary mb-2">Hall of Fame</p>
                     <p className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Inductee</p>
                   </div>

@@ -38,20 +38,20 @@ export function Hero() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 animate-fade-up opacity-0 stagger-4">
-          <Button 
+          <Button
             asChild
             size="lg"
-            className="rounded-none bg-white text-black hover:bg-white/90 px-10 py-7 text-[11px] uppercase tracking-[0.2em] font-medium transition-all duration-300 hover:shadow-luxury"
+            className="rounded-none bg-white text-black hover:bg-white/90 px-10 py-7 text-[11px] uppercase tracking-[0.2em] font-medium transition-all duration-300 hover:shadow-luxury hover:scale-[1.02]"
           >
             <Link href="/pricing">
               Reserve Your Date
             </Link>
           </Button>
-          <Button 
+          <Button
             asChild
             variant="outline"
             size="lg"
-            className="rounded-none bg-transparent border-white/40 text-white hover:bg-white/10 px-10 py-7 text-[11px] uppercase tracking-[0.2em] font-medium transition-all duration-300"
+            className="rounded-none bg-transparent border-white/40 text-white hover:bg-white/10 px-10 py-7 text-[11px] uppercase tracking-[0.2em] font-medium transition-all duration-300 hover:scale-[1.02]"
           >
             <Link href="/portfolio">
               View Portfolio

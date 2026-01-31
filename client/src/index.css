@@ -199,14 +199,14 @@
   display: none;
 }
 
-/* Luxury shadow */
-.shadow-luxury {
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08), 
+/* Luxury shadow - defined as utilities for variant support */
+@utility shadow-luxury {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08),
               0 12px 24px -8px rgba(0, 0, 0, 0.04);
 }
 
-.shadow-luxury-lg {
-  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.12), 
+@utility shadow-luxury-lg {
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.12),
               0 20px 40px -12px rgba(0, 0, 0, 0.06);
 }
 
@@ -271,4 +271,105 @@
 
 .animate-marquee {
   animation: marquee 25s linear infinite;
+}
+
+/* Lead paragraph style */
+.text-lead {
+  @apply text-lg md:text-xl font-light text-muted-foreground leading-relaxed;
+}
+
+/* Divider variations */
+.divider-gold-wide {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 5%, hsl(36 36% 42% / 0.5) 30%, hsl(36 36% 42% / 0.5) 70%, transparent 95%);
+}
+
+/* Gold accent elements */
+.accent-line-gold {
+  border-top: 1px solid hsl(36 36% 42% / 0.3);
+}
+
+.accent-dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background: hsl(36 36% 42%);
+  border-radius: 50%;
+}
+
+/* Subtle background pattern */
+.bg-subtle-pattern {
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 35px,
+      hsl(36 36% 42% / 0.02) 35px,
+      hsl(36 36% 42% / 0.02) 70px
+    );
+}
+
+/* Enhanced button states */
+.btn-premium {
+  @apply transition-all duration-300 ease-out;
+}
+
+.btn-premium:hover {
+  @apply shadow-luxury;
+  transform: translateY(-1px) scale(1.02);
+}
+
+.btn-premium:focus-visible {
+  @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+}
+
+/* Navigation link underline animation */
+.nav-link-animated {
+  position: relative;
+}
+
+.nav-link-animated::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, hsl(36 36% 42%), hsl(36 36% 52%));
+  transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.nav-link-animated:hover::after {
+  width: 100%;
+}
+
+/* Card hover border transition */
+.card-hover-gold {
+  @apply transition-all duration-300;
+  border-color: transparent;
+}
+
+.card-hover-gold:hover {
+  border-color: hsl(36 36% 42% / 0.3);
+}
+
+/* Staggered hover animations for cards */
+.card-stagger-hover .card-image {
+  @apply transition-transform duration-700;
+}
+
+.card-stagger-hover .card-overlay {
+  @apply transition-opacity duration-500;
+  transition-delay: 0.1s;
+}
+
+.card-stagger-hover:hover .card-image {
+  transform: scale(1.05);
+}
+
+/* Smooth glass transition for navigation */
+.nav-glass-transition {
+  transition: background 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              padding 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              backdrop-filter 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }

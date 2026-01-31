@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "WebFetch(domain:abbiestreet.com)",
+      "Bash(npm run check:*)",
+      "Bash(for i in 1 2 3 4 5)",
+      "Bash(do echo waiting...)",
+      "Bash(done)",
+      "Bash(curl:*)"
+    ]
+  }
+}

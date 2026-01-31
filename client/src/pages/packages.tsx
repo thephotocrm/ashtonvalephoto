@@ -393,13 +393,13 @@ export default function Packages() {
                       ))}
                     </div>
 
-                    <Button 
+                    <Button
                       onClick={() => setSelectedPackage(pkg)}
                       variant={pkg.flagship ? "default" : "outline"}
                       className={cn(
-                        "self-start rounded-none px-8 py-6 text-[11px] uppercase tracking-[0.2em] font-medium",
-                        pkg.flagship 
-                          ? "bg-white text-black hover:bg-white/90" 
+                        "self-start rounded-none px-8 py-6 text-[11px] uppercase tracking-[0.2em] font-medium hover:shadow-luxury hover:scale-[1.02] transition-all duration-300",
+                        pkg.flagship
+                          ? "bg-white text-black hover:bg-white/90"
                           : "border-foreground/30 text-foreground hover:bg-foreground hover:text-white"
                       )}
                     >
@@ -452,10 +452,10 @@ export default function Packages() {
                         ))}
                       </div>
 
-                      <Button 
+                      <Button
                         onClick={() => setSelectedPackage(pkg)}
                         variant="outline"
-                        className="w-full rounded-none border-border/50 text-foreground hover:bg-primary hover:text-white hover:border-primary text-[10px] uppercase tracking-[0.2em] font-medium py-5"
+                        className="w-full rounded-none border-border/50 text-foreground hover:bg-primary hover:text-white hover:border-primary text-[10px] uppercase tracking-[0.2em] font-medium py-5 hover:shadow-luxury hover:scale-[1.02] transition-all duration-300"
                       >
                         View Details
                       </Button>
@@ -476,7 +476,7 @@ export default function Packages() {
             </div>
             <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
               {addOns.map((addon, index) => (
-                <div key={index} className="bg-white p-6 border border-border/30 text-center relative">
+                <div key={index} className="bg-white p-6 border border-border/30 text-center relative shadow-luxury hover:border-primary/20 transition-all duration-300">
                   <h3 className="font-serif text-lg mb-2">{addon.name}</h3>
                   <p className="text-primary font-serif text-xl mb-2">{addon.price}</p>
                   <p className="text-[11px] text-muted-foreground mb-2">{addon.description}</p>
@@ -500,10 +500,10 @@ export default function Packages() {
               Each celebration is unique. Contact us to discuss how we can tailor 
               a collection specifically for your day.
             </p>
-            <Button 
+            <Button
               asChild
               size="lg"
-              className="rounded-none bg-white text-black hover:bg-white/90 px-12 py-7 text-[11px] uppercase tracking-[0.2em] font-medium"
+              className="rounded-none bg-white text-black hover:bg-white/90 px-12 py-7 text-[11px] uppercase tracking-[0.2em] font-medium hover:shadow-luxury hover:scale-[1.02] transition-all duration-300"
             >
               <Link href="/pricing">
                 Request a Consultation
@@ -604,12 +604,12 @@ export default function Packages() {
                   </div>
                 </div>
 
-                <Button 
+                <Button
                   asChild
                   className={cn(
-                    "w-full rounded-none py-6 text-[11px] uppercase tracking-[0.2em] font-medium",
-                    selectedPackage.flagship 
-                      ? "bg-white text-black hover:bg-white/90" 
+                    "w-full rounded-none py-6 text-[11px] uppercase tracking-[0.2em] font-medium hover:shadow-luxury hover:scale-[1.02] transition-all duration-300",
+                    selectedPackage.flagship
+                      ? "bg-white text-black hover:bg-white/90"
                       : "bg-primary hover:bg-primary/90 text-primary-foreground"
                   )}
                 >

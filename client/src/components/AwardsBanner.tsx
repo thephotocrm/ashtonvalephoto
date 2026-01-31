@@ -11,7 +11,7 @@ const awards = [
 
 export function AwardsBanner() {
   return (
-    <section className="py-20 bg-neutral-900 text-white">
+    <section className="py-20 bg-foreground text-white">
       <div className="container mx-auto px-8">
         {/* Header */}
         <div className="text-center mb-16">

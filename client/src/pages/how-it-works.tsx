@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Sparkles, MessageCircle, Camera, Heart, Shield, Gem } from "lucide-react";
 import heroImg from "@assets/generated_images/first_look_moment.png";
-import photographerImg from "@assets/generated_images/female_photographer_portrait_1.png";
+import photographerImg from "@assets/Austin P.jpeg";
 
 const steps = [
   {
@@ -82,10 +82,10 @@ export default function HowItWorks() {
             </div>
             
             <div className="text-center mt-16">
-              <Button 
+              <Button
                 asChild
                 size="lg"
-                className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-7 text-[11px] uppercase tracking-[0.2em] font-medium"
+                className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-7 text-[11px] uppercase tracking-[0.2em] font-medium hover:shadow-luxury hover:scale-[1.02] transition-all duration-300"
               >
                 <Link href="/pricing">
                   Begin Your Journey
@@ -115,7 +115,7 @@ export default function HowItWorks() {
                 <h2 className="text-3xl md:text-4xl font-serif font-light mb-8">The Ashton Vale Difference</h2>
                 <div className="space-y-6 text-muted-foreground leading-relaxed mb-10">
                   <p>
-                    For over two decades, we have refined the art of pairing discerning couples with 
+                    For half a decade, we have refined the art of pairing discerning couples with 
                     exceptional artists. Our approach transcends traditional photography services—we 
                     offer a curated experience designed for those who appreciate the extraordinary.
                   </p>
@@ -129,11 +129,11 @@ export default function HowItWorks() {
                     a partner who understands that trust, taste, and attention to detail matter.
                   </p>
                 </div>
-                <Button 
+                <Button
                   asChild
                   variant="outline"
                   size="lg"
-                  className="rounded-none border-foreground/30 text-foreground hover:bg-foreground hover:text-white px-10 py-6 text-[11px] uppercase tracking-[0.2em] font-medium"
+                  className="rounded-none border-foreground/30 text-foreground hover:bg-foreground hover:text-white px-10 py-6 text-[11px] uppercase tracking-[0.2em] font-medium hover:shadow-luxury hover:scale-[1.02] transition-all duration-300"
                 >
                   <Link href="/pricing">
                     Request a Consultation

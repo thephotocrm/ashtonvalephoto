@@ -35,9 +35,9 @@ export function Navigation() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        showTransparent 
-          ? "bg-transparent py-8" 
+        "fixed top-0 left-0 right-0 z-50 nav-glass-transition",
+        showTransparent
+          ? "bg-transparent py-8"
           : "glass-dark py-4 border-b border-white/10"
       )}
     >
@@ -49,9 +49,9 @@ export function Navigation() {
               key={link.href}
               href={link.href}
               className={cn(
-                "text-[11px] font-medium uppercase tracking-[0.2em] transition-all duration-300 hover:opacity-60",
+                "text-[11px] font-medium uppercase tracking-[0.2em] transition-all duration-300 nav-link-animated",
                 showTransparent ? "text-white" : "text-white/90",
-                location === link.href && "opacity-60"
+                location === link.href ? "opacity-60" : "hover:opacity-80"
               )}
             >
               {link.label}
@@ -78,9 +78,9 @@ export function Navigation() {
               key={link.href}
               href={link.href}
               className={cn(
-                "text-[11px] font-medium uppercase tracking-[0.2em] transition-all duration-300 hover:opacity-60",
+                "text-[11px] font-medium uppercase tracking-[0.2em] transition-all duration-300 nav-link-animated",
                 showTransparent ? "text-white" : "text-white/90",
-                location === link.href && "opacity-60"
+                location === link.href ? "opacity-60" : "hover:opacity-80"
               )}
             >
               {link.label}

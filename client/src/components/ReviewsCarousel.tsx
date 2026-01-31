@@ -11,24 +11,24 @@ import { Quote } from "lucide-react";
 
 const reviews = [
   {
-    couple: "Margaret & Derek",
-    location: "The Plaza, New York",
-    quote: "Exceptional service, communication, and professionalism. Exceeded our expectations! We love our beautiful photos and video—be prepared for happy tears!"
+    couple: "Delaney W.",
+    location: "The Knot",
+    quote: "Our photographer was THE BEST we could've asked for! He was calm, collected, and had a plan in place to ensure everything on our shot list got done. He was right there on the dance floor with us, capturing every moment."
   },
   {
-    couple: "Mikayla & Luis",
-    location: "Oheka Castle, Long Island",
-    quote: "From customer service to the photographers & videographers, everyone is very helpful, kind and professional. They only made our day better!"
+    couple: "Hanna V.",
+    location: "The Knot",
+    quote: "Ashton Vale has been through every stage with us! They provided consistent communication, support & amazing forever photos. They truly make you feel like family. Our families couldn't stop raving about them."
   },
   {
-    couple: "Kelli & William",
-    location: "Montage Laguna Beach",
-    quote: "Our wedding was amazing and we owe so much of that to Ashton Vale. They were super helpful from the start & made sure our photos were captured how we wanted."
+    couple: "Lindsay M.",
+    location: "The Knot",
+    quote: "Ashton Vale managed to stop time for a second and capture the love and excitement for our big day. They were fun, patient, and understanding. We will never have enough words to express just how thankful we are."
   },
   {
-    couple: "Tysheena & Isaac",
-    location: "The Ritz-Carlton, Philadelphia",
-    quote: "Choosing a wedding photographer is no small feat. Ashton Vale helped us choose from a great list of photographers. Our experience was nothing short of extraordinary."
+    couple: "Austin P.",
+    location: "Thumbtack",
+    quote: "His photographs were simply stunning, mainly because he managed to capture the essence of the day. My favorite pictures are the ones where he captured the spirit and emotion of our wedding."
   },
 ];
 
@@ -48,11 +48,11 @@ export function ReviewsCarousel() {
               Each testimonial represents a story we were honored to capture. 
               Discover why discerning couples choose Ashton Vale for their most cherished moments.
             </p>
-            <Button 
+            <Button
               asChild
-              variant="outline" 
-              size="lg" 
-              className="rounded-none text-[11px] uppercase tracking-[0.2em] font-medium border-primary/50 text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary px-8 md:px-10 py-6"
+              variant="outline"
+              size="lg"
+              className="rounded-none text-[11px] uppercase tracking-[0.2em] font-medium border-primary/50 text-foreground hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-luxury hover:scale-[1.02] px-8 md:px-10 py-6 transition-all duration-300"
             >
               <Link href="/reviews">
                 Read All Testimonials
@@ -71,10 +71,12 @@ export function ReviewsCarousel() {
               <CarouselContent className="-ml-2 md:-ml-4">
                 {reviews.map((review, index) => (
                   <CarouselItem key={index} className="pl-2 md:pl-4">
-                    <div className="bg-white p-6 md:p-10 shadow-luxury">
+                    <div className="bg-white p-6 md:p-10 shadow-luxury border border-transparent hover:border-primary/20 transition-all duration-300">
                       <Quote size={28} className="text-primary/20 mb-4 md:mb-6" strokeWidth={1} />
-                      <p className="text-foreground/80 leading-relaxed italic text-base md:text-lg mb-6 md:mb-8">
-                        "{review.quote}"
+                      <p className="font-serif text-foreground/80 leading-relaxed italic text-base md:text-lg mb-6 md:mb-8">
+                        <span className="text-primary/40 text-2xl font-serif leading-none">"</span>
+                        {review.quote}
+                        <span className="text-primary/40 text-2xl font-serif leading-none">"</span>
                       </p>
                       <div className="border-t border-border pt-4 md:pt-6">
                         <h3 className="font-serif text-base md:text-lg mb-1">{review.couple}</h3>

@@ -4,7 +4,7 @@ import coupleImg from "@assets/generated_images/couple_dancing_reception.png";
 
 export function PromoBanner() {
   return (
-    <section className="relative py-16 bg-gradient-to-r from-amber-50 to-amber-100/50 overflow-hidden">
+    <section className="relative py-16 bg-gradient-to-r from-ivory to-champagne/50 overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="relative z-10">
@@ -31,7 +31,7 @@ export function PromoBanner() {
                 Free canvas print & $100 credit
               </li>
             </ul>
-            <Button asChild size="lg" className="rounded-none uppercase tracking-widest font-bold px-8">
+            <Button asChild size="lg" className="rounded-none uppercase tracking-widest font-bold px-8 btn-premium hover:shadow-luxury transition-all duration-300">
               <Link href="/pricing">
                 Learn More
               </Link>
