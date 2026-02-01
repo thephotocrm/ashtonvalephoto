@@ -506,7 +506,7 @@ export default function Packages() {
               className="rounded-none bg-white text-black hover:bg-white/90 px-12 py-7 text-[11px] uppercase tracking-[0.2em] font-medium hover:shadow-luxury hover:scale-[1.02] transition-all duration-300"
             >
               <Link href="/pricing">
-                Request a Consultation
+                View Pricing & Availability
               </Link>
             </Button>
           </div>

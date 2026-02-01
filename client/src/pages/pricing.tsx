@@ -10,6 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { useLocation } from "wouter";
 import { Loader2 } from "lucide-react";
+import { LocationAutocomplete } from "@/components/LocationAutocomplete";
 import heroImg from "@assets/generated_images/romantic_wedding_couple_under_veil.png";
 
 export default function Pricing() {
@@ -20,12 +21,9 @@ export default function Pricing() {
     lastName: "",
     email: "",
     phone: "",
+    eventType: "wedding",
     weddingDate: "",
     weddingLocation: "",
-    ceremonyVenue: "",
-    receptionVenue: "",
-    serviceType: "both",
-    hearAboutUs: "",
     message: "",
   });
 
@@ -76,7 +74,7 @@ export default function Pricing() {
           <div className="relative container mx-auto px-8 text-center text-white">
             <p className="text-[10px] uppercase tracking-[0.4em] text-white/60 mb-4">Begin Your Journey</p>
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light mb-6 text-white">
-              Request a Private<br />Consultation
+              View Pricing<br />& Availability
             </h1>
             <div className="w-16 h-px bg-white/40 mx-auto mb-6"></div>
             <p className="text-lg text-white/70 max-w-xl mx-auto font-light">
@@ -157,7 +155,24 @@ export default function Pricing() {
                 </div>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="weddingDate" className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground">Wedding Date *</Label>
+                    <Label htmlFor="eventType" className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground">Event Type *</Label>
+                    <Select
+                      value={formData.eventType}
+                      onValueChange={(value) => setFormData({ ...formData, eventType: value })}
+                    >
+                      <SelectTrigger id="eventType" data-testid="select-event-type" className="rounded-none border-border/50 py-6">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="wedding">Wedding</SelectItem>
+                        <SelectItem value="engagement">Engagement</SelectItem>
+                        <SelectItem value="proposal">Proposal</SelectItem>
+                        <SelectItem value="event">Event</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="weddingDate" className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground">Event Date *</Label>
                     <Input
                       id="weddingDate"
                       data-testid="input-wedding-date"
@@ -168,75 +183,16 @@ export default function Pricing() {
                       className="rounded-none border-border/50 focus:border-primary py-6"
                     />
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-2 md:col-span-2">
                     <Label htmlFor="weddingLocation" className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground">Location (City/State) *</Label>
-                    <Input
+                    <LocationAutocomplete
                       id="weddingLocation"
                       data-testid="input-wedding-location"
                       required
                       value={formData.weddingLocation}
-                      onChange={(e) => setFormData({ ...formData, weddingLocation: e.target.value })}
-                      placeholder="New York, NY"
-                      className="rounded-none border-border/50 focus:border-primary py-6"
+                      onChange={(value) => setFormData({ ...formData, weddingLocation: value })}
+                      placeholder="Start typing a city..."
                     />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="ceremonyVenue" className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground">Ceremony Venue</Label>
-                    <Input
-                      id="ceremonyVenue"
-                      data-testid="input-ceremony-venue"
-                      value={formData.ceremonyVenue}
-                      onChange={(e) => setFormData({ ...formData, ceremonyVenue: e.target.value })}
-                      placeholder="Venue name"
-                      className="rounded-none border-border/50 focus:border-primary py-6"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="receptionVenue" className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground">Reception Venue</Label>
-                    <Input
-                      id="receptionVenue"
-                      data-testid="input-reception-venue"
-                      value={formData.receptionVenue}
-                      onChange={(e) => setFormData({ ...formData, receptionVenue: e.target.value })}
-                      placeholder="Venue name"
-                      className="rounded-none border-border/50 focus:border-primary py-6"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="serviceType" className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground">Service Interest *</Label>
-                    <Select 
-                      value={formData.serviceType} 
-                      onValueChange={(value) => setFormData({ ...formData, serviceType: value })}
-                    >
-                      <SelectTrigger id="serviceType" data-testid="select-service-type" className="rounded-none border-border/50 py-6">
-                        <SelectValue />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="photography">Photography</SelectItem>
-                        <SelectItem value="videography">Cinematography</SelectItem>
-                        <SelectItem value="both">Photography & Cinematography</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="hearAboutUs" className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground">How Did You Find Us?</Label>
-                    <Select 
-                      value={formData.hearAboutUs} 
-                      onValueChange={(value) => setFormData({ ...formData, hearAboutUs: value })}
-                    >
-                      <SelectTrigger id="hearAboutUs" data-testid="select-hear-about-us" className="rounded-none border-border/50 py-6">
-                        <SelectValue placeholder="Select an option" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="google">Google Search</SelectItem>
-                        <SelectItem value="theknot">The Knot</SelectItem>
-                        <SelectItem value="weddingwire">WeddingWire</SelectItem>
-                        <SelectItem value="instagram">Instagram</SelectItem>
-                        <SelectItem value="friend">Friend Referral</SelectItem>
-                        <SelectItem value="vendor">Venue/Vendor Referral</SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
-                      </SelectContent>
-                    </Select>
                   </div>
                 </div>
                 <div className="mt-6 space-y-2">
@@ -267,7 +223,7 @@ export default function Pricing() {
                       Submitting...
                     </>
                   ) : (
-                    "Request Consultation"
+                    "View Pricing & Availability"
                   )}
                 </Button>
                 <p className="text-[11px] text-muted-foreground mt-6 max-w-md mx-auto">

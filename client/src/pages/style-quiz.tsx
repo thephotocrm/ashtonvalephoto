@@ -798,7 +798,7 @@ export default function StyleQuiz() {
                   data-testid="button-request-consultation"
                 >
                   <Link href="/pricing">
-                    Request a Private Consultation
+                    View Pricing & Availability
                   </Link>
                 </Button>
               </div>

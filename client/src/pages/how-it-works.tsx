@@ -136,7 +136,7 @@ export default function HowItWorks() {
                   className="rounded-none border-foreground/30 text-foreground hover:bg-foreground hover:text-white px-10 py-6 text-[11px] uppercase tracking-[0.2em] font-medium hover:shadow-luxury hover:scale-[1.02] transition-all duration-300"
                 >
                   <Link href="/pricing">
-                    Request a Consultation
+                    View Pricing & Availability
                   </Link>
                 </Button>
               </div>
@@ -165,13 +165,16 @@ export default function HowItWorks() {
                   ))}
                 </div>
               </div>
-              <div className="relative">
+              <div className="relative max-w-sm mx-auto">
                 <div className="absolute inset-4 border border-primary/20"></div>
-                <img 
-                  src={photographerImg} 
-                  alt="Ashton Vale artist" 
-                  className="relative w-full max-w-md mx-auto shadow-luxury-lg"
-                />
+                <div className="relative overflow-hidden shadow-luxury-lg">
+                  <img
+                    src={photographerImg}
+                    alt="Ashton Vale artist"
+                    className="w-full object-cover object-top"
+                    style={{ marginBottom: "-20%" }}
+                  />
+                </div>
               </div>
             </div>
           </div>

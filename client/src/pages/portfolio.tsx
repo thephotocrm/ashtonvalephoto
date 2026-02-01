@@ -270,7 +270,7 @@ export default function Portfolio() {
                     className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground px-10 py-6 text-[11px] uppercase tracking-[0.2em] font-medium hover:shadow-luxury hover:scale-[1.02] transition-all duration-300"
                   >
                     <Link href="/pricing">
-                      Request a Consultation
+                      View Pricing & Availability
                     </Link>
                   </Button>
                 </div>
@@ -314,7 +314,7 @@ export default function Portfolio() {
               className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-7 text-[11px] uppercase tracking-[0.2em] font-medium hover:shadow-luxury hover:scale-[1.02] transition-all duration-300"
             >
               <Link href="/pricing">
-                Request a Consultation
+                View Pricing & Availability
               </Link>
             </Button>
           </div>

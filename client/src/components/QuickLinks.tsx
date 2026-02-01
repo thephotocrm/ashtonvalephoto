@@ -7,7 +7,7 @@ import receptionImg from "@assets/generated_images/reception_dance_party.png";
 const quickLinks = [
   {
     title: "Inquire",
-    subtitle: "Request a Private Consultation",
+    subtitle: "View Pricing & Availability",
     description: "Tailored packages for your unique celebration",
     image: firstLookImg,
     href: "/pricing"

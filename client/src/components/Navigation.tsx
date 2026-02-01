@@ -55,28 +55,11 @@ export function Navigation() {
         )}
       >
         <div className="w-full max-w-[1400px] mx-auto px-8 flex items-center justify-between">
-          {/* Left Nav Links */}
-          <div className="hidden lg:flex items-center space-x-10">
-            {navLinks.slice(0, 2).map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "text-[11px] font-medium uppercase tracking-[0.2em] transition-all duration-300 nav-link-animated",
-                  showTransparent ? "text-white" : "text-white/90",
-                  location === link.href ? "opacity-60" : "hover:opacity-80"
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          {/* Centered Logo */}
+          {/* Logo - Left */}
           <Link
             href="/"
             className={cn(
-              "font-serif text-2xl md:text-3xl tracking-wide cursor-pointer transition-all duration-300 absolute left-1/2 -translate-x-1/2",
+              "font-serif text-2xl md:text-3xl tracking-wide cursor-pointer transition-all duration-300",
               showTransparent ? "text-white" : "text-white"
             )}
           >
@@ -84,9 +67,9 @@ export function Navigation() {
             <span className="font-medium"> Vale</span>
           </Link>
 
-          {/* Right Nav Links */}
+          {/* Nav Links - Right */}
           <div className="hidden lg:flex items-center space-x-10">
-            {navLinks.slice(2).map((link) => (
+            {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -110,14 +93,14 @@ export function Navigation() {
               )}
             >
               <Link href="/pricing">
-                Reserve Your Date
+                View Pricing & Availability
               </Link>
             </Button>
           </div>
 
           {/* Mobile Menu Toggle */}
           <button
-            className="lg:hidden ml-auto z-[60]"
+            className="lg:hidden z-[60]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             data-testid="button-mobile-menu"
           >
@@ -161,7 +144,7 @@ export function Navigation() {
                 className="rounded-none text-[11px] uppercase tracking-[0.2em] font-medium px-10 py-6 bg-transparent border-white/40 text-white hover:bg-white hover:text-black"
               >
                 <Link href="/pricing" onClick={() => setIsMobileMenuOpen(false)}>
-                  Reserve Your Date
+                  View Pricing & Availability
                 </Link>
               </Button>
             </div>
