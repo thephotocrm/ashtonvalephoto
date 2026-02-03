@@ -14,6 +14,9 @@ import danceImg from "@assets/generated_images/couple_dancing_reception.png";
 import firstLookImg from "@assets/generated_images/first_look_moment.png";
 import ceremonyImg from "@assets/generated_images/bride_walking_aisle_ceremony.png";
 import engagementImg from "@assets/generated_images/engagement_couple_laughing.png";
+import sunsetImg from "@assets/generated_images/warm_golden_sunset_tones.png";
+import gardenImg from "@assets/generated_images/romantic_garden_wedding_venue.png";
+import ringsImg from "@assets/generated_images/wedding_rings_on_roses.png";
 
 const tabs = ["All Collections", "Photography", "Cinematography", "Complete Experience"];
 
@@ -49,6 +52,7 @@ const packages: Package[] = [
       "Associate Photographer • 12 Hours",
       "Lead Cinematographer • 12 Hours",
       "Second Cinematographer • 10 Hours",
+      "Aerial Cinematography (Drone)",
       "Lighting Assistant",
       "Rehearsal Dinner Coverage (3 Hours, Full Team)",
       "Curator-Matched Artist Team",
@@ -104,7 +108,7 @@ const packages: Package[] = [
   {
     name: "The Signature Collection",
     category: "Complete Experience",
-    price: "$7,495",
+    price: "$8,995",
     startingAt: true,
     image: engagementImg,
     featured: true,
@@ -124,8 +128,6 @@ const packages: Package[] = [
       "Highlight Film (3-5 min)",
       "Full Ceremony + Reception Documentary",
       "Fine Art Album (12×12 Linen)",
-      "One Parent Album",
-      "One 16×20 Canvas Print",
       "Private Planning Portal",
       "Dedicated Concierge Team"
     ]
@@ -133,7 +135,7 @@ const packages: Package[] = [
   {
     name: "The Editorial Suite",
     category: "Complete Experience",
-    price: "$5,495",
+    price: "$6,995",
     startingAt: true,
     image: ceremonyImg,
     featured: true,
@@ -149,8 +151,6 @@ const packages: Package[] = [
     includes: [
       "Curated Digital Gallery",
       "Highlight Film (2-3 min)",
-      "Ceremony Documentary",
-      "Signature Album (10×10 Linen)",
       "Private Planning Portal",
       "Dedicated Concierge Team"
     ]
@@ -158,7 +158,7 @@ const packages: Package[] = [
   {
     name: "Photography Premier",
     category: "Photography",
-    price: "$3,995",
+    price: "$4,400",
     image: firstLookImg,
     featured: false,
     tagline: "Comprehensive photography coverage",
@@ -166,13 +166,20 @@ const packages: Package[] = [
     features: [
       "Lead Photographer • 8 Hours",
       "Associate Photographer • 6 Hours",
+      "600+ Professionally Edited Images",
       "Curator-Matched Artist Team",
-      "Unlimited Locations"
+      "Unlimited Locations",
+      "48-Hour Sneak Peek (10 Images)",
+      "Full Print Release",
+      "Timeline Planning Consultation",
+      "Second Shooter Coverage"
     ],
     includes: [
-      "Curated Digital Gallery",
-      "Engagement Mini-Session",
-      "10×10 Linen Album",
+      "Curated Digital Gallery (600+ images)",
+      "Professional Color Grading",
+      "Black & White Edits Included",
+      "Mobile-Friendly Online Gallery",
+      "Unlimited Downloads",
       "Private Planning Portal",
       "Dedicated Concierge Team"
     ]
@@ -180,18 +187,27 @@ const packages: Package[] = [
   {
     name: "The Atelier",
     category: "Photography",
-    price: "$3,195",
-    image: groomImg,
+    price: "$3,500",
+    image: ringsImg,
     featured: false,
     tagline: "Timeless imagery, beautifully captured",
     description: "Perfect for intimate celebrations, our curator-matched lead photographer will artfully document your day with refined elegance.",
     features: [
       "Lead Photographer • 8 Hours",
+      "400+ Professionally Edited Images",
+      "Full Print Release Included",
       "Curator-Matched Artist",
-      "Unlimited Locations"
+      "Unlimited Locations",
+      "48-Hour Sneak Peek (5 Images)",
+      "Complimentary Consultation",
+      "Online Gallery for 1 Year"
     ],
     includes: [
-      "Curated Digital Gallery",
+      "Curated Digital Gallery (400+ images)",
+      "Professional Color Grading",
+      "Black & White Edits Included",
+      "Mobile-Friendly Online Gallery",
+      "Unlimited Downloads",
       "Private Planning Portal",
       "Dedicated Concierge Team"
     ]
@@ -199,7 +215,7 @@ const packages: Package[] = [
   {
     name: "Cinematic Premier",
     category: "Cinematography",
-    price: "$4,495",
+    price: "$4,800",
     image: danceImg,
     featured: false,
     tagline: "Editorial filmmaking at its finest",
@@ -207,13 +223,21 @@ const packages: Package[] = [
     features: [
       "Lead Cinematographer • 8 Hours",
       "Associate Cinematographer • 6 Hours",
-      "Curator-Matched Artist Team"
+      "4K Highlight Film (3-5 min)",
+      "Full Ceremony & Reception Film",
+      "Curator-Matched Artist Team",
+      "Professional Audio Capture",
+      "4K Cinema Quality",
+      "Licensed Music Selection",
+      "Dual-Angle Coverage"
     ],
     includes: [
       "Highlight Film (3-5 min)",
       "Full Ceremony + Reception Documentary",
-      "Social Teaser (60 sec)",
-      "Next-Day Teaser",
+      "Cinematic Color Grading",
+      "Raw Vows & Speeches Audio",
+      "Shareable Streaming Link",
+      "Digital Delivery (USB Available)",
       "Private Planning Portal",
       "Dedicated Concierge Team"
     ]
@@ -221,24 +245,60 @@ const packages: Package[] = [
   {
     name: "The Documentary",
     category: "Cinematography",
-    price: "$3,495",
-    image: firstLookImg,
+    price: "$3,800",
+    image: sunsetImg,
     featured: false,
     tagline: "Your story, cinematically told",
     description: "Professional cinematic documentation with our curator-matched lead cinematographer capturing your celebration with artistry and intention.",
     features: [
       "Lead Cinematographer • 8 Hours",
+      "4K Highlight Film (2-3 min)",
+      "Licensed Music Included",
       "Curator-Matched Artist",
-      "Unlimited Locations"
+      "Unlimited Locations",
+      "Professional Audio Capture",
+      "4K Cinema Quality",
+      "Complimentary Consultation",
+      "Shareable Streaming Link"
     ],
     includes: [
       "Highlight Film (2-3 min)",
-      "Ceremony Documentary",
+      "Cinematic Color Grading",
+      "Licensed Music Selection",
+      "Shareable Streaming Link",
+      "Digital Delivery",
       "Private Planning Portal",
       "Dedicated Concierge Team"
     ]
   }
 ];
+
+const elopementPackage: Package = {
+  name: "The Elopement Collection",
+  category: "Intimate Celebrations",
+  price: "$2,495",
+  image: gardenImg,
+  featured: false,
+  tagline: "For intimate celebrations & adventurous souls",
+  description: "Perfect for couples who want beautiful, intentional documentation of their intimate ceremony. Whether you're exchanging vows on a mountaintop, at the courthouse, or in your backyard, we'll capture every heartfelt moment.",
+  features: [
+    "Lead Photographer • 3 Hours",
+    "Up to 2 Locations",
+    "200+ Edited Images",
+    "Full Print Release",
+    "48-Hour Sneak Peek",
+    "Curator-Matched Artist"
+  ],
+  includes: [
+    "Curated Digital Gallery",
+    "Professional Color Grading",
+    "Black & White Edits Included",
+    "Mobile-Friendly Online Gallery",
+    "Unlimited Downloads",
+    "Complimentary Planning Call",
+    "Location Scouting Assistance"
+  ]
+};
 
 const addOns = [
   { name: "Engagement Session", price: "$895", description: "90-minute portrait session at your chosen location", includedIn: "Included in Bespoke & Estate" },
@@ -444,7 +504,7 @@ export default function Packages() {
 
                       {/* Key Features */}
                       <div className="space-y-2 mb-6">
-                        {pkg.features.slice(0, 3).map((feature, i) => (
+                        {pkg.features.slice(0, 5).map((feature, i) => (
                           <p key={i} className="flex items-center gap-2 text-xs text-foreground/70">
                             <span className="w-1 h-1 bg-primary rounded-full flex-shrink-0"></span>
                             {feature}
@@ -466,6 +526,58 @@ export default function Packages() {
             </div>
           </section>
         )}
+
+        {/* Elopement Section */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-8">
+            <div className="text-center mb-12">
+              <p className="text-[10px] uppercase tracking-[0.4em] text-primary mb-4">Intimate Celebrations</p>
+              <h2 className="font-serif text-3xl font-light mb-4">Elopements & Micro-Weddings</h2>
+              <p className="text-muted-foreground max-w-lg mx-auto">
+                Big love doesn't require a big guest list. Our elopement collection is designed for couples
+                who want beautiful, intentional documentation of their most intimate moments.
+              </p>
+            </div>
+
+            <div className="max-w-4xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-0 overflow-hidden border border-border/30 shadow-luxury">
+                {/* Image Side */}
+                <div className="relative min-h-[400px]">
+                  <img
+                    src={elopementPackage.image}
+                    alt={elopementPackage.name}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Content Side */}
+                <div className="p-10 md:p-12 flex flex-col justify-center bg-ivory">
+                  <p className="text-[10px] uppercase tracking-[0.4em] text-primary mb-3">{elopementPackage.category}</p>
+                  <h3 className="font-serif text-2xl md:text-3xl font-light mb-2">{elopementPackage.name}</h3>
+                  <p className="text-sm italic text-muted-foreground mb-4">{elopementPackage.tagline}</p>
+                  <p className="font-serif text-3xl text-primary mb-6">{elopementPackage.price}</p>
+
+                  <div className="space-y-2 mb-8">
+                    {elopementPackage.features.map((feature, i) => (
+                      <p key={i} className="flex items-center gap-3 text-sm text-foreground/80">
+                        <span className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>
+                        {feature}
+                      </p>
+                    ))}
+                  </div>
+
+                  <Button
+                    onClick={() => setSelectedPackage(elopementPackage)}
+                    variant="outline"
+                    className="self-start rounded-none px-8 py-6 text-[11px] uppercase tracking-[0.2em] font-medium border-foreground/30 text-foreground hover:bg-foreground hover:text-white hover:shadow-luxury hover:scale-[1.02] transition-all duration-300"
+                  >
+                    View Full Details <ArrowRight size={14} className="ml-2" />
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Add-Ons Section */}
         <section className="py-20 bg-ivory">
