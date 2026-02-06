@@ -24,6 +24,7 @@ export default function Pricing() {
     eventType: "wedding",
     weddingDate: "",
     weddingLocation: "",
+    serviceType: "both",
     message: "",
   });
 
@@ -34,15 +35,23 @@ export default function Pricing() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      
+
       if (!response.ok) {
         const error = await response.json();
         throw new Error(error.message || "Failed to submit inquiry");
       }
-      
+
       return response.json();
     },
-    onSuccess: () => {
+    onSuccess: (_, variables) => {
+      // Send to Zapier webhook
+      fetch("https://hooks.zapier.com/hooks/catch/13593170/ull6lfo/", {
+        method: "POST",
+        body: JSON.stringify(variables),
+      }).catch(() => {
+        // Silently fail - don't block user experience for webhook
+      });
+
       navigate("/packages");
     },
     onError: (error: Error) => {

@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertInquirySchema, insertReviewSchema } from "@shared/schema";
 import { fromError } from "zod-validation-error";
+import { isMetaCapiConfigured, sendLeadEvent } from "./services/meta-capi";
 
 export async function registerRoutes(
   httpServer: Server,
@@ -14,6 +15,21 @@ export async function registerRoutes(
     try {
       const validatedData = insertInquirySchema.parse(req.body);
       const inquiry = await storage.createInquiry(validatedData);
+
+      // Send Lead event to Meta Conversions API (fire-and-forget)
+      if (isMetaCapiConfigured()) {
+        sendLeadEvent({
+          email: validatedData.email,
+          phone: validatedData.phone,
+          firstName: validatedData.firstName,
+          lastName: validatedData.lastName,
+          userAgent: req.headers["user-agent"],
+          ipAddress: req.ip || req.headers["x-forwarded-for"]?.toString().split(",")[0],
+          eventSourceUrl: req.headers.referer || req.headers.origin,
+          eventId: `inquiry_${inquiry.id}`,
+        });
+      }
+
       res.status(201).json(inquiry);
     } catch (error: any) {
       if (error.name === "ZodError") {
