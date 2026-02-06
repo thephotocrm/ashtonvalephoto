@@ -86,6 +86,7 @@ export function sendLeadEvent(data: LeadEventData): void {
         user_data: userData,
       },
     ],
+    test_event_code: "TEST84070",
   };
 
   const url = `https://graph.facebook.com/v19.0/${pixelId}/events?access_token=${accessToken}`;
