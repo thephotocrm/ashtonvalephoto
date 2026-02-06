@@ -14,6 +14,8 @@ import Portfolio from "@/pages/portfolio";
 import Reviews from "@/pages/reviews";
 import StyleQuiz from "@/pages/style-quiz";
 import Schedule from "@/pages/schedule";
+import Terms from "@/pages/terms";
+import Privacy from "@/pages/privacy";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -37,6 +39,8 @@ function Router() {
       <Route path="/reviews" component={Reviews} />
       <Route path="/style-quiz" component={StyleQuiz} />
       <Route path="/schedule" component={Schedule} />
+      <Route path="/terms" component={Terms} />
+      <Route path="/privacy" component={Privacy} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -3,7 +3,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Button } from "@/components/ui/button";
-import { Link } from "wouter";
+import { Link, useSearch } from "wouter";
 import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
@@ -111,7 +111,12 @@ const engagementImages = [
 ];
 
 export default function Portfolio() {
-  const [activeTab, setActiveTab] = useState("Weddings");
+  const searchString = useSearch();
+  const urlParams = new URLSearchParams(searchString);
+  const tabParam = urlParams.get("tab");
+  const initialTab = tabParam && tabs.includes(tabParam) ? tabParam : "Weddings";
+
+  const [activeTab, setActiveTab] = useState(initialTab);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
@@ -172,7 +177,7 @@ export default function Portfolio() {
           >
             <div className="absolute inset-0 bg-black/50"></div>
           </div>
-          <div className="relative h-full container mx-auto px-8 flex items-center justify-center text-center text-white">
+          <div className="relative h-full container mx-auto px-4 md:px-8 flex items-center justify-center text-center text-white">
             <div>
               <p className="text-[10px] uppercase tracking-[0.4em] text-white/60 mb-4">Our Work</p>
               <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light mb-6 text-white">Curated Portfolio</h1>
@@ -186,7 +191,7 @@ export default function Portfolio() {
 
         {/* Tabs */}
         <section className="py-8 bg-white border-b border-border/30 sticky top-0 z-40">
-          <div className="container mx-auto px-8">
+          <div className="container mx-auto px-4 md:px-8">
             <div className="flex justify-center gap-12">
               {tabs.map((tab) => (
                 <button
@@ -208,7 +213,7 @@ export default function Portfolio() {
 
         {/* Gallery */}
         <section className="py-16 bg-white">
-          <div className="container mx-auto px-8">
+          <div className="container mx-auto px-2 md:px-8">
             {activeTab === "Films" ? (
               <div className="py-12">
                 <div className="text-center mb-12">

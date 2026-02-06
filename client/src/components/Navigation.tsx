@@ -5,7 +5,6 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { href: "/how-it-works", label: "The Experience" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/reviews", label: "Testimonials" },
   { href: "/about", label: "Our Story" },
@@ -41,8 +40,7 @@ export function Navigation() {
     };
   }, [isMobileMenuOpen]);
 
-  const isHomePage = location === "/";
-  const showTransparent = isHomePage && !isScrolled;
+  const showTransparent = !isScrolled;
 
   return (
     <>
@@ -124,6 +122,16 @@ export function Navigation() {
           </button>
 
           <div className="flex flex-col items-center space-y-8">
+            <Link
+              href="/"
+              className={cn(
+                "text-white font-serif text-2xl tracking-wide hover:opacity-60 transition-opacity",
+                location === "/" && "opacity-60"
+              )}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Home
+            </Link>
             {navLinks.map((link) => (
               <Link
                 key={link.href}
