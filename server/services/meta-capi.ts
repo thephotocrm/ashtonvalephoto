@@ -53,6 +53,12 @@ export function sendLeadEvent(data: LeadEventData): void {
     return;
   }
 
+  // Only send events from production domain
+  if (!data.eventSourceUrl?.includes("ashtonvalephoto.com")) {
+    console.log("Meta CAPI: Skipping event from non-production domain");
+    return;
+  }
+
   const pixelId = process.env.META_PIXEL_ID!;
   const accessToken = process.env.META_ACCESS_TOKEN!;
 
@@ -86,7 +92,6 @@ export function sendLeadEvent(data: LeadEventData): void {
         user_data: userData,
       },
     ],
-    test_event_code: "TEST84070",
   };
 
   const url = `https://graph.facebook.com/v19.0/${pixelId}/events?access_token=${accessToken}`;
