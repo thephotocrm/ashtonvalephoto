@@ -13,6 +13,7 @@ import Packages from "@/pages/packages";
 import Portfolio from "@/pages/portfolio";
 import Reviews from "@/pages/reviews";
 import StyleQuiz from "@/pages/style-quiz";
+import Schedule from "@/pages/schedule";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -35,6 +36,7 @@ function Router() {
       <Route path="/portfolio" component={Portfolio} />
       <Route path="/reviews" component={Reviews} />
       <Route path="/style-quiz" component={StyleQuiz} />
+      <Route path="/schedule" component={Schedule} />
       <Route component={NotFound} />
     </Switch>
   );
