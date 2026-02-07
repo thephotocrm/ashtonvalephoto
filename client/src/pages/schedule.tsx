@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,9 @@ import { Video, Phone, Clock, CheckCircle2, Loader2, ArrowRight, ChevronLeft, Ch
 import { cn } from "@/lib/utils";
 
 import heroImg from "@assets/generated_images/first_look_moment.png";
+import { useSEO } from "@/hooks/use-seo";
+import { pageSEO } from "@/lib/seo-data";
+import { buildBreadcrumbJsonLd } from "@/components/SEOBreadcrumb";
 
 const timeSlots = [
   { id: "10:00", label: "10:00 AM" },
@@ -21,6 +24,22 @@ const timeSlots = [
 ];
 
 export default function Schedule() {
+  const breadcrumbJsonLd = useMemo(
+    () =>
+      buildBreadcrumbJsonLd([
+        { label: "Home", href: "/" },
+        { label: "Schedule", href: "/schedule" },
+      ]),
+    [],
+  );
+
+  useSEO({
+    title: pageSEO.schedule.title,
+    description: pageSEO.schedule.description,
+    canonical: "https://ashtonvalephoto.com/schedule",
+    jsonLd: breadcrumbJsonLd,
+  });
+
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isBooked, setIsBooked] = useState(false);

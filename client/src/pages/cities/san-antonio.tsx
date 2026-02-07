@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -7,11 +8,42 @@ import heroImg from "@assets/generated_images/soft_natural_light_aesthetic.png";
 import ceremonyImg from "@assets/generated_images/bride_walking_aisle_ceremony.png";
 import ringsImg from "@assets/generated_images/wedding_rings_on_roses.png";
 import cakeImg from "@assets/generated_images/elegant_wedding_cake.png";
+import { useSEO } from "@/hooks/use-seo";
+import { pageSEO, cityLocalBusinessSchema } from "@/lib/seo-data";
+import { SEOBreadcrumb, buildBreadcrumbJsonLd } from "@/components/SEOBreadcrumb";
 
 export default function SanAntonio() {
+  const jsonLd = useMemo(
+    () => [
+      buildBreadcrumbJsonLd([
+        { label: "Home", href: "/" },
+        { label: "San Antonio", href: "/san-antonio" },
+      ]),
+      cityLocalBusinessSchema({
+        name: "San Antonio",
+        state: "TX",
+        slug: "sanAntonio",
+      }),
+    ],
+    [],
+  );
+
+  useSEO({
+    title: pageSEO.sanAntonio.title,
+    description: pageSEO.sanAntonio.description,
+    canonical: "https://ashtonvalephoto.com/san-antonio",
+    jsonLd,
+  });
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navigation />
+      <SEOBreadcrumb
+        items={[
+          { label: "Home", href: "/" },
+          { label: "San Antonio" },
+        ]}
+      />
       <main className="flex-grow">
         {/* Cinematic Hero with Play Button Aesthetic */}
         <section className="relative h-[85vh] min-h-[600px] overflow-hidden">

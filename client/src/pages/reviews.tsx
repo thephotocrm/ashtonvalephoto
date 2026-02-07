@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { FinalCTA } from "@/components/FinalCTA";
@@ -5,6 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Quote } from "lucide-react";
 import reviewsHeroImg from "@assets/generated_images/first_look_moment.png";
+import { useSEO } from "@/hooks/use-seo";
+import { pageSEO, aggregateRatingSchema } from "@/lib/seo-data";
+import { buildBreadcrumbJsonLd } from "@/components/SEOBreadcrumb";
 
 const reviews = [
   {
@@ -85,6 +89,29 @@ const reviews = [
 ];
 
 export default function Reviews() {
+  const jsonLd = useMemo(
+    () => [
+      buildBreadcrumbJsonLd([
+        { label: "Home", href: "/" },
+        { label: "Reviews", href: "/reviews" },
+      ]),
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        name: "Ashton Vale Photo & Video",
+        aggregateRating: aggregateRatingSchema,
+      },
+    ],
+    [],
+  );
+
+  useSEO({
+    title: pageSEO.reviews.title,
+    description: pageSEO.reviews.description,
+    canonical: "https://ashtonvalephoto.com/reviews",
+    jsonLd,
+  });
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navigation />

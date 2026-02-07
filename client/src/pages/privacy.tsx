@@ -1,7 +1,16 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { useSEO } from "@/hooks/use-seo";
+import { pageSEO } from "@/lib/seo-data";
 
 export default function Privacy() {
+  useSEO({
+    title: pageSEO.privacy.title,
+    description: pageSEO.privacy.description,
+    canonical: "https://ashtonvalephoto.com/privacy",
+    noIndex: true,
+  });
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navigation />

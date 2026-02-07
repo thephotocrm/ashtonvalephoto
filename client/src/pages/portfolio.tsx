@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { FinalCTA } from "@/components/FinalCTA";
@@ -6,6 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Link, useSearch } from "wouter";
 import { cn } from "@/lib/utils";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { useSEO } from "@/hooks/use-seo";
+import { pageSEO } from "@/lib/seo-data";
+import { buildBreadcrumbJsonLd } from "@/components/SEOBreadcrumb";
 
 // Portfolio images
 import img1 from "@assets/portfolio/2024-July-27-13-46-49.jpg";
@@ -111,6 +114,22 @@ const engagementImages = [
 ];
 
 export default function Portfolio() {
+  const breadcrumbJsonLd = useMemo(
+    () =>
+      buildBreadcrumbJsonLd([
+        { label: "Home", href: "/" },
+        { label: "Portfolio", href: "/portfolio" },
+      ]),
+    [],
+  );
+
+  useSEO({
+    title: pageSEO.portfolio.title,
+    description: pageSEO.portfolio.description,
+    canonical: "https://ashtonvalephoto.com/portfolio",
+    jsonLd: breadcrumbJsonLd,
+  });
+
   const searchString = useSearch();
   const urlParams = new URLSearchParams(searchString);
   const tabParam = urlParams.get("tab");

@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -8,8 +9,27 @@ import heroImg from "@assets/generated_images/romantic_wedding_couple_under_veil
 import brideImg from "@assets/generated_images/bride_holding_bouquet.png";
 import engagementImg from "@assets/generated_images/engagement_couple_laughing.png";
 import gardenImg from "@assets/generated_images/romantic_garden_wedding_venue.png";
+import { useSEO } from "@/hooks/use-seo";
+import { pageSEO } from "@/lib/seo-data";
+import { buildBreadcrumbJsonLd } from "@/components/SEOBreadcrumb";
 
 export default function Packages() {
+  const breadcrumbJsonLd = useMemo(
+    () =>
+      buildBreadcrumbJsonLd([
+        { label: "Home", href: "/" },
+        { label: "Packages", href: "/packages" },
+      ]),
+    [],
+  );
+
+  useSEO({
+    title: pageSEO.packages.title,
+    description: pageSEO.packages.description,
+    canonical: "https://ashtonvalephoto.com/packages",
+    jsonLd: breadcrumbJsonLd,
+  });
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navigation />

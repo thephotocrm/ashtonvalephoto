@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -29,6 +29,9 @@ import gardenVenueImg from "@assets/generated_images/romantic_garden_wedding_ven
 import warmGoldenImg from "@assets/generated_images/warm_golden_sunset_tones.png";
 import softNaturalImg from "@assets/generated_images/soft_natural_light_aesthetic.png";
 import curatorImg from "@assets/generated_images/female_photographer_portrait_1.png";
+import { useSEO } from "@/hooks/use-seo";
+import { pageSEO } from "@/lib/seo-data";
+import { buildBreadcrumbJsonLd } from "@/components/SEOBreadcrumb";
 
 type StyleProfile = "connoisseur" | "visionary" | "romantic" | "modernist" | "storyteller";
 
@@ -152,6 +155,22 @@ const revealMessages = [
 ];
 
 export default function StyleQuiz() {
+  const breadcrumbJsonLd = useMemo(
+    () =>
+      buildBreadcrumbJsonLd([
+        { label: "Home", href: "/" },
+        { label: "Style Quiz", href: "/style-quiz" },
+      ]),
+    [],
+  );
+
+  useSEO({
+    title: pageSEO.styleQuiz.title,
+    description: pageSEO.styleQuiz.description,
+    canonical: "https://ashtonvalephoto.com/style-quiz",
+    jsonLd: breadcrumbJsonLd,
+  });
+
   const { toast } = useToast();
   const [currentStep, setCurrentStep] = useState<"intro" | number | "slider" | "contact" | "revealing" | "results">("intro");
   const [selections, setSelections] = useState<Record<number, string>>({});

@@ -1,11 +1,31 @@
+import { useMemo } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { FinalCTA } from "@/components/FinalCTA";
 import heroImg from "@assets/generated_images/romantic_wedding_couple_under_veil.png";
 import brideImg from "@assets/generated_images/bride_holding_bouquet.png";
 import firstLookImg from "@assets/generated_images/first_look_moment.png";
+import { useSEO } from "@/hooks/use-seo";
+import { pageSEO } from "@/lib/seo-data";
+import { buildBreadcrumbJsonLd } from "@/components/SEOBreadcrumb";
 
 export default function About() {
+  const breadcrumbJsonLd = useMemo(
+    () =>
+      buildBreadcrumbJsonLd([
+        { label: "Home", href: "/" },
+        { label: "About Us", href: "/about" },
+      ]),
+    [],
+  );
+
+  useSEO({
+    title: pageSEO.about.title,
+    description: pageSEO.about.description,
+    canonical: "https://ashtonvalephoto.com/about",
+    jsonLd: breadcrumbJsonLd,
+  });
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navigation />

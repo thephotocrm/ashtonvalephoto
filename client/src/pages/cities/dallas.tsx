@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -5,11 +6,38 @@ import { Link } from "wouter";
 import { Camera, Film, Heart, MapPin } from "lucide-react";
 import heroImg from "@assets/generated_images/editorial_luxury_hotel_venue.png";
 import coupleImg from "@assets/generated_images/romantic_wedding_couple_under_veil.png";
+import { useSEO } from "@/hooks/use-seo";
+import { pageSEO, cityLocalBusinessSchema } from "@/lib/seo-data";
+import { SEOBreadcrumb, buildBreadcrumbJsonLd } from "@/components/SEOBreadcrumb";
 
 export default function Dallas() {
+  const jsonLd = useMemo(
+    () => [
+      buildBreadcrumbJsonLd([
+        { label: "Home", href: "/" },
+        { label: "Dallas", href: "/dallas" },
+      ]),
+      cityLocalBusinessSchema({ name: "Dallas", state: "TX", slug: "dallas" }),
+    ],
+    [],
+  );
+
+  useSEO({
+    title: pageSEO.dallas.title,
+    description: pageSEO.dallas.description,
+    canonical: "https://ashtonvalephoto.com/dallas",
+    jsonLd,
+  });
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navigation />
+      <SEOBreadcrumb
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Dallas" },
+        ]}
+      />
       <main className="flex-grow">
         {/* Hero Section - Full Width with Overlay */}
         <section className="relative h-[70vh] min-h-[550px] overflow-hidden">

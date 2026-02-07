@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -6,11 +7,38 @@ import { Star, Award, Users } from "lucide-react";
 import heroImg from "@assets/generated_images/romantic_garden_wedding_venue.png";
 import coupleImg from "@assets/generated_images/first_look_moment.png";
 import danceImg from "@assets/generated_images/couple_dancing_reception.png";
+import { useSEO } from "@/hooks/use-seo";
+import { pageSEO, cityLocalBusinessSchema } from "@/lib/seo-data";
+import { SEOBreadcrumb, buildBreadcrumbJsonLd } from "@/components/SEOBreadcrumb";
 
 export default function Austin() {
+  const jsonLd = useMemo(
+    () => [
+      buildBreadcrumbJsonLd([
+        { label: "Home", href: "/" },
+        { label: "Austin", href: "/austin" },
+      ]),
+      cityLocalBusinessSchema({ name: "Austin", state: "TX", slug: "austin" }),
+    ],
+    [],
+  );
+
+  useSEO({
+    title: pageSEO.austin.title,
+    description: pageSEO.austin.description,
+    canonical: "https://ashtonvalephoto.com/austin",
+    jsonLd,
+  });
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navigation />
+      <SEOBreadcrumb
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Austin" },
+        ]}
+      />
       <main className="flex-grow">
         {/* Split Hero Section */}
         <section className="min-h-[80vh] grid md:grid-cols-2">

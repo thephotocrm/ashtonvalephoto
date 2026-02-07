@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { FeaturedPhotographers } from "@/components/FeaturedPhotographers";
@@ -7,6 +8,9 @@ import { Link } from "wouter";
 import { Sparkles, MessageCircle, Camera, Heart, Shield, Gem } from "lucide-react";
 import heroImg from "@assets/generated_images/first_look_moment.png";
 import photographerImg from "@assets/Austin P.jpeg";
+import { useSEO } from "@/hooks/use-seo";
+import { pageSEO } from "@/lib/seo-data";
+import { buildBreadcrumbJsonLd } from "@/components/SEOBreadcrumb";
 
 const steps = [
   {
@@ -45,6 +49,22 @@ const differentiators = [
 ];
 
 export default function HowItWorks() {
+  const breadcrumbJsonLd = useMemo(
+    () =>
+      buildBreadcrumbJsonLd([
+        { label: "Home", href: "/" },
+        { label: "How It Works", href: "/how-it-works" },
+      ]),
+    [],
+  );
+
+  useSEO({
+    title: pageSEO.howItWorks.title,
+    description: pageSEO.howItWorks.description,
+    canonical: "https://ashtonvalephoto.com/how-it-works",
+    jsonLd: breadcrumbJsonLd,
+  });
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navigation />

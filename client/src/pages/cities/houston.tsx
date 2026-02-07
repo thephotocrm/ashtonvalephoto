@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -5,11 +6,38 @@ import { Link } from "wouter";
 import { Quote, ChevronRight } from "lucide-react";
 import heroImg from "@assets/generated_images/historic_grand_ballroom_venue.png";
 import brideImg from "@assets/generated_images/bride_holding_bouquet.png";
+import { useSEO } from "@/hooks/use-seo";
+import { pageSEO, cityLocalBusinessSchema } from "@/lib/seo-data";
+import { SEOBreadcrumb, buildBreadcrumbJsonLd } from "@/components/SEOBreadcrumb";
 
 export default function Houston() {
+  const jsonLd = useMemo(
+    () => [
+      buildBreadcrumbJsonLd([
+        { label: "Home", href: "/" },
+        { label: "Houston", href: "/houston" },
+      ]),
+      cityLocalBusinessSchema({ name: "Houston", state: "TX", slug: "houston" }),
+    ],
+    [],
+  );
+
+  useSEO({
+    title: pageSEO.houston.title,
+    description: pageSEO.houston.description,
+    canonical: "https://ashtonvalephoto.com/houston",
+    jsonLd,
+  });
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navigation />
+      <SEOBreadcrumb
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Houston" },
+        ]}
+      />
       <main className="flex-grow">
         {/* Minimal Centered Hero */}
         <section className="pt-32 pb-20 bg-neutral-900 text-center">

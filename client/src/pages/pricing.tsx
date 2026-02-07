@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -12,8 +12,26 @@ import { useLocation } from "wouter";
 import { Loader2 } from "lucide-react";
 import { LocationAutocomplete } from "@/components/LocationAutocomplete";
 import heroImg from "@assets/generated_images/romantic_wedding_couple_under_veil.png";
+import { useSEO } from "@/hooks/use-seo";
+import { pageSEO } from "@/lib/seo-data";
+import { buildBreadcrumbJsonLd } from "@/components/SEOBreadcrumb";
 
 export default function Pricing() {
+  const breadcrumbJsonLd = useMemo(
+    () =>
+      buildBreadcrumbJsonLd([
+        { label: "Home", href: "/" },
+        { label: "Pricing", href: "/pricing" },
+      ]),
+    [],
+  );
+
+  useSEO({
+    title: pageSEO.pricing.title,
+    description: pageSEO.pricing.description,
+    canonical: "https://ashtonvalephoto.com/pricing",
+    jsonLd: breadcrumbJsonLd,
+  });
   const { toast } = useToast();
   const [, navigate] = useLocation();
   const [formData, setFormData] = useState({
