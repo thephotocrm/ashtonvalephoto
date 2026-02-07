@@ -63,7 +63,7 @@ export default function Reviews() {
                   key={index}
                   className="bg-ivory p-8 border border-border/30 shadow-luxury hover:border-primary/20 transition-all duration-500"
                 >
-                  <Quote size={28} className="text-primary/30 mb-6" strokeWidth={1} />
+                  <Quote size={28} className="text-primary/30 mb-6" strokeWidth={1} aria-hidden="true" />
                   <p className="font-serif text-foreground/80 leading-relaxed italic mb-8">
                     <span className="text-primary/40 text-xl font-serif">"</span>
                     {review.quote}

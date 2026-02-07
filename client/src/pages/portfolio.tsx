@@ -99,18 +99,92 @@ import img83 from "@assets/portfolio/DSC09587.jpg";
 const tabs = ["Weddings", "Engagements", "Films"];
 
 const weddingImages = [
-  img1, img2, img3, img4, img5, img6, img7, img8, img9, img10,
-  img11, img12, img13, img14, img15, img16, img17, img18, img19, img20,
-  img21, img22, img23, img24, img25, img26, img27, img28, img29, img30,
-  img31, img32, img33, img34, img35, img36, img37, img38, img39, img40,
-  img41, img42, img43, img44, img45, img46, img47, img48, img49, img50,
-  img51, img52, img53, img54, img55, img56, img57, img58, img59, img60,
-  img61, img62, img63, img64, img65, img66
+  { src: img1, alt: "Bride and groom portrait on their wedding day" },
+  { src: img2, alt: "Candid moment between bride and groom" },
+  { src: img3, alt: "Wedding ceremony vows exchange" },
+  { src: img4, alt: "Bridal party celebration moment" },
+  { src: img5, alt: "Elegant reception table details" },
+  { src: img6, alt: "First dance as newlyweds" },
+  { src: img7, alt: "Bride walking down the aisle" },
+  { src: img8, alt: "Groom awaiting his bride at the altar" },
+  { src: img9, alt: "Emotional wedding ceremony moment" },
+  { src: img10, alt: "Couple sharing a tender kiss" },
+  { src: img11, alt: "Outdoor wedding portrait in golden light" },
+  { src: img12, alt: "Bridal bouquet and wedding details" },
+  { src: img13, alt: "Wedding couple at sunset" },
+  { src: img14, alt: "Joyful wedding reception moment" },
+  { src: img15, alt: "Romantic newlywed portrait" },
+  { src: img16, alt: "Wedding guests celebrating the couple" },
+  { src: img17, alt: "Bride and groom's first look" },
+  { src: img18, alt: "Wedding ceremony under an arch" },
+  { src: img19, alt: "Couple embracing after the ceremony" },
+  { src: img20, alt: "Evening reception dance floor moment" },
+  { src: img21, alt: "Elegant bridal portrait" },
+  { src: img22, alt: "Wedding couple in a garden setting" },
+  { src: img23, alt: "Intimate moment during the reception" },
+  { src: img24, alt: "Bride and groom exiting the ceremony" },
+  { src: img25, alt: "Romantic couple portrait at the venue" },
+  { src: img26, alt: "Wedding day detail shot" },
+  { src: img27, alt: "Couple sharing a quiet moment together" },
+  { src: img28, alt: "Wedding party group portrait" },
+  { src: img29, alt: "Bride's getting ready moment" },
+  { src: img30, alt: "Groom and groomsmen preparation" },
+  { src: img31, alt: "Ceremony ring exchange close-up" },
+  { src: img32, alt: "Documentary wedding moment" },
+  { src: img33, alt: "Candid reception celebration" },
+  { src: img34, alt: "Artistic wedding portrait" },
+  { src: img35, alt: "Bride and groom walking together" },
+  { src: img36, alt: "Editorial bridal portrait" },
+  { src: img37, alt: "Wedding venue architecture detail" },
+  { src: img38, alt: "Couple laughing during the reception" },
+  { src: img39, alt: "Emotional father-daughter dance" },
+  { src: img40, alt: "Sunset wedding ceremony portrait" },
+  { src: img41, alt: "Bride's veil flowing in the wind" },
+  { src: img42, alt: "Wedding cake cutting moment" },
+  { src: img43, alt: "Couple under twinkling lights" },
+  { src: img44, alt: "Bridal party walking together" },
+  { src: img45, alt: "Intimate wedding vow reading" },
+  { src: img46, alt: "Dramatic wedding portrait" },
+  { src: img47, alt: "Wedding reception toast" },
+  { src: img48, alt: "Couple dancing at their reception" },
+  { src: img49, alt: "Romantic golden hour wedding portrait" },
+  { src: img50, alt: "Wedding florals and decor details" },
+  { src: img51, alt: "Bride descending the staircase" },
+  { src: img52, alt: "Candid joy during the ceremony" },
+  { src: img53, alt: "Couple's grand exit moment" },
+  { src: img54, alt: "Wedding day emotion captured candidly" },
+  { src: img55, alt: "Elegant black-tie wedding portrait" },
+  { src: img56, alt: "Newlyweds sharing their first kiss" },
+  { src: img57, alt: "Wedding processional moment" },
+  { src: img58, alt: "Couple framed by venue architecture" },
+  { src: img59, alt: "Joyful bride tossing bouquet" },
+  { src: img60, alt: "Wedding sparkler exit" },
+  { src: img61, alt: "Artistic black and white wedding portrait" },
+  { src: img62, alt: "Couple embracing at their reception" },
+  { src: img63, alt: "Ceremony flower detail" },
+  { src: img64, alt: "Bride and groom silhouette at sunset" },
+  { src: img65, alt: "Wedding celebration dance moment" },
+  { src: img66, alt: "Timeless couple portrait" },
 ];
 
 const engagementImages = [
-  img67, img68, img69, img70, img71, img72, img73, img74, img75, img76,
-  img77, img78, img79, img80, img81, img82, img83
+  { src: img67, alt: "Couple laughing during engagement session" },
+  { src: img68, alt: "Romantic engagement portrait at sunset" },
+  { src: img69, alt: "Candid moment during engagement shoot" },
+  { src: img70, alt: "Couple walking hand in hand" },
+  { src: img71, alt: "Playful engagement session portrait" },
+  { src: img72, alt: "Intimate couple portrait in natural light" },
+  { src: img73, alt: "Engagement session in a scenic location" },
+  { src: img74, alt: "Couple embracing during their engagement shoot" },
+  { src: img75, alt: "Joyful engagement session moment" },
+  { src: img76, alt: "Couple sharing a kiss during engagement photos" },
+  { src: img77, alt: "Romantic engagement portrait with city backdrop" },
+  { src: img78, alt: "Engagement session detail shot with ring" },
+  { src: img79, alt: "Couple laughing together outdoors" },
+  { src: img80, alt: "Golden hour engagement portrait" },
+  { src: img81, alt: "Couple posing in elegant engagement attire" },
+  { src: img82, alt: "Artistic engagement session composition" },
+  { src: img83, alt: "Candid engagement session moment at dusk" },
 ];
 
 export default function Portfolio() {
@@ -237,7 +311,7 @@ export default function Portfolio() {
               <div className="py-12">
                 <div className="text-center mb-12">
                   <p className="text-[10px] uppercase tracking-[0.4em] text-primary mb-4">Cinematography</p>
-                  <h3 className="font-serif text-3xl font-light mb-6">Wedding Films</h3>
+                  <h2 className="font-serif text-3xl font-light mb-6">Wedding Films</h2>
                   <p className="text-muted-foreground max-w-xl mx-auto">
                     Our cinematic wedding films capture the emotion and artistry of your celebration.
                   </p>
@@ -308,8 +382,8 @@ export default function Portfolio() {
                     onClick={() => openLightbox(index)}
                   >
                     <img
-                      src={image}
-                      alt={`Portfolio image ${index + 1}`}
+                      src={image.src}
+                      alt={image.alt}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 select-none"
                       onContextMenu={preventRightClick}
                       draggable={false}
@@ -326,9 +400,9 @@ export default function Portfolio() {
         <section className="py-20 bg-ivory">
           <div className="container mx-auto px-8 text-center">
             <p className="text-[10px] uppercase tracking-[0.4em] text-primary mb-4">Your Story Awaits</p>
-            <h3 className="font-serif text-3xl md:text-4xl font-light mb-6">
+            <h2 className="font-serif text-3xl md:text-4xl font-light mb-6">
               Let Us Capture Your Celebration
-            </h3>
+            </h2>
             <p className="text-muted-foreground max-w-lg mx-auto mb-10">
               Every love story deserves to be told with artistry and intention.
             </p>
@@ -359,7 +433,7 @@ export default function Portfolio() {
             className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-50"
             onClick={closeLightbox}
           >
-            <X size={32} strokeWidth={1} />
+            <X size={32} strokeWidth={1} aria-hidden="true" /><span className="sr-only">Close lightbox</span>
           </button>
 
           {/* Previous button */}
@@ -370,7 +444,7 @@ export default function Portfolio() {
               goToPrevious();
             }}
           >
-            <ChevronLeft size={48} strokeWidth={1} />
+            <ChevronLeft size={48} strokeWidth={1} aria-hidden="true" /><span className="sr-only">Previous image</span>
           </button>
 
           {/* Image */}
@@ -379,8 +453,8 @@ export default function Portfolio() {
             onClick={(e) => e.stopPropagation()}
           >
             <img
-              src={currentImages[lightboxIndex]}
-              alt={`Portfolio image ${lightboxIndex + 1}`}
+              src={currentImages[lightboxIndex].src}
+              alt={currentImages[lightboxIndex].alt}
               className="max-w-full max-h-[90vh] object-contain select-none"
               onContextMenu={preventRightClick}
               draggable={false}
@@ -395,7 +469,7 @@ export default function Portfolio() {
               goToNext();
             }}
           >
-            <ChevronRight size={48} strokeWidth={1} />
+            <ChevronRight size={48} strokeWidth={1} aria-hidden="true" /><span className="sr-only">Next image</span>
           </button>
 
           {/* Image counter */}

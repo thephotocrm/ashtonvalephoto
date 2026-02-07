@@ -47,6 +47,23 @@ export default function Home() {
           "https://www.facebook.com/people/Ashton-Vale-Photo-Video/61587390063273/",
         ],
       },
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "Ashton Vale Photo & Video",
+        url: "https://ashtonvalephoto.com",
+        logo: "https://ashtonvalephoto.com/favicon.svg",
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: "(972) 249-7048",
+          email: "inquire@ashtonvalephoto.com",
+          contactType: "customer service",
+        },
+        sameAs: [
+          "https://www.instagram.com/ashtonvalephoto",
+          "https://www.facebook.com/people/Ashton-Vale-Photo-Video/61587390063273/",
+        ],
+      },
     ],
     [],
   );

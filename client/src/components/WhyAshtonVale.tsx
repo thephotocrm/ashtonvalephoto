@@ -48,7 +48,7 @@ export function WhyAshtonVale() {
           {benefits.map((benefit, index) => (
             <div key={index} className="text-center group">
               <div className="w-16 h-16 border border-primary/30 flex items-center justify-center mx-auto mb-6 group-hover:border-primary/60 transition-colors">
-                <benefit.icon size={24} className="text-primary" strokeWidth={1.5} />
+                <benefit.icon size={24} className="text-primary" strokeWidth={1.5} aria-hidden="true" />
               </div>
               <h3 className="font-serif text-lg mb-3">{benefit.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{benefit.description}</p>

@@ -6,10 +6,12 @@ export function Hero() {
   return (
     <section className="relative h-screen min-h-[700px] overflow-hidden">
       {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
+      <div className="absolute inset-0">
+        <img
+          src={heroImage}
+          alt="Romantic wedding couple sharing an intimate moment under a lace veil at golden hour"
+          className="w-full h-full object-cover object-center"
+        />
         {/* Elegant gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
       </div>

@@ -32,7 +32,7 @@ export function AwardsBanner() {
               key={i} 
               className="text-center p-6 border border-white/10 hover:border-white/20 transition-colors group"
             >
-              <Award size={28} className="mx-auto mb-4 text-primary opacity-80 group-hover:opacity-100 transition-opacity" />
+              <Award size={28} className="mx-auto mb-4 text-primary opacity-80 group-hover:opacity-100 transition-opacity" aria-hidden="true" />
               <p className="text-xs text-white/80 font-medium mb-1">{award.name}</p>
               {award.year && (
                 <p className="text-[10px] text-white/40">{award.year}</p>

@@ -23,11 +23,63 @@ export default function Packages() {
     [],
   );
 
+  const jsonLd = useMemo(
+    () => [
+      breadcrumbJsonLd,
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: "Ashton Vale Wedding Photography & Cinematography",
+        provider: {
+          "@type": "LocalBusiness",
+          name: "Ashton Vale Photo & Video",
+        },
+        serviceType: "Wedding Photography",
+        areaServed: { "@type": "Country", name: "United States" },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Wedding Collections",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              name: "Documentary Coverage",
+              description: "Photography & cinematography, beautifully woven together",
+              price: "6995",
+              priceCurrency: "USD",
+            },
+            {
+              "@type": "Offer",
+              name: "Photography",
+              description: "Timeless images that tell your story",
+              price: "3500",
+              priceCurrency: "USD",
+            },
+            {
+              "@type": "Offer",
+              name: "Cinematography",
+              description: "Your day, cinematically told",
+              price: "3800",
+              priceCurrency: "USD",
+            },
+            {
+              "@type": "Offer",
+              name: "Elopement Collection",
+              description: "Beautiful documentation of intimate celebrations",
+              price: "2495",
+              priceCurrency: "USD",
+            },
+          ],
+        },
+      },
+    ],
+    [breadcrumbJsonLd],
+  );
+
   useSEO({
     title: pageSEO.packages.title,
     description: pageSEO.packages.description,
     canonical: "https://ashtonvalephoto.com/packages",
-    jsonLd: breadcrumbJsonLd,
+    jsonLd,
   });
 
   return (
@@ -60,11 +112,11 @@ export default function Packages() {
               <div className="relative min-h-[450px] md:min-h-[550px]">
                 <img
                   src={heroImg}
-                  alt="Documentary Coverage"
+                  alt="Romantic wedding couple under veil, documentary coverage package"
                   className="absolute inset-0 w-full h-full object-cover"
                 />
                 <div className="absolute top-6 left-6 bg-primary text-white px-4 py-2 flex items-center gap-2">
-                  <Sparkles size={14} />
+                  <Sparkles size={14} aria-hidden="true" />
                   <span className="text-[10px] uppercase tracking-[0.2em] font-medium">Most Popular</span>
                 </div>
               </div>
@@ -132,12 +184,12 @@ export default function Packages() {
                 <div className="relative overflow-hidden">
                   <img
                     src={brideImg}
-                    alt="Photography"
+                    alt="Elegant bride holding bouquet, wedding photography package"
                     className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
                   <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 flex items-center gap-2">
-                    <Camera size={14} className="text-primary" />
+                    <Camera size={14} className="text-primary" aria-hidden="true" />
                     <span className="text-[10px] uppercase tracking-[0.15em] font-medium">Photography</span>
                   </div>
                 </div>
@@ -192,12 +244,12 @@ export default function Packages() {
                 <div className="relative overflow-hidden">
                   <img
                     src={engagementImg}
-                    alt="Cinematography"
+                    alt="Couple laughing together, wedding cinematography package"
                     className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
                   <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 flex items-center gap-2">
-                    <Film size={14} className="text-primary" />
+                    <Film size={14} className="text-primary" aria-hidden="true" />
                     <span className="text-[10px] uppercase tracking-[0.15em] font-medium">Cinematography</span>
                   </div>
                 </div>
@@ -268,7 +320,7 @@ export default function Packages() {
                 <div className="relative min-h-[400px]">
                   <img
                     src={gardenImg}
-                    alt="Elopement Collection"
+                    alt="Romantic garden wedding venue, elopement collection"
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>

@@ -72,7 +72,7 @@ export function ReviewsCarousel() {
                 {reviews.map((review, index) => (
                   <CarouselItem key={index} className="pl-2 md:pl-4">
                     <div className="bg-white p-6 md:p-10 shadow-luxury border border-transparent hover:border-primary/20 transition-all duration-300">
-                      <Quote size={28} className="text-primary/20 mb-4 md:mb-6" strokeWidth={1} />
+                      <Quote size={28} className="text-primary/20 mb-4 md:mb-6" strokeWidth={1} aria-hidden="true" />
                       <p className="font-serif text-foreground/80 leading-relaxed italic text-base md:text-lg mb-6 md:mb-8">
                         <span className="text-primary/40 text-2xl font-serif leading-none">"</span>
                         {review.quote}

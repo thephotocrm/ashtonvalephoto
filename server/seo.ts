@@ -27,6 +27,24 @@ const localBusinessJsonLd = JSON.stringify({
   ],
 });
 
+const organizationJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Ashton Vale Photo & Video",
+  url: SITE_URL,
+  logo: `${SITE_URL}/favicon.svg`,
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "(972) 249-7048",
+    email: "inquire@ashtonvalephoto.com",
+    contactType: "customer service",
+  },
+  sameAs: [
+    "https://www.instagram.com/ashtonvalephoto",
+    "https://www.facebook.com/people/Ashton-Vale-Photo-Video/61587390063273/",
+  ],
+});
+
 export function injectMetaTags(html: string, url: string): string {
   // Strip query strings and hashes for lookup
   const path = url.split("?")[0].split("#")[0];
@@ -80,7 +98,7 @@ export function injectMetaTags(html: string, url: string): string {
   if (path === "/") {
     html = html.replace(
       "</head>",
-      `<script type="application/ld+json">${localBusinessJsonLd}</script>\n</head>`,
+      `<script type="application/ld+json">${localBusinessJsonLd}</script>\n<script type="application/ld+json">${organizationJsonLd}</script>\n</head>`,
     );
   }
 

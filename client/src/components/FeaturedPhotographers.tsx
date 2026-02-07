@@ -48,7 +48,7 @@ export function FeaturedPhotographers() {
                 {/* Image */}
                 <img
                   src={photographer.image}
-                  alt={photographer.name}
+                  alt={`Portrait of ${photographer.name}, ${photographer.specialty.toLowerCase()} wedding photographer`}
                   className="w-full aspect-[3/4] object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
 

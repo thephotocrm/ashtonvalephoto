@@ -175,7 +175,7 @@ export default function HowItWorks() {
                   {differentiators.map((item, index) => (
                     <div key={index} className="flex gap-6">
                       <div className="w-14 h-14 border border-primary/30 flex items-center justify-center flex-shrink-0">
-                        <item.icon size={22} className="text-primary" strokeWidth={1.5} />
+                        <item.icon size={22} className="text-primary" strokeWidth={1.5} aria-hidden="true" />
                       </div>
                       <div>
                         <h3 className="font-serif text-lg mb-2">{item.title}</h3>

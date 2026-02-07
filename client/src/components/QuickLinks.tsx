@@ -39,7 +39,7 @@ export function QuickLinks() {
                 {/* Image */}
                 <img 
                   src={link.image} 
-                  alt={link.title}
+                  alt={`${link.subtitle} — ${link.description}`}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 
@@ -55,7 +55,7 @@ export function QuickLinks() {
                   <h3 className="font-serif text-2xl font-light mb-2 text-white">{link.subtitle}</h3>
                   <p className="text-sm text-white/70 mb-4">{link.description}</p>
                   <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-white/80 group-hover:text-white transition-colors">
-                    Learn More <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" />
+                    Learn More <ArrowRight size={12} className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
                   </span>
                 </div>
               </div>

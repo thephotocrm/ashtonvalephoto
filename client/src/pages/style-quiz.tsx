@@ -549,7 +549,7 @@ export default function StyleQuiz() {
           <section className="min-h-[80vh] py-20 flex items-center">
             <div className="container mx-auto px-8">
               <div className="max-w-xl mx-auto text-center">
-                <Sparkles size={32} className="text-primary mx-auto mb-6" />
+                <Sparkles size={32} className="text-primary mx-auto mb-6" aria-hidden="true" />
                 <h2 className="font-serif text-3xl md:text-4xl font-light mb-4">
                   Your Results Await
                 </h2>
@@ -693,10 +693,10 @@ export default function StyleQuiz() {
             <div className="container mx-auto px-8 text-center max-w-xl">
               <div className="relative mb-12">
                 <div className="w-20 h-20 border border-primary/30 mx-auto flex items-center justify-center animate-pulse">
-                  <Sparkles size={32} className="text-primary" />
+                  <Sparkles size={32} className="text-primary" aria-hidden="true" />
                 </div>
               </div>
-              
+
               <div className="space-y-4 mb-8">
                 {revealMessages.map((msg, i) => (
                   <p 
@@ -792,7 +792,7 @@ export default function StyleQuiz() {
               {/* Style Dossier Promise */}
               <div className="max-w-3xl mx-auto mb-16">
                 <div className="bg-primary/5 border border-primary/20 p-8 text-center">
-                  <Sparkles size={24} className="text-primary mx-auto mb-4" />
+                  <Sparkles size={24} className="text-primary mx-auto mb-4" aria-hidden="true" />
                   <h3 className="font-serif text-xl mb-3">Your Personal Style Dossier</h3>
                   <p className="text-muted-foreground mb-4">
                     Within 24 hours, you'll receive a curated selection of 3 artist portfolios 
