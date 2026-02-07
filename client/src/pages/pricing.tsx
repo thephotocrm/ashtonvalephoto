@@ -61,7 +61,14 @@ export default function Pricing() {
 
       return response.json();
     },
-    onSuccess: (_, variables) => {
+    onSuccess: (result, variables) => {
+      // Fire Meta Pixel Lead event (deduped with server-side CAPI via eventID)
+      if (typeof window.fbq === "function") {
+        window.fbq("track", "Lead", {
+          content_name: "Pricing Inquiry",
+        }, { eventID: `inquiry_${result.id}` });
+      }
+
       // Send to Zapier webhook
       fetch("https://hooks.zapier.com/hooks/catch/13593170/ull6lfo/", {
         method: "POST",

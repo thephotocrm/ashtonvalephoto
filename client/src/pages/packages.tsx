@@ -1,8 +1,9 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Camera, Film, Sparkles } from "lucide-react";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { ArrowRight, Camera, Film, Sparkles, Check } from "lucide-react";
 import { Link } from "wouter";
 
 import heroImg from "@assets/generated_images/romantic_wedding_couple_under_veil.png";
@@ -81,6 +82,100 @@ export default function Packages() {
     canonical: "https://ashtonvalephoto.com/packages",
     jsonLd,
   });
+
+  const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
+
+  const packageDetails: Record<string, {
+    name: string;
+    price: string;
+    tagline: string;
+    image: string;
+    imageAlt: string;
+    features: string[];
+    description: string;
+    deliveryTimeline: string;
+  }> = {
+    documentary: {
+      name: "Documentary Coverage",
+      price: "$6,995",
+      tagline: "Photography & cinematography, beautifully woven together",
+      image: heroImg,
+      imageAlt: "Romantic wedding couple under veil",
+      features: [
+        "Lead Photographer + Cinematographer",
+        "8+ Hours of Full-Day Coverage",
+        "Curated Digital Gallery (600+ Images)",
+        "Cinematic Highlight Film (4-6 min)",
+        "Full Ceremony Film",
+        "Dedicated Planning Portal",
+        "Engagement Session Included",
+        "Second Photographer",
+        "Full Print Release & Download Rights",
+        "Custom USB in Keepsake Box",
+      ],
+      description: "Our most comprehensive collection, designed for couples who want every moment captured from every angle. Two creative teams work in harmony — your photographer capturing timeless stills while your cinematographer films the emotion and movement of the day.",
+      deliveryTimeline: "Gallery delivered within 6-8 weeks. Highlight film within 10-12 weeks.",
+    },
+    photography: {
+      name: "Photography",
+      price: "$3,500",
+      tagline: "Timeless images that tell your story",
+      image: brideImg,
+      imageAlt: "Elegant bride holding bouquet",
+      features: [
+        "Lead Photographer • 8 Hours",
+        "400+ Expertly Edited Images",
+        "Curated Digital Gallery with Download",
+        "Full Print Release",
+        "Online Planning Portal",
+        "Pre-Wedding Consultation",
+        "Timeline Assistance",
+        "Sneak Peek within 48 Hours",
+      ],
+      description: "Every glance, every embrace, every detail — preserved in images you'll treasure forever. Our documentary approach means genuine, unscripted moments captured with an editorial eye.",
+      deliveryTimeline: "Full gallery delivered within 6-8 weeks. Sneak peek within 48 hours.",
+    },
+    cinematography: {
+      name: "Cinematography",
+      price: "$3,800",
+      tagline: "Your day, cinematically told",
+      image: engagementImg,
+      imageAlt: "Couple laughing together",
+      features: [
+        "Lead Cinematographer • 8 Hours",
+        "4K Cinematic Highlight Film (4-6 min)",
+        "Full Ceremony Edit",
+        "Licensed Premium Music",
+        "Shareable Streaming Link",
+        "Raw Footage Archive",
+        "Pre-Wedding Consultation",
+        "Audio Capture of Vows & Speeches",
+      ],
+      description: "A cinematic retelling of your wedding day, blending music, motion, and emotion into a film you'll watch again and again. We capture the sounds, the movement, and the in-between moments that photographs alone can't convey.",
+      deliveryTimeline: "Highlight film delivered within 10-12 weeks. Streaming link provided upon delivery.",
+    },
+    elopement: {
+      name: "The Elopement Collection",
+      price: "$2,495",
+      tagline: "Beautiful documentation of intimate celebrations",
+      image: gardenImg,
+      imageAlt: "Romantic garden wedding venue",
+      features: [
+        "Lead Photographer • 3 Hours",
+        "Up to 2 Locations",
+        "200+ Expertly Edited Images",
+        "Full Print Release",
+        "Curated Digital Gallery",
+        "Pre-Session Planning Call",
+        "Location Scouting Assistance",
+        "Sneak Peek within 48 Hours",
+      ],
+      description: "Big love doesn't require a big guest list. Whether it's a mountainside ceremony or an intimate courthouse exchange, we'll document your day with the same artistry and attention as our largest celebrations.",
+      deliveryTimeline: "Full gallery delivered within 4-6 weeks. Sneak peek within 48 hours.",
+    },
+  };
+
+  const currentPackage = selectedPackage ? packageDetails[selectedPackage] : null;
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -163,12 +258,10 @@ export default function Packages() {
                 </div>
 
                 <Button
-                  asChild
+                  onClick={() => setSelectedPackage("documentary")}
                   className="self-start rounded-none px-8 py-6 text-[11px] uppercase tracking-[0.2em] font-medium bg-white text-black hover:bg-white/90 hover:shadow-luxury hover:scale-[1.02] transition-all duration-300"
                 >
-                  <Link href="/schedule">
-                    Schedule Discovery Call <ArrowRight size={14} className="ml-2" />
-                  </Link>
+                  View Details <ArrowRight size={14} className="ml-2" />
                 </Button>
               </div>
             </div>
@@ -228,13 +321,11 @@ export default function Packages() {
                   </div>
 
                   <Button
-                    asChild
+                    onClick={() => setSelectedPackage("photography")}
                     variant="outline"
                     className="w-full rounded-none border-border text-foreground hover:bg-primary hover:text-white hover:border-primary text-[10px] uppercase tracking-[0.2em] font-medium py-5 hover:shadow-luxury hover:scale-[1.02] transition-all duration-300"
                   >
-                    <Link href="/schedule">
-                      Schedule Discovery Call
-                    </Link>
+                    View Details
                   </Button>
                 </div>
               </div>
@@ -288,13 +379,11 @@ export default function Packages() {
                   </div>
 
                   <Button
-                    asChild
+                    onClick={() => setSelectedPackage("cinematography")}
                     variant="outline"
                     className="w-full rounded-none border-border text-foreground hover:bg-primary hover:text-white hover:border-primary text-[10px] uppercase tracking-[0.2em] font-medium py-5 hover:shadow-luxury hover:scale-[1.02] transition-all duration-300"
                   >
-                    <Link href="/schedule">
-                      Schedule Discovery Call
-                    </Link>
+                    View Details
                   </Button>
                 </div>
               </div>
@@ -359,13 +448,11 @@ export default function Packages() {
                   </div>
 
                   <Button
-                    asChild
+                    onClick={() => setSelectedPackage("elopement")}
                     variant="outline"
                     className="self-start rounded-none px-8 py-6 text-[11px] uppercase tracking-[0.2em] font-medium border-foreground/30 text-foreground hover:bg-foreground hover:text-white hover:shadow-luxury hover:scale-[1.02] transition-all duration-300"
                   >
-                    <Link href="/schedule">
-                      Schedule Discovery Call <ArrowRight size={14} className="ml-2" />
-                    </Link>
+                    View Details <ArrowRight size={14} className="ml-2" />
                   </Button>
                 </div>
               </div>
@@ -398,6 +485,70 @@ export default function Packages() {
             </Button>
           </div>
         </section>
+        {/* Package Detail Modal */}
+        <Dialog open={!!selectedPackage} onOpenChange={() => setSelectedPackage(null)}>
+          <DialogContent className="max-w-[1200px] max-h-[90vh] p-0 overflow-hidden">
+            {currentPackage && (
+              <div className="flex flex-col md:grid md:grid-cols-[2fr_3fr]">
+                {/* Image — full height on desktop, bottom on mobile */}
+                <div className="relative order-2 h-56 md:order-none md:h-auto">
+                  <img
+                    src={currentPackage.image}
+                    alt={currentPackage.imageAlt}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Right column — scrollable content */}
+                <div className="order-1 max-h-[90vh] md:order-none md:max-h-[85vh] overflow-y-auto">
+                  <div className="p-6 md:p-8">
+                    <DialogTitle className="font-serif text-3xl font-light mb-1">
+                      {currentPackage.name}
+                    </DialogTitle>
+                    <DialogDescription className="text-muted-foreground italic text-sm mb-6">
+                      {currentPackage.tagline}
+                    </DialogDescription>
+
+                    <p className="mb-4">
+                      <span className="text-[11px] uppercase tracking-[0.15em] mr-2 text-muted-foreground">Starting at</span>
+                      <span className="font-serif text-4xl text-primary">{currentPackage.price}</span>
+                    </p>
+
+                    <p className="text-foreground/80 leading-relaxed mb-6 text-sm">
+                      {currentPackage.description}
+                    </p>
+
+                    <Button
+                      asChild
+                      className="w-full rounded-none py-6 text-[11px] uppercase tracking-[0.2em] font-medium bg-primary text-white hover:bg-primary/90 hover:shadow-luxury transition-all duration-300 mb-8"
+                    >
+                      <Link href="/schedule">
+                        Schedule Discovery Call <ArrowRight size={14} className="ml-2" />
+                      </Link>
+                    </Button>
+
+                    <div className="border-t border-border pt-8 mb-8">
+                      <h4 className="text-[10px] uppercase tracking-[0.3em] text-primary mb-4 font-medium">What's Included</h4>
+                      <div className="grid grid-cols-1 min-[1200px]:grid-cols-2 gap-x-4 gap-y-3">
+                        {currentPackage.features.map((feature) => (
+                          <p key={feature} className="flex items-start gap-2 text-sm text-foreground/80">
+                            <Check size={13} className="text-primary mt-0.5 flex-shrink-0" />
+                            {feature}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="bg-muted/50 p-4 border border-border">
+                      <h4 className="text-[10px] uppercase tracking-[0.3em] text-primary mb-2 font-medium">Delivery Timeline</h4>
+                      <p className="text-sm text-foreground/70">{currentPackage.deliveryTimeline}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </DialogContent>
+        </Dialog>
       </main>
       <Footer />
     </div>
