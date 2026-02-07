@@ -13,16 +13,19 @@ import { pageSEO, cityLocalBusinessSchema } from "@/lib/seo-data";
 import { SEOBreadcrumb, buildBreadcrumbJsonLd } from "@/components/SEOBreadcrumb";
 
 export default function SanAntonio() {
+  const breadcrumbs = [
+    { label: "Home", href: "/" },
+    { label: "San Antonio" },
+  ];
+
   const jsonLd = useMemo(
     () => [
-      buildBreadcrumbJsonLd([
-        { label: "Home", href: "/" },
-        { label: "San Antonio", href: "/san-antonio" },
-      ]),
+      buildBreadcrumbJsonLd(breadcrumbs),
       cityLocalBusinessSchema({
         name: "San Antonio",
         state: "TX",
-        slug: "sanAntonio",
+        seoKey: "sanAntonio",
+        urlPath: "san-antonio",
       }),
     ],
     [],
@@ -38,12 +41,7 @@ export default function SanAntonio() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navigation />
-      <SEOBreadcrumb
-        items={[
-          { label: "Home", href: "/" },
-          { label: "San Antonio" },
-        ]}
-      />
+      <SEOBreadcrumb items={breadcrumbs} />
       <main className="flex-grow">
         {/* Cinematic Hero with Play Button Aesthetic */}
         <section className="relative h-[85vh] min-h-[600px] overflow-hidden">

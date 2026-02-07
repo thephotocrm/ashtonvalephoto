@@ -7,7 +7,11 @@
       "Bash(for i in 1 2 3 4 5)",
       "Bash(do echo waiting...)",
       "Bash(done)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(python3:*)",
+      "Bash(node -e:*)",
+      "Bash(node:*)",
+      "Bash(echo \"---\" node -e \"\nimport\\(''''./client/src/lib/reviews-data.ts''''\\)\n\")"
     ]
   }
 }

@@ -11,12 +11,43 @@ import { StorySection } from "@/components/StorySection";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
 import { useSEO } from "@/hooks/use-seo";
-import { pageSEO } from "@/lib/seo-data";
+import { pageSEO, aggregateRatingSchema } from "@/lib/seo-data";
 import { buildBreadcrumbJsonLd } from "@/components/SEOBreadcrumb";
 
 export default function Home() {
-  const breadcrumbJsonLd = useMemo(
-    () => buildBreadcrumbJsonLd([{ label: "Home", href: "/" }]),
+  const jsonLd = useMemo(
+    () => [
+      buildBreadcrumbJsonLd([{ label: "Home", href: "/" }]),
+      {
+        "@context": "https://schema.org",
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        name: "Ashton Vale Photo & Video",
+        description: pageSEO.home.description,
+        url: "https://ashtonvalephoto.com",
+        telephone: "(972) 249-7048",
+        email: "inquire@ashtonvalephoto.com",
+        address: {
+          "@type": "PostalAddress",
+          addressCountry: "US",
+        },
+        areaServed: {
+          "@type": "Country",
+          name: "United States",
+        },
+        serviceType: [
+          "Wedding Photography",
+          "Cinematography",
+          "Engagement Sessions",
+        ],
+        priceRange: "$$$",
+        image: "https://ashtonvalephoto.com/opengraph.jpg",
+        aggregateRating: aggregateRatingSchema,
+        sameAs: [
+          "https://www.instagram.com/ashtonvalephoto",
+          "https://www.facebook.com/people/Ashton-Vale-Photo-Video/61587390063273/",
+        ],
+      },
+    ],
     [],
   );
 
@@ -24,7 +55,7 @@ export default function Home() {
     title: pageSEO.home.title,
     description: pageSEO.home.description,
     canonical: "https://ashtonvalephoto.com/",
-    jsonLd: breadcrumbJsonLd,
+    jsonLd,
   });
 
   return (

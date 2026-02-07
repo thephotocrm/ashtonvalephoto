@@ -11,13 +11,15 @@ import { pageSEO, cityLocalBusinessSchema } from "@/lib/seo-data";
 import { SEOBreadcrumb, buildBreadcrumbJsonLd } from "@/components/SEOBreadcrumb";
 
 export default function Dallas() {
+  const breadcrumbs = [
+    { label: "Home", href: "/" },
+    { label: "Dallas" },
+  ];
+
   const jsonLd = useMemo(
     () => [
-      buildBreadcrumbJsonLd([
-        { label: "Home", href: "/" },
-        { label: "Dallas", href: "/dallas" },
-      ]),
-      cityLocalBusinessSchema({ name: "Dallas", state: "TX", slug: "dallas" }),
+      buildBreadcrumbJsonLd(breadcrumbs),
+      cityLocalBusinessSchema({ name: "Dallas", state: "TX", seoKey: "dallas", urlPath: "dallas" }),
     ],
     [],
   );
@@ -32,12 +34,7 @@ export default function Dallas() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navigation />
-      <SEOBreadcrumb
-        items={[
-          { label: "Home", href: "/" },
-          { label: "Dallas" },
-        ]}
-      />
+      <SEOBreadcrumb items={breadcrumbs} />
       <main className="flex-grow">
         {/* Hero Section - Full Width with Overlay */}
         <section className="relative h-[70vh] min-h-[550px] overflow-hidden">

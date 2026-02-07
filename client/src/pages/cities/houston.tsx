@@ -11,13 +11,15 @@ import { pageSEO, cityLocalBusinessSchema } from "@/lib/seo-data";
 import { SEOBreadcrumb, buildBreadcrumbJsonLd } from "@/components/SEOBreadcrumb";
 
 export default function Houston() {
+  const breadcrumbs = [
+    { label: "Home", href: "/" },
+    { label: "Houston" },
+  ];
+
   const jsonLd = useMemo(
     () => [
-      buildBreadcrumbJsonLd([
-        { label: "Home", href: "/" },
-        { label: "Houston", href: "/houston" },
-      ]),
-      cityLocalBusinessSchema({ name: "Houston", state: "TX", slug: "houston" }),
+      buildBreadcrumbJsonLd(breadcrumbs),
+      cityLocalBusinessSchema({ name: "Houston", state: "TX", seoKey: "houston", urlPath: "houston" }),
     ],
     [],
   );
@@ -32,12 +34,7 @@ export default function Houston() {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Navigation />
-      <SEOBreadcrumb
-        items={[
-          { label: "Home", href: "/" },
-          { label: "Houston" },
-        ]}
-      />
+      <SEOBreadcrumb items={breadcrumbs} />
       <main className="flex-grow">
         {/* Minimal Centered Hero */}
         <section className="pt-32 pb-20 bg-neutral-900 text-center">
