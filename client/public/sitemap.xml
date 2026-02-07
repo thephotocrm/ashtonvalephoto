@@ -9,4 +9,9 @@
   <url><loc>https://ashtonvalephoto.com/schedule</loc><priority>0.7</priority></url>
   <url><loc>https://ashtonvalephoto.com/terms</loc><priority>0.3</priority></url>
   <url><loc>https://ashtonvalephoto.com/privacy</loc><priority>0.3</priority></url>
+  <!-- City landing pages -->
+  <url><loc>https://ashtonvalephoto.com/dallas</loc><priority>0.7</priority></url>
+  <url><loc>https://ashtonvalephoto.com/austin</loc><priority>0.7</priority></url>
+  <url><loc>https://ashtonvalephoto.com/houston</loc><priority>0.7</priority></url>
+  <url><loc>https://ashtonvalephoto.com/san-antonio</loc><priority>0.7</priority></url>
 </urlset>

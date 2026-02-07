@@ -16,6 +16,10 @@ import StyleQuiz from "@/pages/style-quiz";
 import Schedule from "@/pages/schedule";
 import Terms from "@/pages/terms";
 import Privacy from "@/pages/privacy";
+import Dallas from "@/pages/cities/dallas";
+import Austin from "@/pages/cities/austin";
+import Houston from "@/pages/cities/houston";
+import SanAntonio from "@/pages/cities/san-antonio";
 
 function ScrollToTop() {
   const [location] = useLocation();
@@ -41,6 +45,11 @@ function Router() {
       <Route path="/schedule" component={Schedule} />
       <Route path="/terms" component={Terms} />
       <Route path="/privacy" component={Privacy} />
+      {/* Hidden city landing pages for SEO */}
+      <Route path="/dallas" component={Dallas} />
+      <Route path="/austin" component={Austin} />
+      <Route path="/houston" component={Houston} />
+      <Route path="/san-antonio" component={SanAntonio} />
       <Route component={NotFound} />
     </Switch>
   );
