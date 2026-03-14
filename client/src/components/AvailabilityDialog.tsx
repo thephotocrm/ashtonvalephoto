@@ -26,7 +26,7 @@ export function AvailabilityDialog({ open, onOpenChange, defaultCity, defaultDat
     phone: "",
     city: defaultCity || "",
     weddingDate: defaultDate || "",
-    serviceType: "both",
+    serviceType: "Photography & Videography",
     message: "",
     website: "", // honeypot
   });
@@ -59,7 +59,7 @@ export function AvailabilityDialog({ open, onOpenChange, defaultCity, defaultDat
         phone: "",
         city: "",
         weddingDate: "",
-        serviceType: "both",
+        serviceType: "Photography & Videography",
         message: "",
         website: "",
       });
@@ -188,9 +188,9 @@ export function AvailabilityDialog({ open, onOpenChange, defaultCity, defaultDat
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="photography">Photography Only</SelectItem>
-                  <SelectItem value="videography">Videography Only</SelectItem>
-                  <SelectItem value="both">Photography & Videography</SelectItem>
+                  <SelectItem value="Photography Only">Photography Only</SelectItem>
+                  <SelectItem value="Videography Only">Videography Only</SelectItem>
+                  <SelectItem value="Photography & Videography">Photography & Videography</SelectItem>
                 </SelectContent>
               </Select>
             </div>

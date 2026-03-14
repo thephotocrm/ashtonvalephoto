@@ -217,7 +217,7 @@ export default function StyleQuiz() {
           phone: data.phone,
           weddingDate: data.weddingDate,
           weddingLocation: "Style Quiz Lead",
-          serviceType: "both",
+          serviceType: "Photography & Videography",
           message: `Style Profile: ${data.styleProfile}${data.specialNotes ? ` | Notes: ${data.specialNotes}` : ""}`,
           website: data.website,
         }),

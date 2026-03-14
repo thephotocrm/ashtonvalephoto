@@ -44,7 +44,7 @@ export default function Pricing() {
     eventType: "wedding",
     weddingDate: "",
     weddingLocation: "",
-    serviceType: "both",
+    serviceType: "Photography & Videography",
     message: "",
     website: "", // honeypot
   });
