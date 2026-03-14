@@ -25,8 +25,8 @@ export function cityLocalBusinessSchema(city: {
     name: `Abbie Street Photo & Video — ${city.name}`,
     description: pageSEO[city.seoKey]?.description ?? "",
     url: `${SITE_URL}/${city.urlPath}`,
-    telephone: "(972) 249-7048",
-    email: "inquire@abbiestreetphoto.com",
+    telephone: "(214) 930-2270",
+    email: "info@abbiestreet.com",
     address: {
       "@type": "PostalAddress",
       addressLocality: city.name,

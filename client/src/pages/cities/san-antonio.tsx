@@ -315,7 +315,7 @@ export default function SanAntonio() {
                   <Link href="/pricing">Inquire Now</Link>
                 </Button>
                 <p className="text-sm text-muted-foreground mt-6">
-                  or call <a href="tel:9722497048" className="text-primary hover:underline">(972) 249-7048</a>
+                  or call <a href="tel:2149302270" className="text-primary hover:underline">(214) 930-2270</a>
                 </p>
               </div>
             </div>

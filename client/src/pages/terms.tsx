@@ -122,12 +122,12 @@ export default function Terms() {
                 <h2 className="font-serif text-2xl font-light mb-4">10. Contact</h2>
                 <p className="text-foreground/80 leading-relaxed mb-4">
                   For questions about these terms, please contact us at{" "}
-                  <a href="mailto:inquire@abbiestreetphoto.com" className="text-primary hover:underline">
-                    inquire@abbiestreetphoto.com
+                  <a href="mailto:info@abbiestreet.com" className="text-primary hover:underline">
+                    info@abbiestreet.com
                   </a>{" "}
                   or call{" "}
-                  <a href="tel:+19722497048" className="text-primary hover:underline">
-                    (972) 249-7048
+                  <a href="tel:+12149302270" className="text-primary hover:underline">
+                    (214) 930-2270
                   </a>.
                 </p>
               </div>

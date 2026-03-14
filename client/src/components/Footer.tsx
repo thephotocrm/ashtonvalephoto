@@ -57,13 +57,13 @@ export function Footer() {
             <address className="not-italic text-sm text-white/60 space-y-4">
               <p className="text-white/80">United States  •  Destination</p>
               <p className="pt-4">
-                <a href="mailto:inquire@abbiestreetphoto.com" className="text-white hover:text-primary transition-colors">
-                  inquire@abbiestreetphoto.com
+                <a href="mailto:info@abbiestreet.com" className="text-white hover:text-primary transition-colors">
+                  info@abbiestreet.com
                 </a>
               </p>
               <p>
-                <a href="tel:+19722497048" className="hover:text-white transition-colors">
-                  (972) 249-7048
+                <a href="tel:+12149302270" className="hover:text-white transition-colors">
+                  (214) 930-2270
                 </a>
               </p>
             </address>

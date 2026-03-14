@@ -24,8 +24,8 @@ export default function Home() {
         name: "Abbie Street Photo & Video",
         description: pageSEO.home.description,
         url: "https://abbiestreetphoto.com",
-        telephone: "(972) 249-7048",
-        email: "inquire@abbiestreetphoto.com",
+        telephone: "(214) 930-2270",
+        email: "info@abbiestreet.com",
         address: {
           "@type": "PostalAddress",
           addressCountry: "US",
@@ -55,8 +55,8 @@ export default function Home() {
         logo: "https://abbiestreetphoto.com/favicon.svg",
         contactPoint: {
           "@type": "ContactPoint",
-          telephone: "(972) 249-7048",
-          email: "inquire@abbiestreetphoto.com",
+          telephone: "(214) 930-2270",
+          email: "info@abbiestreet.com",
           contactType: "customer service",
         },
         sameAs: [

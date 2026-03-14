@@ -8,8 +8,8 @@ const localBusinessJsonLd = JSON.stringify({
   name: "Abbie Street Photo & Video",
   description: pageSEO.home.description,
   url: SITE_URL,
-  telephone: "(972) 249-7048",
-  email: "inquire@abbiestreetphoto.com",
+  telephone: "(214) 930-2270",
+  email: "info@abbiestreet.com",
   address: {
     "@type": "PostalAddress",
     addressCountry: "US",
@@ -35,8 +35,8 @@ const organizationJsonLd = JSON.stringify({
   logo: `${SITE_URL}/favicon.svg`,
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "(972) 249-7048",
-    email: "inquire@abbiestreetphoto.com",
+    telephone: "(214) 930-2270",
+    email: "info@abbiestreet.com",
     contactType: "customer service",
   },
   sameAs: [
