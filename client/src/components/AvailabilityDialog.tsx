@@ -6,8 +6,9 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { useSubmissionCooldown } from "@/hooks/use-submission-cooldown";
 import { useMutation } from "@tanstack/react-query";
-import { Loader2 } from "lucide-react";
+import { Loader2, Clock } from "lucide-react";
 
 interface AvailabilityDialogProps {
   open: boolean;
@@ -18,6 +19,7 @@ interface AvailabilityDialogProps {
 
 export function AvailabilityDialog({ open, onOpenChange, defaultCity, defaultDate }: AvailabilityDialogProps) {
   const { toast } = useToast();
+  const { isCoolingDown, remainingSeconds, markSubmitted } = useSubmissionCooldown();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,6 +28,7 @@ export function AvailabilityDialog({ open, onOpenChange, defaultCity, defaultDat
     weddingDate: defaultDate || "",
     serviceType: "both",
     message: "",
+    website: "", // honeypot
   });
 
   const submitInquiry = useMutation({
@@ -44,6 +47,7 @@ export function AvailabilityDialog({ open, onOpenChange, defaultCity, defaultDat
       return response.json();
     },
     onSuccess: () => {
+      markSubmitted();
       toast({
         title: "Inquiry Submitted!",
         description: "Thank you for your interest. We'll get back to you within 24 hours.",
@@ -57,6 +61,7 @@ export function AvailabilityDialog({ open, onOpenChange, defaultCity, defaultDat
         weddingDate: "",
         serviceType: "both",
         message: "",
+        website: "",
       });
     },
     onError: (error: Error) => {
@@ -84,6 +89,17 @@ export function AvailabilityDialog({ open, onOpenChange, defaultCity, defaultDat
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-6 py-4">
+          {/* Honeypot - hidden from humans */}
+          <input
+            type="text"
+            name="website"
+            value={formData.website}
+            onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+            aria-hidden="true"
+            tabIndex={-1}
+            style={{ position: "absolute", left: "-9999px", opacity: 0 }}
+            autoComplete="off"
+          />
           <div className="grid md:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="name">Full Name *</Label>
@@ -201,16 +217,21 @@ export function AvailabilityDialog({ open, onOpenChange, defaultCity, defaultDat
             >
               Cancel
             </Button>
-            <Button 
-              type="submit" 
+            <Button
+              type="submit"
               data-testid="button-submit-inquiry"
-              disabled={submitInquiry.isPending}
+              disabled={submitInquiry.isPending || isCoolingDown}
               className="bg-primary hover:bg-primary/90"
             >
               {submitInquiry.isPending ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                   Submitting...
+                </>
+              ) : isCoolingDown ? (
+                <>
+                  <Clock className="mr-2 h-4 w-4" />
+                  Already Submitted ({Math.floor(remainingSeconds / 60)}:{String(remainingSeconds % 60).padStart(2, "0")})
                 </>
               ) : (
                 "Submit Inquiry"

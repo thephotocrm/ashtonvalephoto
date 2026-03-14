@@ -8,6 +8,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
 import { Video, Phone, Clock, CheckCircle2, Loader2, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useSubmissionCooldown } from "@/hooks/use-submission-cooldown";
 
 import heroImg from "@assets/generated_images/first_look_moment.png";
 import { useSEO } from "@/hooks/use-seo";
@@ -36,11 +37,12 @@ export default function Schedule() {
   useSEO({
     title: pageSEO.schedule.title,
     description: pageSEO.schedule.description,
-    canonical: "https://ashtonvalephoto.com/schedule",
+    canonical: "https://abbiestreetphoto.com/schedule",
     jsonLd: breadcrumbJsonLd,
   });
 
   const { toast } = useToast();
+  const { isCoolingDown, remainingSeconds, markSubmitted } = useSubmissionCooldown();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isBooked, setIsBooked] = useState(false);
   const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
@@ -110,7 +112,7 @@ export default function Schedule() {
 
     // Send to webhook (optional integration point)
     try {
-      await fetch("https://hooks.zapier.com/hooks/catch/13593170/ull6lfo/", {
+      await fetch("https://hooks.zapier.com/hooks/catch/13593170/u0rplw1/", {
         method: "POST",
         body: JSON.stringify({
           ...formData,
@@ -124,6 +126,7 @@ export default function Schedule() {
       // Silently fail webhook - don't block user experience
     }
 
+    markSubmitted();
     setIsSubmitting(false);
     setIsBooked(true);
   };
@@ -491,13 +494,18 @@ export default function Schedule() {
                   <Button
                     type="submit"
                     size="lg"
-                    disabled={isSubmitting || !selectedDate || !selectedTime}
+                    disabled={isSubmitting || isCoolingDown || !selectedDate || !selectedTime}
                     className="w-full rounded-none bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-7 text-[11px] uppercase tracking-[0.2em] font-medium hover:shadow-luxury transition-all duration-300 disabled:opacity-50"
                   >
                     {isSubmitting ? (
                       <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                         Confirming...
+                      </>
+                    ) : isCoolingDown ? (
+                      <>
+                        <Clock className="mr-2 h-4 w-4" />
+                        Already Submitted ({Math.floor(remainingSeconds / 60)}:{String(remainingSeconds % 60).padStart(2, "0")})
                       </>
                     ) : (
                       <>

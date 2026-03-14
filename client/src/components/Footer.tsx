@@ -9,9 +9,11 @@ export function Footer() {
         <div className="grid md:grid-cols-12 gap-12 mb-20">
           {/* Brand Column */}
           <div className="md:col-span-4">
-            <h3 className="font-serif text-3xl font-light mb-6 text-white">
-              <span className="font-extralight">Ashton</span> Vale
-            </h3>
+            <img
+              src="/abbie-street-logo-white.png"
+              alt="Abbie Street Photo & Video"
+              className="h-10 w-auto mb-6"
+            />
             <p className="text-white/50 text-sm leading-relaxed mb-8 max-w-xs">
               Crafting timeless wedding imagery for discerning couples who appreciate 
               the art of storytelling.
@@ -55,8 +57,8 @@ export function Footer() {
             <address className="not-italic text-sm text-white/60 space-y-4">
               <p className="text-white/80">United States  •  Destination</p>
               <p className="pt-4">
-                <a href="mailto:inquire@ashtonvalephoto.com" className="text-white hover:text-primary transition-colors">
-                  inquire@ashtonvalephoto.com
+                <a href="mailto:inquire@abbiestreetphoto.com" className="text-white hover:text-primary transition-colors">
+                  inquire@abbiestreetphoto.com
                 </a>
               </p>
               <p>
@@ -73,7 +75,7 @@ export function Footer() {
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row justify-between items-center text-[10px] text-white/30 uppercase tracking-[0.2em]">
-          <p>&copy; {new Date().getFullYear()} Ashton Vale Photo & Video</p>
+          <p>&copy; {new Date().getFullYear()} Abbie Street Photo & Video</p>
           <div className="flex gap-8 mt-4 md:mt-0">
             <Link href="/terms" className="hover:text-white/60 transition-colors">Terms</Link>
             <Link href="/privacy" className="hover:text-white/60 transition-colors">Privacy</Link>

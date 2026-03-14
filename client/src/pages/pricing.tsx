@@ -9,7 +9,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { useLocation } from "wouter";
-import { Loader2 } from "lucide-react";
+import { Loader2, Clock } from "lucide-react";
+import { useSubmissionCooldown } from "@/hooks/use-submission-cooldown";
 import { LocationAutocomplete } from "@/components/LocationAutocomplete";
 import heroImg from "@assets/generated_images/romantic_wedding_couple_under_veil.png";
 import { useSEO } from "@/hooks/use-seo";
@@ -29,11 +30,12 @@ export default function Pricing() {
   useSEO({
     title: pageSEO.pricing.title,
     description: pageSEO.pricing.description,
-    canonical: "https://ashtonvalephoto.com/pricing",
+    canonical: "https://abbiestreetphoto.com/pricing",
     jsonLd: breadcrumbJsonLd,
   });
   const { toast } = useToast();
   const [, navigate] = useLocation();
+  const { isCoolingDown, remainingSeconds, markSubmitted } = useSubmissionCooldown();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -44,6 +46,7 @@ export default function Pricing() {
     weddingLocation: "",
     serviceType: "both",
     message: "",
+    website: "", // honeypot
   });
 
   const submitInquiry = useMutation({
@@ -62,6 +65,8 @@ export default function Pricing() {
       return response.json();
     },
     onSuccess: (result, variables) => {
+      markSubmitted();
+
       // Fire Meta Pixel Lead event (deduped with server-side CAPI via eventID)
       if (typeof window.fbq === "function") {
         window.fbq("track", "Lead", {
@@ -69,13 +74,13 @@ export default function Pricing() {
         }, { eventID: `inquiry_${result.id}` });
       }
 
-      // Send to Zapier webhook
-      fetch("https://hooks.zapier.com/hooks/catch/13593170/ull6lfo/", {
-        method: "POST",
-        body: JSON.stringify(variables),
-      }).catch(() => {
-        // Silently fail - don't block user experience for webhook
-      });
+      // Fire Google Analytics lead event
+      if (typeof window.gtag === "function") {
+        window.gtag("event", "generate_lead", {
+          event_category: "engagement",
+          event_label: "Pricing Inquiry",
+        });
+      }
 
       navigate("/packages");
     },
@@ -122,6 +127,17 @@ export default function Pricing() {
         <section className="py-24 bg-white">
           <div className="container mx-auto px-8 max-w-3xl">
             <form onSubmit={handleSubmit} className="space-y-12">
+              {/* Honeypot - hidden from humans */}
+              <input
+                type="text"
+                name="website"
+                value={formData.website}
+                onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                aria-hidden="true"
+                tabIndex={-1}
+                style={{ position: "absolute", left: "-9999px", opacity: 0 }}
+                autoComplete="off"
+              />
               {/* Your Information */}
               <div>
                 <div className="text-center mb-10">
@@ -244,17 +260,22 @@ export default function Pricing() {
               </div>
 
               <div className="text-center pt-4">
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   size="lg"
                   data-testid="button-submit-inquiry"
-                  disabled={submitInquiry.isPending}
+                  disabled={submitInquiry.isPending || isCoolingDown}
                   className="rounded-none bg-primary hover:bg-primary/90 text-primary-foreground px-16 py-7 text-[11px] uppercase tracking-[0.2em] font-medium"
                 >
                   {submitInquiry.isPending ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                       Submitting...
+                    </>
+                  ) : isCoolingDown ? (
+                    <>
+                      <Clock className="mr-2 h-4 w-4" />
+                      Already Submitted ({Math.floor(remainingSeconds / 60)}:{String(remainingSeconds % 60).padStart(2, "0")})
                     </>
                   ) : (
                     "View Pricing & Availability"

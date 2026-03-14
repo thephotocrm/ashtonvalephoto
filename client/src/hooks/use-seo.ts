@@ -10,11 +10,11 @@ interface UseSEOOptions {
 }
 
 const DEFAULTS = {
-  title: "Ashton Vale Photo & Video | Luxury Wedding Photography",
+  title: "Abbie Street Photo & Video | Luxury Wedding Photography",
   description:
-    "Luxury wedding photography and cinematography in the United States and worldwide destinations. Ashton Vale captures timeless, editorial imagery for discerning couples.",
-  ogImage: "https://ashtonvalephoto.com/opengraph.jpg",
-  canonical: "https://ashtonvalephoto.com/",
+    "Luxury wedding photography and cinematography in the United States and worldwide destinations. Abbie Street captures timeless, editorial imagery for discerning couples.",
+  ogImage: "https://abbiestreetphoto.com/opengraph.jpg",
+  canonical: "https://abbiestreetphoto.com/",
 };
 
 function setMetaTag(

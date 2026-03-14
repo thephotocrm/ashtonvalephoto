@@ -54,7 +54,7 @@ export function sendLeadEvent(data: LeadEventData): void {
   }
 
   // Only send events from production domain
-  if (!data.eventSourceUrl?.includes("ashtonvalephoto.com")) {
+  if (!data.eventSourceUrl?.includes("abbiestreetphoto.com")) {
     console.log("Meta CAPI: Skipping event from non-production domain");
     return;
   }

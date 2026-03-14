@@ -11,6 +11,7 @@ import { Link } from "wouter";
 import { ArrowRight, ArrowLeft, Check, Sparkles, Star } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
+import { useSubmissionCooldown } from "@/hooks/use-submission-cooldown";
 
 import heroImg from "@assets/generated_images/romantic_wedding_couple_under_veil.png";
 import brideImg from "@assets/generated_images/bride_holding_bouquet.png";
@@ -167,15 +168,17 @@ export default function StyleQuiz() {
   useSEO({
     title: pageSEO.styleQuiz.title,
     description: pageSEO.styleQuiz.description,
-    canonical: "https://ashtonvalephoto.com/style-quiz",
+    canonical: "https://abbiestreetphoto.com/style-quiz",
     jsonLd: breadcrumbJsonLd,
   });
 
   const { toast } = useToast();
+  const { isCoolingDown, remainingSeconds, markSubmitted } = useSubmissionCooldown();
   const [currentStep, setCurrentStep] = useState<"intro" | number | "slider" | "contact" | "revealing" | "results">("intro");
   const [selections, setSelections] = useState<Record<number, string>>({});
   const [sliderValue, setSliderValue] = useState([50]);
   const [revealIndex, setRevealIndex] = useState(0);
+  const [honeypot, setHoneypot] = useState("");
   const [contactInfo, setContactInfo] = useState({
     firstName: "",
     lastName: "",
@@ -203,7 +206,7 @@ export default function StyleQuiz() {
   }, [currentStep]);
 
   const submitLead = useMutation({
-    mutationFn: async (data: typeof contactInfo & { styleProfile: string }) => {
+    mutationFn: async (data: typeof contactInfo & { styleProfile: string; website: string }) => {
       const response = await fetch("/api/inquiries", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -216,12 +219,14 @@ export default function StyleQuiz() {
           weddingLocation: "Style Quiz Lead",
           serviceType: "both",
           message: `Style Profile: ${data.styleProfile}${data.specialNotes ? ` | Notes: ${data.specialNotes}` : ""}`,
+          website: data.website,
         }),
       });
       if (!response.ok) throw new Error("Failed to submit");
       return response.json();
     },
     onSuccess: () => {
+      markSubmitted();
       calculateResult();
       setRevealIndex(0);
       setCurrentStep("revealing");
@@ -309,7 +314,7 @@ export default function StyleQuiz() {
     
     const topStyle = Object.entries(scores).sort(([, a], [, b]) => b - a)[0][0] as StyleProfile;
     
-    submitLead.mutate({ ...contactInfo, styleProfile: styleProfiles[topStyle].title });
+    submitLead.mutate({ ...contactInfo, styleProfile: styleProfiles[topStyle].title, website: honeypot });
   };
 
   const totalSteps = quizSteps.length + 1;
@@ -327,7 +332,7 @@ export default function StyleQuiz() {
         {currentStep === "intro" && (
           <section className="min-h-[80vh] flex items-center justify-center py-20">
             <div className="container mx-auto px-8 text-center max-w-3xl">
-              <p className="text-[10px] uppercase tracking-[0.4em] text-primary mb-6">The Ashton Vale</p>
+              <p className="text-[10px] uppercase tracking-[0.4em] text-primary mb-6">The Abbie Street</p>
               <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light mb-8">
                 Style Atelier
               </h1>
@@ -566,6 +571,17 @@ export default function StyleQuiz() {
                 </div>
 
                 <form onSubmit={handleSubmitContact} className="space-y-6 text-left">
+                  {/* Honeypot - hidden from humans */}
+                  <input
+                    type="text"
+                    name="website"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                    aria-hidden="true"
+                    tabIndex={-1}
+                    style={{ position: "absolute", left: "-9999px", opacity: 0 }}
+                    autoComplete="off"
+                  />
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground">
@@ -651,14 +667,14 @@ export default function StyleQuiz() {
                   </div>
 
                   <div className="pt-4 flex flex-col items-center gap-4">
-                    <Button 
+                    <Button
                       type="submit"
-                      disabled={submitLead.isPending}
+                      disabled={submitLead.isPending || isCoolingDown}
                       size="lg"
                       className="w-full rounded-none bg-primary hover:bg-primary/90 text-primary-foreground py-7 text-[11px] uppercase tracking-[0.2em] font-medium"
                       data-testid="button-reveal-style"
                     >
-                      {submitLead.isPending ? "Preparing Your Results..." : "Reveal My Style Profile"}
+                      {submitLead.isPending ? "Preparing Your Results..." : isCoolingDown ? `Already Submitted (${Math.floor(remainingSeconds / 60)}:${String(remainingSeconds % 60).padStart(2, "0")})` : "Reveal My Style Profile"}
                     </Button>
                     <button 
                       type="button"

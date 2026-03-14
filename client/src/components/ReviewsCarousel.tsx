@@ -18,12 +18,12 @@ const reviews = [
   {
     couple: "Hanna V.",
     location: "The Knot",
-    quote: "Ashton Vale has been through every stage with us! They provided consistent communication, support & amazing forever photos. They truly make you feel like family. Our families couldn't stop raving about them."
+    quote: "Abbie Street has been through every stage with us! They provided consistent communication, support & amazing forever photos. They truly make you feel like family. Our families couldn't stop raving about them."
   },
   {
     couple: "Lindsay M.",
     location: "The Knot",
-    quote: "Ashton Vale managed to stop time for a second and capture the love and excitement for our big day. They were fun, patient, and understanding. We will never have enough words to express just how thankful we are."
+    quote: "Abbie Street managed to stop time for a second and capture the love and excitement for our big day. They were fun, patient, and understanding. We will never have enough words to express just how thankful we are."
   },
   {
     couple: "Austin P.",
@@ -46,7 +46,7 @@ export function ReviewsCarousel() {
             <div className="divider-gold w-24 mb-8 mx-auto md:mx-0"></div>
             <p className="text-muted-foreground mb-8 leading-relaxed">
               Each testimonial represents a story we were honored to capture. 
-              Discover why discerning couples choose Ashton Vale for their most cherished moments.
+              Discover why discerning couples choose Abbie Street for their most cherished moments.
             </p>
             <Button
               asChild

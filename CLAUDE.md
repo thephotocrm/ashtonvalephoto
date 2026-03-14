@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Ashton Vale Photo & Video - A luxury wedding photography/videography marketing and inquiry platform built with React, Express, and PostgreSQL.
+Abbie Street Photo & Video - A luxury wedding photography/videography marketing and inquiry platform built with React, Express, and PostgreSQL.
 
 ## Commands
 

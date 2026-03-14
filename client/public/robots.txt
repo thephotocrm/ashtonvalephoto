@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ashtonvalephoto.com/sitemap.xml
+Sitemap: https://abbiestreetphoto.com/sitemap.xml

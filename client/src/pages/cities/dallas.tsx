@@ -27,7 +27,7 @@ export default function Dallas() {
   useSEO({
     title: pageSEO.dallas.title,
     description: pageSEO.dallas.description,
-    canonical: "https://ashtonvalephoto.com/dallas",
+    canonical: "https://abbiestreetphoto.com/dallas",
     jsonLd,
   });
 

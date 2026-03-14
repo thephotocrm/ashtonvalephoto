@@ -1,15 +1,15 @@
 import { routeSEOMap, pageSEO } from "@shared/seo-data";
 
-const SITE_URL = "https://ashtonvalephoto.com";
+const SITE_URL = "https://abbiestreetphoto.com";
 
 const localBusinessJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "ProfessionalService"],
-  name: "Ashton Vale Photo & Video",
+  name: "Abbie Street Photo & Video",
   description: pageSEO.home.description,
   url: SITE_URL,
   telephone: "(972) 249-7048",
-  email: "inquire@ashtonvalephoto.com",
+  email: "inquire@abbiestreetphoto.com",
   address: {
     "@type": "PostalAddress",
     addressCountry: "US",
@@ -22,26 +22,26 @@ const localBusinessJsonLd = JSON.stringify({
   priceRange: "$$$",
   image: `${SITE_URL}/opengraph.jpg`,
   sameAs: [
-    "https://www.instagram.com/ashtonvalephoto",
-    "https://www.facebook.com/people/Ashton-Vale-Photo-Video/61587390063273/",
+    "https://www.instagram.com/abbiestreetphoto",
+    "https://www.facebook.com/people/Abbie-Street-Photo-Video/61587390063273/",
   ],
 });
 
 const organizationJsonLd = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Ashton Vale Photo & Video",
+  name: "Abbie Street Photo & Video",
   url: SITE_URL,
   logo: `${SITE_URL}/favicon.svg`,
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "(972) 249-7048",
-    email: "inquire@ashtonvalephoto.com",
+    email: "inquire@abbiestreetphoto.com",
     contactType: "customer service",
   },
   sameAs: [
-    "https://www.instagram.com/ashtonvalephoto",
-    "https://www.facebook.com/people/Ashton-Vale-Photo-Video/61587390063273/",
+    "https://www.instagram.com/abbiestreetphoto",
+    "https://www.facebook.com/people/Abbie-Street-Photo-Video/61587390063273/",
   ],
 });
 

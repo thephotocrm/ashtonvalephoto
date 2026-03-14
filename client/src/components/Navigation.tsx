@@ -56,13 +56,13 @@ export function Navigation() {
           {/* Logo - Left */}
           <Link
             href="/"
-            className={cn(
-              "font-serif text-2xl md:text-3xl tracking-wide cursor-pointer transition-all duration-300",
-              showTransparent ? "text-white" : "text-white"
-            )}
+            className="cursor-pointer transition-all duration-300"
           >
-            <span className="font-light">Ashton</span>
-            <span className="font-medium"> Vale</span>
+            <img
+              src="/abbie-street-logo-white.png"
+              alt="Abbie Street Photo & Video"
+              className="h-8 md:h-10 w-auto"
+            />
           </Link>
 
           {/* Nav Links - Right */}

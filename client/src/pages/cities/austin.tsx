@@ -28,7 +28,7 @@ export default function Austin() {
   useSEO({
     title: pageSEO.austin.title,
     description: pageSEO.austin.description,
-    canonical: "https://ashtonvalephoto.com/austin",
+    canonical: "https://abbiestreetphoto.com/austin",
     jsonLd,
   });
 

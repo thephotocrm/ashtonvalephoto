@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -30,10 +30,10 @@ export default function Packages() {
       {
         "@context": "https://schema.org",
         "@type": "Service",
-        name: "Ashton Vale Wedding Photography & Cinematography",
+        name: "Abbie Street Wedding Photography & Cinematography",
         provider: {
           "@type": "LocalBusiness",
-          name: "Ashton Vale Photo & Video",
+          name: "Abbie Street Photo & Video",
         },
         serviceType: "Wedding Photography",
         areaServed: { "@type": "Country", name: "United States" },
@@ -45,28 +45,28 @@ export default function Packages() {
               "@type": "Offer",
               name: "Documentary Coverage",
               description: "Photography & cinematography, beautifully woven together",
-              price: "6995",
+              price: "3495",
               priceCurrency: "USD",
             },
             {
               "@type": "Offer",
               name: "Photography",
               description: "Timeless images that tell your story",
-              price: "3500",
+              price: "1935",
               priceCurrency: "USD",
             },
             {
               "@type": "Offer",
               name: "Cinematography",
               description: "Your day, cinematically told",
-              price: "3800",
+              price: "1935",
               priceCurrency: "USD",
             },
             {
               "@type": "Offer",
               name: "Elopement Collection",
               description: "Beautiful documentation of intimate celebrations",
-              price: "2495",
+              price: "1045",
               priceCurrency: "USD",
             },
           ],
@@ -79,9 +79,28 @@ export default function Packages() {
   useSEO({
     title: pageSEO.packages.title,
     description: pageSEO.packages.description,
-    canonical: "https://ashtonvalephoto.com/packages",
+    canonical: "https://abbiestreetphoto.com/packages",
     jsonLd,
   });
+
+  // Fire conversion events when someone reaches the packages page (after form submission)
+  useEffect(() => {
+    if (typeof window.fbq === "function") {
+      window.fbq("track", "ViewContent", {
+        content_name: "Packages Page",
+        content_category: "Pricing",
+      });
+    }
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "page_view", {
+        page_title: "Packages",
+        page_path: "/packages",
+      });
+      window.gtag("event", "view_item_list", {
+        item_list_name: "Wedding Packages",
+      });
+    }
+  }, []);
 
   const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
 
@@ -97,7 +116,7 @@ export default function Packages() {
   }> = {
     documentary: {
       name: "Documentary Coverage",
-      price: "$6,995",
+      price: "$3,495",
       tagline: "Photography & cinematography, beautifully woven together",
       image: heroImg,
       imageAlt: "Romantic wedding couple under veil",
@@ -118,7 +137,7 @@ export default function Packages() {
     },
     photography: {
       name: "Photography",
-      price: "$3,500",
+      price: "$1,935",
       tagline: "Timeless images that tell your story",
       image: brideImg,
       imageAlt: "Elegant bride holding bouquet",
@@ -137,7 +156,7 @@ export default function Packages() {
     },
     cinematography: {
       name: "Cinematography",
-      price: "$3,800",
+      price: "$1,935",
       tagline: "Your day, cinematically told",
       image: engagementImg,
       imageAlt: "Couple laughing together",
@@ -156,7 +175,7 @@ export default function Packages() {
     },
     elopement: {
       name: "The Elopement Collection",
-      price: "$2,495",
+      price: "$1,045",
       tagline: "Beautiful documentation of intimate celebrations",
       image: gardenImg,
       imageAlt: "Romantic garden wedding venue",
@@ -228,7 +247,7 @@ export default function Packages() {
 
                 <p className="mb-8">
                   <span className="text-[11px] uppercase tracking-[0.15em] mr-2 text-white/60">Starting at</span>
-                  <span className="font-serif text-4xl text-white">$6,995</span>
+                  <span className="font-serif text-4xl text-white">$3,495</span>
                 </p>
 
                 <div className="space-y-3 mb-8">
@@ -295,7 +314,7 @@ export default function Packages() {
 
                   <p className="mb-6">
                     <span className="text-[11px] uppercase tracking-[0.15em] mr-2 text-muted-foreground">Starting at</span>
-                    <span className="font-serif text-3xl text-primary">$3,500</span>
+                    <span className="font-serif text-3xl text-primary">$1,935</span>
                   </p>
 
                   <div className="space-y-2 mb-8 text-left">
@@ -353,7 +372,7 @@ export default function Packages() {
 
                   <p className="mb-6">
                     <span className="text-[11px] uppercase tracking-[0.15em] mr-2 text-muted-foreground">Starting at</span>
-                    <span className="font-serif text-3xl text-primary">$3,800</span>
+                    <span className="font-serif text-3xl text-primary">$1,935</span>
                   </p>
 
                   <div className="space-y-2 mb-8 text-left">
@@ -422,7 +441,7 @@ export default function Packages() {
 
                   <p className="mb-6">
                     <span className="text-[11px] uppercase tracking-[0.15em] mr-2 text-muted-foreground">Starting at</span>
-                    <span className="font-serif text-3xl text-primary">$2,495</span>
+                    <span className="font-serif text-3xl text-primary">$1,045</span>
                   </p>
 
                   <div className="space-y-2 mb-8">

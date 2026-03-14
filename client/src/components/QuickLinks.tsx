@@ -1,10 +1,10 @@
 import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 import firstLookImg from "@assets/generated_images/first_look_moment.png";
-import brideImg from "@assets/generated_images/bride_holding_bouquet.png";
-import receptionImg from "@assets/generated_images/reception_dance_party.png";
+import bensonImg from "@assets/benson.jpg";
+import portfolioImg from "@assets/DSC_6107.jpg";
 
-const quickLinks = [
+const quickLinks: { title: string; subtitle: string; description: string; image: string; href: string; imageClassName?: string }[] = [
   {
     title: "Inquire",
     subtitle: "View Pricing & Availability",
@@ -16,14 +16,15 @@ const quickLinks = [
     title: "Discover",
     subtitle: "Your Signature Style",
     description: "Find the aesthetic that speaks to you",
-    image: brideImg,
+    image: bensonImg,
     href: "/style-quiz"
   },
   {
     title: "Explore",
     subtitle: "Our Curated Portfolio",
     description: "Intimate moments, artfully captured",
-    image: receptionImg,
+    image: portfolioImg,
+    imageClassName: "scale-125",
     href: "/portfolio"
   }
 ];
@@ -37,10 +38,10 @@ export function QuickLinks() {
             <Link key={index} href={link.href}>
               <div className="group relative overflow-hidden cursor-pointer h-[420px] hover-lift">
                 {/* Image */}
-                <img 
-                  src={link.image} 
+                <img
+                  src={link.image}
                   alt={`${link.subtitle} — ${link.description}`}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${link.imageClassName ?? ""}`}
                 />
                 
                 {/* Overlay */}

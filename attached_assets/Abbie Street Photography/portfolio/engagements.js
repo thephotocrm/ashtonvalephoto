@@ -1,0 +1,57 @@
+window.addEventListener("scroll", function() {
+  const header = document.querySelector(".header");
+  const menusection = document.querySelector(".menusection");
+  if (window.scrollY > 0) {
+      header.classList.add("scrolled");
+      menusection.classList.add("whitetext");
+  } else {
+      header.classList.remove("scrolled");
+      menusection.classList.remove("whitetext");
+
+  }
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const hamburgerButton = document.querySelector(".hamburger");
+  const mobileMenu = document.querySelector(".mobilemenu");
+  const closeButton = document.querySelector(".close-button");
+  const body = document.querySelector("body");
+
+  // Function to open the mobile menu
+  function openMobileMenu() {
+    mobileMenu.classList.add("active");
+    body.classList.add("noscroll");
+  }
+
+  // Function to close the mobile menu
+  function closeMobileMenu() {
+    mobileMenu.classList.remove("active");
+    body.classList.remove("noscroll");
+  }
+
+  // Event listener for hamburger button click
+  hamburgerButton.addEventListener("click", openMobileMenu);
+
+  // Event listener for close button click
+  closeButton.addEventListener("click", closeMobileMenu);
+});
+
+const weddingButton = document.querySelector('.Wedding p');
+const engagementButton = document.querySelector('.Engagement p');
+
+
+// Add a click event listener to the Wedding Button
+weddingButton.addEventListener('click', () => {
+  weddingButton.classList.add('activated'); // Add the "activated" class to Wedding Button
+  engagementButton.classList.remove('activated'); // Remove the "activated" class from Engagement Button
+  
+});
+
+// Add a click event listener to the Engagement Button
+engagementButton.addEventListener('click', () => {
+  engagementButton.classList.add('activated'); // Add the "activated" class to Engagement Button
+  weddingButton.classList.remove('activated'); // Remove the "activated" class from Wedding Button
+  
+});

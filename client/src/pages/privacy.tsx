@@ -7,7 +7,7 @@ export default function Privacy() {
   useSEO({
     title: pageSEO.privacy.title,
     description: pageSEO.privacy.description,
-    canonical: "https://ashtonvalephoto.com/privacy",
+    canonical: "https://abbiestreetphoto.com/privacy",
     noIndex: true,
   });
 
@@ -37,7 +37,7 @@ export default function Privacy() {
               <div>
                 <h2 className="font-serif text-2xl font-light mb-4">Your Privacy Matters</h2>
                 <p className="text-foreground/80 leading-relaxed mb-4">
-                  At Ashton Vale Photo & Video, we respect your privacy and are committed to protecting
+                  At Abbie Street Photo & Video, we respect your privacy and are committed to protecting
                   your personal information. This policy explains how we collect, use, and safeguard
                   the information you provide to us.
                 </p>
@@ -147,8 +147,8 @@ export default function Privacy() {
                 <p className="text-foreground/80 leading-relaxed mb-4">
                   If you have questions about this privacy policy or wish to exercise your rights,
                   please contact us at{" "}
-                  <a href="mailto:inquire@ashtonvalephoto.com" className="text-primary hover:underline">
-                    inquire@ashtonvalephoto.com
+                  <a href="mailto:inquire@abbiestreetphoto.com" className="text-primary hover:underline">
+                    inquire@abbiestreetphoto.com
                   </a>{" "}
                   or call{" "}
                   <a href="tel:+19722497048" className="text-primary hover:underline">

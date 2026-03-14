@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" async></script>
+    <script type='application/javascript' async>
+        document.addEventListener("touchstart", function() {}, false);
+      </script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Thumbtack Form </title>
+    <link rel="stylesheet" href="Resources/thumbtack.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<script src="thumbtack.js" defer></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Benne&family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+
+
+<form class="thumbtackform" data-netlify="true" data-netlify-honeypot="bot-field" id="thumbtackForm" action="thankyou.html" onsubmit="validateForm()">
+  <div class="personalinfo">
+  <input class="fname" type="text" placeholder="First Name" id="firstName" name="firstName" required>
+  <input class="phone" type="tel" placeholder="Phone Number" id="phoneNumber" name="phoneNumber" required>
+  <input class="email" type="tel" placeholder="Email" id="email" name="email">
+
+  
+  
+</div>
+<div class="weddingdetails">
+  <select class="EventType" id="EventType" name="EventType" required>
+    <option value="" disabled="" selected="" style="display: none;">Event Type?</option>
+    <option value="Proposal">Proposal</option>  
+    <option value="Engagement">Engagement</option>
+    <option value="Wedding">Wedding (Free engagement shoot included)</option>
+  </select>
+
+</div>
+  <input class="submit" type="submit" value="Submit">
+</form>
+
+
+
+  </body>
+</html>

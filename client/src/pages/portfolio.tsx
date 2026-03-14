@@ -200,7 +200,7 @@ export default function Portfolio() {
   useSEO({
     title: pageSEO.portfolio.title,
     description: pageSEO.portfolio.description,
-    canonical: "https://ashtonvalephoto.com/portfolio",
+    canonical: "https://abbiestreetphoto.com/portfolio",
     jsonLd: breadcrumbJsonLd,
   });
 

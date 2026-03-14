@@ -21,7 +21,7 @@ export default function Reviews() {
       {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        name: "Ashton Vale Photo & Video",
+        name: "Abbie Street Photo & Video",
         aggregateRating: aggregateRatingSchema,
       },
     ],
@@ -31,7 +31,7 @@ export default function Reviews() {
   useSEO({
     title: pageSEO.reviews.title,
     description: pageSEO.reviews.description,
-    canonical: "https://ashtonvalephoto.com/reviews",
+    canonical: "https://abbiestreetphoto.com/reviews",
     jsonLd,
   });
 

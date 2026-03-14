@@ -1,8 +1,8 @@
-# Ashton Vale Photo & Video - Wedding Photography Platform
+# Abbie Street Photo & Video - Wedding Photography Platform
 
 ## Overview
 
-Ashton Vale Photo & Video is a full-stack web application for a wedding photography and videography service. The platform allows couples to browse photographers, view portfolios, read reviews, and submit inquiries for their wedding day. Built with React on the frontend and Express on the backend, it features a modern, elegant design focused on showcasing photography work and converting visitors into customers.
+Abbie Street Photo & Video is a full-stack web application for a wedding photography and videography service. The platform allows couples to browse photographers, view portfolios, read reviews, and submit inquiries for their wedding day. Built with React on the frontend and Express on the backend, it features a modern, elegant design focused on showcasing photography work and converting visitors into customers.
 
 ## User Preferences
 

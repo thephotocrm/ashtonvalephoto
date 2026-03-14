@@ -3,7 +3,7 @@ import { aggregateRating } from "./reviews-data";
 export { pageSEO } from "@shared/seo-data";
 import { pageSEO } from "@shared/seo-data";
 
-const SITE_URL = "https://ashtonvalephoto.com";
+const SITE_URL = "https://abbiestreetphoto.com";
 
 export const aggregateRatingSchema = {
   "@type": "AggregateRating",
@@ -22,11 +22,11 @@ export function cityLocalBusinessSchema(city: {
   return {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "ProfessionalService"],
-    name: `Ashton Vale Photo & Video — ${city.name}`,
+    name: `Abbie Street Photo & Video — ${city.name}`,
     description: pageSEO[city.seoKey]?.description ?? "",
     url: `${SITE_URL}/${city.urlPath}`,
     telephone: "(972) 249-7048",
-    email: "inquire@ashtonvalephoto.com",
+    email: "inquire@abbiestreetphoto.com",
     address: {
       "@type": "PostalAddress",
       addressLocality: city.name,
@@ -46,8 +46,8 @@ export function cityLocalBusinessSchema(city: {
     image: `${SITE_URL}/opengraph.jpg`,
     aggregateRating: aggregateRatingSchema,
     sameAs: [
-      "https://www.instagram.com/ashtonvalephoto",
-      "https://www.facebook.com/people/Ashton-Vale-Photo-Video/61587390063273/",
+      "https://www.instagram.com/abbiestreetphoto",
+      "https://www.facebook.com/people/Abbie-Street-Photo-Video/61587390063273/",
     ],
   };
 }

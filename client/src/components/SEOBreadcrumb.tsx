@@ -56,7 +56,7 @@ export function buildBreadcrumbJsonLd(items: BreadcrumbEntry[]) {
       position: index + 1,
       name: item.label,
       item: item.href
-        ? `https://ashtonvalephoto.com${item.href}`
+        ? `https://abbiestreetphoto.com${item.href}`
         : undefined,
     })),
   };

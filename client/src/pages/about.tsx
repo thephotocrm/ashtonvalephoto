@@ -22,7 +22,7 @@ export default function About() {
   useSEO({
     title: pageSEO.about.title,
     description: pageSEO.about.description,
-    canonical: "https://ashtonvalephoto.com/about",
+    canonical: "https://abbiestreetphoto.com/about",
     jsonLd: breadcrumbJsonLd,
   });
 
@@ -41,7 +41,7 @@ export default function About() {
           <div className="relative h-full container mx-auto px-8 flex items-center justify-center text-center text-white">
             <div>
               <p className="text-[10px] uppercase tracking-[0.4em] text-white/60 mb-4">Our Story</p>
-              <h1 className="font-serif text-4xl md:text-6xl font-light mb-6 text-white">The Ashton Vale Atelier</h1>
+              <h1 className="font-serif text-4xl md:text-6xl font-light mb-6 text-white">The Abbie Street Atelier</h1>
               <div className="w-16 h-px bg-white/40 mx-auto mb-6"></div>
               <p className="text-lg text-white/70 max-w-xl mx-auto font-light">
                 Where passion meets artistry, and every frame tells a story.
@@ -59,7 +59,7 @@ export default function About() {
                 <h2 className="text-3xl md:text-4xl font-serif font-light mb-8">A Curated Network of Visionaries</h2>
                 <div className="space-y-6 text-muted-foreground leading-relaxed">
                   <p>
-                    For half a decade, Ashton Vale has cultivated an exclusive collective of the world's most 
+                    For half a decade, Abbie Street has cultivated an exclusive collective of the world's most 
                     distinguished wedding photographers and cinematographers. Each artist is personally 
                     selected for their exceptional eye, refined technique, and ability to capture emotion 
                     in its purest form.
@@ -71,7 +71,7 @@ export default function About() {
                   </p>
                   <p>
                     From our dedicated concierge team to our master editors, every member of the 
-                    Ashton Vale family is devoted to crafting an experience that exceeds expectations 
+                    Abbie Street family is devoted to crafting an experience that exceeds expectations 
                     at every turn.
                   </p>
                   <p className="font-serif text-foreground italic text-lg">
@@ -121,7 +121,7 @@ export default function About() {
                 <h2 className="text-3xl md:text-4xl font-serif font-light mb-8">Celebrated Excellence</h2>
                 <div className="space-y-6 text-muted-foreground leading-relaxed">
                   <p>
-                    At Ashton Vale, we measure success not by accolades, but by the tears of joy when 
+                    At Abbie Street, we measure success not by accolades, but by the tears of joy when 
                     couples receive their galleries. Yet, we are deeply honored to be recognized among 
                     the industry's most distinguished studios.
                   </p>

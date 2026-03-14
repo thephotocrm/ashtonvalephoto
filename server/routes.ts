@@ -1,5 +1,6 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
+import rateLimit from "express-rate-limit";
 import { storage } from "./storage";
 import { insertInquirySchema, insertReviewSchema } from "@shared/schema";
 import { fromError } from "zod-validation-error";
@@ -9,12 +10,45 @@ export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
-  
+
+  const submissionLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 5,
+    message: { message: "Too many submissions. Please try again in a few minutes." },
+    standardHeaders: true,
+    legacyHeaders: false,
+    keyGenerator: (req) =>
+      req.headers["x-forwarded-for"]?.toString().split(",")[0].trim() ||
+      req.ip ||
+      "unknown",
+  });
+
   // Inquiries
-  app.post("/api/inquiries", async (req, res) => {
+  app.post("/api/inquiries", submissionLimiter, async (req, res) => {
+    // Honeypot: bots auto-fill this hidden field; humans never see it
+    if (req.body.website) {
+      console.log("Honeypot triggered on /api/inquiries — skipping submission");
+      res.status(200).json({ id: Date.now(), status: "pending" });
+      return;
+    }
+
     try {
       const validatedData = insertInquirySchema.parse(req.body);
-      const inquiry = await storage.createInquiry(validatedData);
+
+      // Send data to Zapier webhook (fire-and-forget)
+      fetch("https://hooks.zapier.com/hooks/catch/13593170/u0rplw1/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(validatedData),
+      }).catch((err) => console.error("Zapier webhook error:", err));
+
+      // Try to save to database
+      let inquiry: any = null;
+      try {
+        inquiry = await storage.createInquiry(validatedData);
+      } catch (dbError) {
+        console.error("Database insert failed (lead still sent to Zapier):", dbError);
+      }
 
       // Send Lead event to Meta Conversions API (fire-and-forget)
       if (isMetaCapiConfigured()) {
@@ -26,11 +60,11 @@ export async function registerRoutes(
           userAgent: req.headers["user-agent"],
           ipAddress: req.ip || req.headers["x-forwarded-for"]?.toString().split(",")[0],
           eventSourceUrl: req.headers.referer || req.headers.origin,
-          eventId: `inquiry_${inquiry.id}`,
+          eventId: inquiry ? `inquiry_${inquiry.id}` : `inquiry_${Date.now()}`,
         });
       }
 
-      res.status(201).json(inquiry);
+      res.status(201).json(inquiry || { id: Date.now(), ...validatedData, status: "pending" });
     } catch (error: any) {
       if (error.name === "ZodError") {
         const validationError = fromError(error);
@@ -186,7 +220,14 @@ export async function registerRoutes(
     }
   });
 
-  app.post("/api/reviews", async (req, res) => {
+  app.post("/api/reviews", submissionLimiter, async (req, res) => {
+    // Honeypot check
+    if (req.body.website) {
+      console.log("Honeypot triggered on /api/reviews — skipping submission");
+      res.status(200).json({ id: Date.now(), status: "success" });
+      return;
+    }
+
     try {
       const validatedData = insertReviewSchema.parse(req.body);
       const review = await storage.createReview(validatedData);

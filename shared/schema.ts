@@ -34,7 +34,19 @@ export const inquiries = pgTable("inquiries", {
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 
-export const insertInquirySchema = createInsertSchema(inquiries).omit({
+export const insertInquirySchema = createInsertSchema(inquiries, {
+  firstName: z.string().min(1, "First name is required").max(100),
+  lastName: z.string().min(1, "Last name is required").max(100),
+  email: z.string().email("Invalid email address").max(200),
+  phone: z.string().max(30).optional().or(z.literal("")),
+  weddingDate: z.string().min(1, "Wedding date is required").max(100),
+  weddingLocation: z.string().min(1, "Wedding location is required").max(200),
+  ceremonyVenue: z.string().max(200).optional().or(z.literal("")),
+  receptionVenue: z.string().max(200).optional().or(z.literal("")),
+  serviceType: z.string().min(1, "Service type is required").max(100),
+  hearAboutUs: z.string().max(200).optional().or(z.literal("")),
+  message: z.string().max(2000).optional().or(z.literal("")),
+}).omit({
   id: true,
   createdAt: true,
   status: true,
@@ -90,7 +102,13 @@ export const reviews = pgTable("reviews", {
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 
-export const insertReviewSchema = createInsertSchema(reviews).omit({
+export const insertReviewSchema = createInsertSchema(reviews, {
+  coupleNames: z.string().min(1, "Couple names required").max(200),
+  location: z.string().max(200).optional().or(z.literal("")),
+  quote: z.string().min(1, "Review text is required").max(2000),
+  awardBadge: z.string().max(100).optional().or(z.literal("")),
+  rating: z.number().int().min(1).max(5),
+}).omit({
   id: true,
   createdAt: true,
 });

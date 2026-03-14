@@ -1,10 +1,10 @@
-const SITE_NAME = "Ashton Vale Photo & Video";
+const SITE_NAME = "Abbie Street Photo & Video";
 
 export const pageSEO = {
   home: {
     title: `${SITE_NAME} | Luxury Wedding Photography`,
     description:
-      "Luxury wedding photography and cinematography in the United States and worldwide destinations. Ashton Vale captures timeless, editorial imagery for discerning couples.",
+      "Luxury wedding photography and cinematography in the United States and worldwide destinations. Abbie Street captures timeless, editorial imagery for discerning couples.",
   },
   portfolio: {
     title: `Wedding Photography Portfolio | ${SITE_NAME}`,
@@ -14,12 +14,12 @@ export const pageSEO = {
   reviews: {
     title: `Reviews & Testimonials | ${SITE_NAME}`,
     description:
-      "Read reviews from couples who trusted Ashton Vale for their wedding photography. 5-star rated across verified reviews.",
+      "Read reviews from couples who trusted Abbie Street for their wedding photography. 5-star rated across verified reviews.",
   },
   about: {
     title: `About Us | ${SITE_NAME}`,
     description:
-      "Meet the Ashton Vale collective — a curated network of distinguished wedding photographers and cinematographers dedicated to artistry and excellence.",
+      "Meet the Abbie Street collective — a curated network of distinguished wedding photographers and cinematographers dedicated to artistry and excellence.",
   },
   pricing: {
     title: `Wedding Photography Pricing | ${SITE_NAME}`,
@@ -34,12 +34,12 @@ export const pageSEO = {
   schedule: {
     title: `Schedule a Consultation | ${SITE_NAME}`,
     description:
-      "Book a complimentary 20-minute discovery call to discuss your wedding vision. Schedule your consultation with Ashton Vale today.",
+      "Book a complimentary 20-minute discovery call to discuss your wedding vision. Schedule your consultation with Abbie Street today.",
   },
   howItWorks: {
     title: `How It Works | ${SITE_NAME}`,
     description:
-      "Discover the Ashton Vale experience — from style consultation to artist matching. A thoughtfully designed process for extraordinary wedding photography.",
+      "Discover the Abbie Street experience — from style consultation to artist matching. A thoughtfully designed process for extraordinary wedding photography.",
   },
   styleQuiz: {
     title: `Wedding Photography Style Quiz | ${SITE_NAME}`,
@@ -49,12 +49,12 @@ export const pageSEO = {
   terms: {
     title: `Terms of Service | ${SITE_NAME}`,
     description:
-      "Terms of service for Ashton Vale Photo & Video wedding photography and cinematography services.",
+      "Terms of service for Abbie Street Photo & Video wedding photography and cinematography services.",
   },
   privacy: {
     title: `Privacy Policy | ${SITE_NAME}`,
     description:
-      "Privacy policy for Ashton Vale Photo & Video. Learn how we collect, use, and protect your personal information.",
+      "Privacy policy for Abbie Street Photo & Video. Learn how we collect, use, and protect your personal information.",
   },
   dallas: {
     title: `Dallas Wedding Photographer | ${SITE_NAME}`,

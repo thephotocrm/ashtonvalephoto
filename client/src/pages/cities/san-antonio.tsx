@@ -34,7 +34,7 @@ export default function SanAntonio() {
   useSEO({
     title: pageSEO.sanAntonio.title,
     description: pageSEO.sanAntonio.description,
-    canonical: "https://ashtonvalephoto.com/san-antonio",
+    canonical: "https://abbiestreetphoto.com/san-antonio",
     jsonLd,
   });
 

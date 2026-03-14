@@ -7,7 +7,7 @@ export default function Terms() {
   useSEO({
     title: pageSEO.terms.title,
     description: pageSEO.terms.description,
-    canonical: "https://ashtonvalephoto.com/terms",
+    canonical: "https://abbiestreetphoto.com/terms",
     noIndex: true,
   });
 
@@ -37,7 +37,7 @@ export default function Terms() {
               <div>
                 <h2 className="font-serif text-2xl font-light mb-4">1. Services Overview</h2>
                 <p className="text-foreground/80 leading-relaxed mb-4">
-                  Ashton Vale Photo & Video ("we," "us," or "our") provides professional wedding photography
+                  Abbie Street Photo & Video ("we," "us," or "our") provides professional wedding photography
                   and cinematography services. By booking our services, you agree to these Terms of Service.
                 </p>
               </div>
@@ -122,8 +122,8 @@ export default function Terms() {
                 <h2 className="font-serif text-2xl font-light mb-4">10. Contact</h2>
                 <p className="text-foreground/80 leading-relaxed mb-4">
                   For questions about these terms, please contact us at{" "}
-                  <a href="mailto:inquire@ashtonvalephoto.com" className="text-primary hover:underline">
-                    inquire@ashtonvalephoto.com
+                  <a href="mailto:inquire@abbiestreetphoto.com" className="text-primary hover:underline">
+                    inquire@abbiestreetphoto.com
                   </a>{" "}
                   or call{" "}
                   <a href="tel:+19722497048" className="text-primary hover:underline">

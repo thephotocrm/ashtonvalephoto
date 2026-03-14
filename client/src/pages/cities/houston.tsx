@@ -27,7 +27,7 @@ export default function Houston() {
   useSEO({
     title: pageSEO.houston.title,
     description: pageSEO.houston.description,
-    canonical: "https://ashtonvalephoto.com/houston",
+    canonical: "https://abbiestreetphoto.com/houston",
     jsonLd,
   });
 

@@ -61,7 +61,7 @@ export default function HowItWorks() {
   useSEO({
     title: pageSEO.howItWorks.title,
     description: pageSEO.howItWorks.description,
-    canonical: "https://ashtonvalephoto.com/how-it-works",
+    canonical: "https://abbiestreetphoto.com/how-it-works",
     jsonLd: breadcrumbJsonLd,
   });
 
@@ -118,7 +118,7 @@ export default function HowItWorks() {
         {/* Featured Photographers */}
         <FeaturedPhotographers />
 
-        {/* Why Ashton Vale */}
+        {/* Why Abbie Street */}
         <section className="py-28 bg-ivory">
           <div className="container mx-auto px-8">
             <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -132,7 +132,7 @@ export default function HowItWorks() {
               </div>
               <div>
                 <p className="text-[10px] uppercase tracking-[0.4em] text-primary mb-4">Our Promise</p>
-                <h2 className="text-3xl md:text-4xl font-serif font-light mb-8">The Ashton Vale Difference</h2>
+                <h2 className="text-3xl md:text-4xl font-serif font-light mb-8">The Abbie Street Difference</h2>
                 <div className="space-y-6 text-muted-foreground leading-relaxed mb-10">
                   <p>
                     For half a decade, we have refined the art of pairing discerning couples with 
@@ -145,7 +145,7 @@ export default function HowItWorks() {
                     simply capture moments—we craft visual legacies.
                   </p>
                   <p>
-                    Wedding planning should be joyful, not overwhelming. With Ashton Vale, you gain 
+                    Wedding planning should be joyful, not overwhelming. With Abbie Street, you gain 
                     a partner who understands that trust, taste, and attention to detail matter.
                   </p>
                 </div>
@@ -190,7 +190,7 @@ export default function HowItWorks() {
                 <div className="relative overflow-hidden shadow-luxury-lg">
                   <img
                     src={photographerImg}
-                    alt="Ashton Vale artist"
+                    alt="Abbie Street artist"
                     className="w-full object-cover object-top"
                     style={{ marginBottom: "-20%" }}
                   />

@@ -1,4 +1,4 @@
-import heroImg from "@assets/generated_images/romantic_wedding_couple_under_veil.png";
+import storyImg from "@assets/2024-November-09-17-51-53.jpg";
 
 export function StorySection() {
   return (
@@ -9,7 +9,7 @@ export function StorySection() {
           <div className="relative">
             <div className="absolute inset-4 border border-primary/20"></div>
             <img 
-              src={heroImg} 
+              src={storyImg}
               alt="Romantic wedding moment" 
               className="relative w-full shadow-luxury-lg"
             />

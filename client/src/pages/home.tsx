@@ -4,7 +4,7 @@ import { Hero } from "@/components/Hero";
 import { QuickLinks } from "@/components/QuickLinks";
 import { AwardsBanner } from "@/components/AwardsBanner";
 import { FeaturedPhotographers } from "@/components/FeaturedPhotographers";
-import { WhyAshtonVale } from "@/components/WhyAshtonVale";
+import { WhyAbbieStreet } from "@/components/WhyAbbieStreet";
 import { StyleTestCTA } from "@/components/StyleTestCTA";
 import { ReviewsCarousel } from "@/components/ReviewsCarousel";
 import { StorySection } from "@/components/StorySection";
@@ -21,11 +21,11 @@ export default function Home() {
       {
         "@context": "https://schema.org",
         "@type": ["LocalBusiness", "ProfessionalService"],
-        name: "Ashton Vale Photo & Video",
+        name: "Abbie Street Photo & Video",
         description: pageSEO.home.description,
-        url: "https://ashtonvalephoto.com",
+        url: "https://abbiestreetphoto.com",
         telephone: "(972) 249-7048",
-        email: "inquire@ashtonvalephoto.com",
+        email: "inquire@abbiestreetphoto.com",
         address: {
           "@type": "PostalAddress",
           addressCountry: "US",
@@ -40,28 +40,28 @@ export default function Home() {
           "Engagement Sessions",
         ],
         priceRange: "$$$",
-        image: "https://ashtonvalephoto.com/opengraph.jpg",
+        image: "https://abbiestreetphoto.com/opengraph.jpg",
         aggregateRating: aggregateRatingSchema,
         sameAs: [
-          "https://www.instagram.com/ashtonvalephoto",
-          "https://www.facebook.com/people/Ashton-Vale-Photo-Video/61587390063273/",
+          "https://www.instagram.com/abbiestreetphoto",
+          "https://www.facebook.com/people/Abbie-Street-Photo-Video/61587390063273/",
         ],
       },
       {
         "@context": "https://schema.org",
         "@type": "Organization",
-        name: "Ashton Vale Photo & Video",
-        url: "https://ashtonvalephoto.com",
-        logo: "https://ashtonvalephoto.com/favicon.svg",
+        name: "Abbie Street Photo & Video",
+        url: "https://abbiestreetphoto.com",
+        logo: "https://abbiestreetphoto.com/favicon.svg",
         contactPoint: {
           "@type": "ContactPoint",
           telephone: "(972) 249-7048",
-          email: "inquire@ashtonvalephoto.com",
+          email: "inquire@abbiestreetphoto.com",
           contactType: "customer service",
         },
         sameAs: [
-          "https://www.instagram.com/ashtonvalephoto",
-          "https://www.facebook.com/people/Ashton-Vale-Photo-Video/61587390063273/",
+          "https://www.instagram.com/abbiestreetphoto",
+          "https://www.facebook.com/people/Abbie-Street-Photo-Video/61587390063273/",
         ],
       },
     ],
@@ -71,7 +71,7 @@ export default function Home() {
   useSEO({
     title: pageSEO.home.title,
     description: pageSEO.home.description,
-    canonical: "https://ashtonvalephoto.com/",
+    canonical: "https://abbiestreetphoto.com/",
     jsonLd,
   });
 
@@ -84,7 +84,7 @@ export default function Home() {
         <StorySection />
         <AwardsBanner />
         <FeaturedPhotographers />
-        <WhyAshtonVale />
+        <WhyAbbieStreet />
         <ReviewsCarousel />
         <StyleTestCTA />
         <FinalCTA />

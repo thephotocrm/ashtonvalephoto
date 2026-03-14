@@ -17,7 +17,7 @@ export function AwardsBanner() {
         <div className="text-center mb-16">
           <p className="text-[10px] uppercase tracking-[0.4em] text-white/50 mb-4">Recognition</p>
           <h2 className="text-3xl md:text-4xl font-serif font-light mb-4 text-white">
-            Ashton Vale Photo & Video
+            Abbie Street Photo & Video
           </h2>
           <div className="divider-gold w-24 mx-auto mb-6"></div>
           <p className="text-white/60 text-sm uppercase tracking-[0.2em]">

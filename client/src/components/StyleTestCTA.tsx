@@ -52,7 +52,7 @@ export function StyleTestCTA() {
           <div className="relative hidden md:block">
             <div className="absolute inset-4 border border-primary/20"></div>
             <img 
-              src={brideImg} 
+              src={brideImg}
               alt="Elegant bride with bouquet" 
               className="relative w-full shadow-luxury-lg"
             />
